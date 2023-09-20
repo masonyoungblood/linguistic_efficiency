@@ -1358,65 +1358,6 @@ Notably, these patterns are consistently found across three levels of granularit
 
 Outside of linguistics, efficiency and complexity are often discussed in relation to cumulative cultural evolution (CCE). Definitions of CCE vary and a full review is outside of the scope of this study, but for convenience we will use the definition of @williamsCumulativeCulturalEvolution2022: "the accumulation of sequential changes within a single socially learned behavior that results in improved function". Discussions of CCE often focus on increasing complexity over time [@wilks_blakey18], which was once thought to be a hallmark of human culture [@tomasello99] but has now been observed in several non-human communication systems including humpback whale [@garland_etal22] and Savannah sparrow song [@williamsCumulativeCulturalEvolution2022]. @gruber_etal22 make a convincing argument that efficiency deserves more attention in CCE, as increases in complexity in one domain require increases in efficiency in another (see Equation \@ref(eq:efficiency) in the [Introduction]). House finch song may be a good research model for how the interplay between efficiency and complexity drives CCE, as male house finches have a social learning bias for more complex syllables [@youngbloodContentBiasCultural2022], possibly as an adaptation to female preferences for more complex songs [@Nolan2004; @Mennill2006; @Ciaburri2019], and there appears to be pressure for efficiency at the level of both syllables and songs. That being said, CCE may not be the best framework for understanding the interaction between efficiency and complexity in birdsong, as its logic is more difficult to apply to "aesthetic" behavior [@sinclair_etal22] especially when it is optimized for female preferences that evolve to maximize inclusive fitness rather than the specific properties of songs that males sing [@geller_lahti].
 
-<!-- Larger syllable and song repertoire sizes are associated with open-ended vocal learning [@creanza_etal16; @robinson_etal19], better problem-solving, and larger brain size [@audet_etal23]. -->
-
-<!-- THE most relevant review of CCE for this paper is @buskell22!! Distinguishes "cultural accumulation" into: adaptiveness, complexity, efficiency, and disparity (read as variation or diversity in biological terms). Read in full before adding notes here. -->
-
-<!-- GENERAL definition and discussion of CCE [@mesoudi_thornton18]!! -->
-
-<!-- In humpback whales, songs becomes more complex during periods of stability but then crashes in complexity during song "revolutions". @garland_etal22 claim that this is a tentative case of CCE, but that what is missing is the link between female preferences and complexity (and eventual fitness). -->
-
-<!-- An informal poll at a cultural evolution conference suggests that researchers prefer to think about CCE as increasing "functionality" rather than complexity or efficiency, presumably because of difficulties in defining complexity in a generalizable way [@wilks_blakey18]. In fact, decreased complexity and increased efficiency may be what "lock in" more functional traits in populations [@wilks_blakey18]. -->
-
-<!-- There are huge definitional issues with CCE, especially when applied to non-human animals... what does complexity mean, should we focus on products vs. processes, etc. [@wilks_blakey18; @rawlings_etal21; @sinclair_etal22] -->
-
-<!-- Birdsong, like human aesthetic culture, is constantly being optimized for a moving target: female preferences. The functional link between the trait and the target, though, is at least much more obvious than it is for human aesthetic culture [@sinclair_etal22]. -->
-
-<!-- HUMANS AND LINGUISTICS -->
-
-<!-- A part of communicative efficiency is keeping the information content of spoken and written language constant with respect to time (linkable to bird efficiency stuff?) [@jaeger_tily11]. -->
-
-<!-- Lower complexity may boost learnability by either increasing the overall input or just making it easy to learn [@jaeger_tily11]. -->
-
-<!-- Zipf's laws and Menzerath's law apply to both written words and acoustic signals [@torre_etal19]. -->
-
-<!-- Zipf himself thought that languages evolved to maximize information and minimize cost [@zipf49] -->
-
-<!-- Grammars of languages from around the world have been found to optimize the ratio of information to communicative cost [@hahn_etal20]. -->
-
-<!-- ITERATED LEARNING -->
-
-<!-- It is well-established at this point that, in human symbolic systems, complex signals evolve to become more compressible over the course of cultural transmission [@caldwell_smith12; @tamarizCultureCopyingCompression2015; @tamariz17; @kellyPredictableEvolutionLetter2021]. -->
-
-<!-- Strong social biases can cause artificial languages to become less efficient than they otherwise would be [@fedzechkina_etal23].  -->
-
-<!-- BIRDSONG AND ANIMALS -->
-
-<!-- There are also known trade-offs between complexity at different levels of analysis. In wood warblers, for example, species with faster trills usually have songs with simpler syntax [@cardoso_hu11]. -->
-
-<!-- In some species, complexity in syllable sequence appears to remain constant across songs of different lengths [@palmero_etal14]. -->
-
-<!-- Biophysical trade-offs mean that males are usually only high-performance on a subset of possible syllable features [@goller22]. -->
-
-<!-- Species with a higher baseline metabolic rate also have higher song complexity (i.e. syllable and song repertoire sizes) [@garamszegi_etal06], but the metabolic cost of singing songs with different lengths does not appear to vary within species [@oberweger_goller01]. -->
-
-
-<!-- In animal communication systems, duration may not be the only cost subject to Zipfian abbreviation. Rock hyraxes, for example, produce low-amplitude calls much more often than high-amplitude calls [@demartsev_etal19]. -->
-
-<!-- -   Efficiency at the level of syllables, using the three most commonly studied linguistic laws recommended by @semple_etal22. -->
-<!--     -   Zipf's rank-frequency law: the frequency of an item is approximately the inverse of its rank [@zipf35]. -->
-<!--     -   Zipf's law of abbrevation: common items have a lower production cost [@zipf49]. -->
-<!--     -   Menzerath's law: longer sequences are comprised of shorter items [@menzerath54]. -->
-<!-- -   Structure at the level of sequences. -->
-<!--     -   Small-world structure: the network of syllable transitions has high clustering and short path lengths [@watts_strogatz98]. -->
-<!--     -   Mutual information decay: the mutual information of syllable pairs at short and long distances are consistent with Markov chains and hierarchical structure, respectively [@sainburgParallelsSequentialOrganization2019]. -->
-
-<!-- RANDOM -->
-
-<!-- Other statistical patterns are thought to be scale invariant, or roughly the same regardless of scale: @gervain_geffen19 @bialek_shaevitz23 @stanley_etal00 @chater_brown99 @gisiger01 @mehri_jamaati21. "Fractal equivalency" [@lahti20] -->
-
-<!-- They also decrease the duration of songs and calls in noisy environments, although the reason for this change is less clear [@bermudez-cuamatzin_etal23]. -->
-
 # Acknowledgments {-}
 
 This work was inspired in large part by conversations with Olivier Morin, Alexey Koshevoy, and other attendees of the Communicative Efficiency Workshop hosted by the Max Planck Institute for Geoanthropology in April 2023.
