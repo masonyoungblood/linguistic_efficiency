@@ -1693,4 +1693,7 @@ flextable(temp$composite_fit) %>%
   set_caption("Estimates and diagnostics for composite model.")
 ```
 
+<!-- Get rid of extra white space at the bottom caused by table of contents -->
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
 
+<br><br>
