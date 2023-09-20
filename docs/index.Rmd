@@ -1362,6 +1362,10 @@ Outside of linguistics, efficiency and complexity are often discussed in relatio
 
 This work was inspired in large part by conversations with Olivier Morin, Alexey Koshevoy, and other attendees of the Communicative Efficiency Workshop hosted by the Max Planck Institute for Geoanthropology in April 2023.
 
+# Data & Code Availability {-}
+
+The data for this study come from @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). The analysis code for this study is available in the source R Markdown file in the GitHub repository (https://github.com/masonyoungblood/linguistic_efficiency).
+
 # References {-}
 
 <div id="refs"></div>
