@@ -5,13 +5,19 @@ author:
   email: masonyoungblood@gmail.com
   affiliation: Institute for Advanced Computational Science, Stony Brook University
 output:
-  # bookdown::word_document2
   bookdown::html_document2:
     theme: cosmo
     code_folding: hide
     toc: true
     toc_depth: 2
     toc_float: true
+    global_numbering: false
+# author:
+#   - Mason Youngblood^[Institute for Advanced Computational Science, Stony Brook University, masonyoungblood@gmail.com]
+# output:
+#   bookdown::word_document2:
+#     reference_docx: "template.docx"
+#     global_numbering: false
 always_allow_html: true
 bibliography: bibliography.json
 link-citations: true
@@ -19,15 +25,18 @@ csl: apa.csl
 fig_caption: true
 ---
 
-```{r include=FALSE}
+```{r, echo = FALSE, eval = FALSE}
 #optionally hide all code
-#knitr::opts_chunk$set(echo=FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+
+#do not allow flextable header row to wrap
+flextable::set_flextable_defaults(font.family = "Garamond", font.size = 10, padding.top = 1, padding.bottom = 1)
 ```
 
 <!--- Bibliography management done via (cmd+k to insert): https://gsverhoeven.github.io/post/zotero-rmarkdown-csl/ -->
 <!-- Github hosting done via: https://mbounthavong.com/blog/2022/7/30/hosting-a-r-markdown-html-file-on-a-github-page -->
 
-```{css, echo=FALSE}
+```{css, echo = FALSE}
 pre, code {white-space:pre !important; overflow-x:auto}
 
 /* Move code folding buttons to the left */
@@ -91,7 +100,7 @@ flex_table <- flextable(base_table) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_header_labels(property = "Law/Property", level = "Level", descr = "Description", expl = "Explanation") %>%
   set_caption("The linguistic laws and structural properties explored in this study.")
-flex_table
+knitr::knit_print(flex_table, ft.split = FALSE)
 ```
 
 ## Granularity
@@ -110,11 +119,11 @@ Unless otherwise stated, all models were fit in STAN using the brms package in R
 
 The recordings used in this study were collected in 1975 [@Mundinger1975], 2012 [@Ju2019], and 2019 [@youngbloodContentBiasCultural2022] in the New York metropolitan area (Brooklyn, Bronx, Queens, and Nassau County). Recordings from 1975 were collected with a Nagra III reel-to-reel tape recorder and a Sennheiser 804 shotgun microphone and converted to digital files (32 bit, 96 kHz) by the Cornell Lab of Ornithology in 2013 [@Ju2019]. Recordings from 2012 (16 bit, 44.1 kHz) and 2019 (32 bit, 48 kHz) were collected with a Marantz PD661 solid-state recorder and a Sennheiser ME66 shotgun microphone. The recordings from 1975 were downsampled to 48 kHz prior to analysis (Luscinia processes both 44.1 kHz and 48 kHz files). In all three years special precautions were taken to avoid recording the same bird twice [@Mundinger1975, @Ju2019]. Each site was visited only once. Within a site, only one individual was recorded within a 160 m radius until they stopped singing or flew away.
 
-All songs were analyzed by @youngbloodContentBiasCultural2022 using Luscinia, a database and analysis program developed specifically for birdsong (https://rflachlan.github.io/Luscinia/). Songs were analysed with a high-pass threshold of 2000 Hz, a maximum frequency of 9000 Hz and 5 dB of noise removal. 965 songs (26.2%) were excluded from the analysis due to high levels of noise or overlap with other bird species. Continuous traces with more than 20 ms between them were classified as syllables [@Mundinger1975]. Some syllables were further separable into elements, or traces with less than 20 ms between them. For this study, I used the mean frequency trace (mean frequency in each 1 ms bin) for each syllable in every song analyzed by @youngbloodContentBiasCultural2022.
+All songs were analyzed by @youngbloodContentBiasCultural2022 using Luscinia, a database and analysis program developed specifically for birdsong (https://rflachlan.github.io/Luscinia/). Songs were analyzed with a high-pass threshold of 2000 Hz, a maximum frequency of 9000 Hz and 5 dB of noise removal. 965 songs (26.2%) were excluded from the analysis due to high levels of noise or overlap with other bird species. Continuous traces with more than 20 ms between them were classified as syllables [@Mundinger1975]. Some syllables were further separable into elements, or traces with less than 20 ms between them. For this study, I used the mean frequency trace (mean frequency in each 1 ms bin) for each syllable in every song analyzed by @youngbloodContentBiasCultural2022.
 
 Figure \@ref(fig:figure-song-example) shows an example of the first ten syllables of a house finch song recorded by @Mundinger1975 and analyzed in Luscinia, where the blue line is the mean frequency over time.
 
-```{r figure-song-example, echo = FALSE, fig.align = "left", out.width = "100%", fig.cap = "The first 10 syllables from a song recorded by @Mundinger1975 and analysed in Luscinia. Each red bar corresponds to a syllable, and each green number corresponds to an element within that syllable. The blue traces represent mean frequency. In this song, syllable 3 and syllable 7 were classified as the same syllable type during dynamic time warping, and all other syllables are unique types. Reprinted from @youngbloodContentBiasCultural2022."}
+```{r figure-song-example, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The first 10 syllables from a song recorded by @Mundinger1975 and analyzed in Luscinia. Each red bar corresponds to a syllable, and each green number corresponds to an element within that syllable. The blue traces represent mean frequency. In this song, syllable 3 and syllable 7 were classified as the same syllable type during dynamic time warping, and all other syllables are unique types. Reprinted from @youngbloodContentBiasCultural2022."}
 url <- "https://ars.els-cdn.com/content/image/1-s2.0-S000334722100395X-gr2_lrg.jpg"
 knitr::include_graphics(url)
 ```
@@ -199,7 +208,7 @@ dev.off()
 
 The results of clustering can be seen in Figure \@ref(fig:figure-clustering).
 
-```{r figure-clustering, echo = FALSE, fig.align = "left", out.width = "100%", fig.cap = "The results of hierarchical clustering. The colored bars below the dendrogram correspond to the categories assigned to each syllable when deep split is 2 (over-lumping), 3 (baseline), and 4 (over-splitting)."}
+```{r figure-clustering, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The results of hierarchical clustering. The colored bars below the dendrogram correspond to the categories assigned to each syllable when deep split is 2 (over-lumping), 3 (baseline), and 4 (over-splitting)."}
 knitr::include_graphics("plots/clustering.png")
 ```
 
@@ -441,7 +450,7 @@ cowplot::plot_grid(cowplot::plot_grid(rank_plot_a, rank_plot_b, rank_plot_c, nro
 dev.off()
 ```
 
-```{r figure-zipf-rank, echo = FALSE, fig.align = "left", out.width = "100%", fig.cap = "The relationship between rank (x-axis) and count (y-axis) at each level of deep split (left, center, and right). The blue and orange lines denote the expected distributions according to Zipf's rank-frequency law (blue) and Mandelbrot's extension of it (orange)."}
+```{r figure-zipf-rank, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between rank (x-axis) and count (y-axis) at each level of deep split (left, center, and right). The blue and orange lines denote the expected distributions according to Zipf's rank-frequency law (blue) and Mandelbrot's extension of it (orange)."}
 knitr::include_graphics("plots/rank_count.png")
 ```
 
@@ -600,7 +609,7 @@ dev.off()
 
 The results of the log-normal models can be seen in Table \@ref(tab:zipf-abbr-tables). Duration, bandwidth, and excursion had strong negative effects on count at all three levels of granularity. Concavity had no effect on count at the first two levels of granularity, but had a very weak negative effect at the third level of granularity.
 
-```{r figure-zipf-abbr, echo = FALSE, fig.align = "left", out.width = "100%", fig.cap = "The relationship between four measures of production cost (x-axis) and count (y-axis) for each level of deep split (left, center, right). Each point shows the median value for a syllable type, so the orange best fit lines are from a simple Poisson model (count ~ cost) rather than the full log-normal model."}
+```{r figure-zipf-abbr, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between four measures of production cost (x-axis) and count (y-axis) for each level of deep split (left, center, right). Each point shows the median value for a syllable type, so the orange best fit lines are from a simple Poisson model (count ~ cost) rather than the full log-normal model."}
 knitr::include_graphics("plots/dists.png")
 ```
 
@@ -766,7 +775,7 @@ cowplot::plot_grid(norm_plot, slope_plot, cowplot::get_legend(legend), nrow = 1,
 dev.off()
 ```
 
-```{r figure-menzerath, echo = FALSE, fig.align = "left", out.width = "70%", fig.cap = "The left panel shows the relationship between song length in number of syllables (x-axis) and syllable duration (y-axis), with a best fit line from the fitted lognormal model. The right panel shows the posterior distribution of the effect of song length on duration for the real data (orange) compared to 10 simulated datasets from the simple (blue) and production (green) null models. The combined posteriors for the simulated datasets are based on 2,500 posterior samples from each of the 10 models."}
+```{r figure-menzerath, echo = FALSE, fig.align = "center", out.width = "70%", fig.cap = "The left panel shows the relationship between song length in number of syllables (x-axis) and syllable duration (y-axis), with a best fit line from the fitted lognormal model. The right panel shows the posterior distribution of the effect of song length on duration for the real data (orange) compared to 10 simulated datasets from the simple (blue) and production (green) null models. The combined posteriors for the simulated datasets are based on 2,500 posterior samples from each of the 10 models."}
 knitr::include_graphics("plots/menzerath.png")
 ```
 
@@ -953,7 +962,7 @@ cowplot::plot_grid(left_panel, right_panel, labels = c("A", "B"), rel_widths = c
 dev.off()
 ```
 
-```{r figure-small-world, echo = FALSE, fig.align = "left", out.width = "100%", fig.cap = "The left panel shows transition network between syllables types for a single male (#22 from 1975) above the global transition network for the entire dataset. The right panel shows the estimated small-worldness index calculated 1,000 times from the real data (blue) compared to pseudorandom sequences with the same frequency distribution of syllable types (orange). The dashed vertical line at 1 corresponds to the standard threshold for a network having small-world structure [@humphriesNetworkSmallworldnessQuantitative2008]."}
+```{r figure-small-world, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The left panel shows transition network between syllables types for a single male (#22 from 1975) above the global transition network for the entire dataset. The right panel shows the estimated small-worldness index calculated 1,000 times from the real data (blue) compared to pseudorandom sequences with the same frequency distribution of syllable types (orange). The dashed vertical line at 1 corresponds to the standard threshold for a network having small-world structure [@humphriesNetworkSmallworldnessQuantitative2008]."}
 knitr::include_graphics("plots/small_world.png")
 ```
 
@@ -1342,7 +1351,7 @@ cowplot::plot_grid(cowplot::plot_grid(heir_plot + xlab(""), markov_plot + ylab("
 dev.off()
 ```
 
-```{r figure-mutual-info, echo = FALSE, fig.align = "left", out.width = "100%", fig.cap = "The top panel shows simulated mutual information decay curves from the @linCriticalBehaviorPhysics2017 hierarchical model (left), the @katahiraComplexSequencingRules2011a Markov model (center), and the @sainburgParallelsSequentialOrganization2019 composite model (right) [data and inspiration for diagrams from @sainburgParallelsSequentialOrganization2019]. The bottom panel shows the computed mutual information decay curves for the observed data at different levels of deep split (left, center, right). The solid line corresponds to the full composite model, while the dashed and dotted lines correspond to the exponential and power-law terms, respectively."}
+```{r figure-mutual-info, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The top panel shows simulated mutual information decay curves from the @linCriticalBehaviorPhysics2017 hierarchical model (left), the @katahiraComplexSequencingRules2011a Markov model (center), and the @sainburgParallelsSequentialOrganization2019 composite model (right) [data and inspiration for diagrams from @sainburgParallelsSequentialOrganization2019]. The bottom panel shows the computed mutual information decay curves for the observed data at different levels of deep split (left, center, right). The solid line corresponds to the full composite model, while the dashed and dotted lines correspond to the exponential and power-law terms, respectively."}
 knitr::include_graphics("plots/mut_info.png")
 ```
 
@@ -1372,6 +1381,8 @@ The data for this study come from @youngbloodContentBiasCultural2022 (https://gi
 
 <div id="refs"></div>
 
+\newpage
+
 # Supplementary Information
 
 ```{r echo = FALSE}
@@ -1380,6 +1391,8 @@ library(flextable)
 ```
 
 ## Zipf's Rank-Frequency Law
+
+<br>
 
 ```{r, echo = FALSE}
 #load models
@@ -1395,6 +1408,8 @@ flextable(zipf_rf_prior_table) %>%
   set_caption("Prior specification for the Zipf and Zipf-Mandelbrot models fit across the three levels of granularity.")
 ```
 
+<br>
+
 ```{r, echo = FALSE}
 #format table
 zipf_rf_waic_table <- round(zipf_rf_models$waic)
@@ -1407,7 +1422,11 @@ flextable(zipf_rf_waic_table) %>%
   set_caption("WAIC values from the Zipf and Zipf-Mandelbrot models fit across the three levels of granularity.")
 ```
 
+<br>
+
 ### Deep Split: 2
+
+<br>
 
 ```{r, echo = FALSE}
 #format zipf model
@@ -1418,7 +1437,9 @@ temp <- cbind(Param. = substr(rownames(temp), 1, 1), temp)
 flextable(temp) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for the Zipf model.")
+```
 
+```{r, echo = FALSE}
 #format zipf-mandelbrot model
 temp <- zipf_rf_models$mand[[1]][, -2]
 temp[, c(1:3)] <- round(temp[, c(1:3)], digits = 2)
@@ -1429,7 +1450,11 @@ flextable(temp) %>%
   set_caption("Estimates and diagnostics for the Zipf-Mandelbrot model.")
 ```
 
+<br>
+
 ### Deep Split: 3
+
+<br>
 
 ```{r, echo = FALSE}
 #format zipf model
@@ -1440,7 +1465,9 @@ temp <- cbind(Param. = substr(rownames(temp), 1, 1), temp)
 flextable(temp) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for the Zipf model.")
+```
 
+```{r, echo = FALSE}
 #format zipf-mandelbrot model
 temp <- zipf_rf_models$mand[[2]][, -2]
 temp[, c(1:3)] <- round(temp[, c(1:3)], digits = 2)
@@ -1451,7 +1478,11 @@ flextable(temp) %>%
   set_caption("Estimates and diagnostics for the Zipf-Mandelbrot model.")
 ```
 
+<br>
+
 ### Deep Split: 4
+
+<br>
 
 ```{r, echo = FALSE}
 #format zipf model
@@ -1462,7 +1493,9 @@ temp <- cbind(Param. = substr(rownames(temp), 1, 1), temp)
 flextable(temp) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for the Zipf model.")
+```
 
+```{r, echo = FALSE}
 #format zipf-mandelbrot model
 temp <- zipf_rf_models$mand[[3]][, -2]
 temp[, c(1:3)] <- round(temp[, c(1:3)], digits = 2)
@@ -1473,7 +1506,11 @@ flextable(temp) %>%
   set_caption("Estimates and diagnostics for the Zipf-Mandelbrot model.")
 ```
 
+<br>
+
 ## Zipf's Law of Abbreviation
+
+<br>
 
 ```{r echo = FALSE}
 #load table
@@ -1488,6 +1525,8 @@ flextable(zipf_prior_table) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Prior specification for all four models of Zipf's law of abbreviation.")
 ```
+
+<br>
 
 ```{r echo = FALSE}
 #format table
@@ -1509,7 +1548,11 @@ flex_table <- flextable(base_table) %>%
 flex_table
 ```
 
+<br>
+
 ## Menzerath's Law
+
+<br>
 
 ```{r echo = FALSE}
 #load table
@@ -1525,6 +1568,8 @@ flextable(menz_prior_table) %>%
   set_caption("Prior specification for the model of Menzerath's law.")
 ```
 
+<br>
+
 ```{r echo = FALSE}
 #print table
 temp <- menz_models$actual$estimates
@@ -1537,7 +1582,7 @@ flextable(temp) %>%
   set_caption("Estimates and diagnostics for the model of Menzerath's law applied to the real data.")
 ```
 
-Note that the effective sample sizes and Rhats from `brm_multiple` are [known to be unreliable](https://discourse.mc-stan.org/t/brm-multiple-not-converging-though-separate-brm-models-do/8740). If we instead take a look at the Rhats for each submodel we can see that they are all close to 1, which indicates that the individual models have converged.
+<br>
 
 ```{r echo = FALSE}
 #format table
@@ -1555,7 +1600,11 @@ flextable(rhat_table) %>%
   set_caption("The R-hat values from the two null models applied to each of the 10 simulated datasets.")
 ```
 
+<br>
+
 ## Mutual Information
+
+<br>
 
 ```{r echo = FALSE}
 #load table
@@ -1569,6 +1618,8 @@ flextable(mi_prior_table) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Prior specification for all three models of mutual information decay.")
 ```
+
+<br>
 
 ```{r echo = FALSE}
 #load table
@@ -1591,7 +1642,11 @@ flex_table <- flextable(waic_table) %>%
 flex_table
 ```
 
+<br>
+
 ### Deep Split: 2
+
+<br>
 
 ```{r echo = FALSE}
 #store temporary object
@@ -1605,7 +1660,11 @@ temp$exponential_fit <- cbind(Param. = substr(rownames(temp$exponential_fit), 1,
 flextable(temp$exponential_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for exponential model.")
+```
 
+<br>
+
+```{r, echo = FALSE}
 #print power-law table
 temp$power_law_fit <- temp$power_law_fit[, -2]
 rownames(temp$power_law_fit) <- substr(rownames(temp$power_law_fit), 1, 1)
@@ -1615,7 +1674,11 @@ temp$power_law_fit <- cbind(Param. = substr(rownames(temp$power_law_fit), 1, 1),
 flextable(temp$power_law_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for power-law model.")
+```
 
+<br>
+
+```{r, echo = FALSE}
 #print composite table
 temp$composite_fit <- temp$composite_fit[, -2]
 rownames(temp$composite_fit) <- substr(rownames(temp$composite_fit), 1, 1)
@@ -1627,7 +1690,11 @@ flextable(temp$composite_fit) %>%
   set_caption("Estimates and diagnostics for composite model.")
 ```
 
+<br>
+
 ### Deep Split: 3
+
+<br>
 
 ```{r echo = FALSE}
 #store temporary object
@@ -1641,7 +1708,11 @@ temp$exponential_fit <- cbind(Param. = substr(rownames(temp$exponential_fit), 1,
 flextable(temp$exponential_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for exponential model.")
+```
 
+<br>
+
+```{r, echo = FALSE}
 #print power-law table
 temp$power_law_fit <- temp$power_law_fit[, -2]
 rownames(temp$power_law_fit) <- substr(rownames(temp$power_law_fit), 1, 1)
@@ -1651,7 +1722,11 @@ temp$power_law_fit <- cbind(Param. = substr(rownames(temp$power_law_fit), 1, 1),
 flextable(temp$power_law_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for power-law model.")
+```
 
+<br>
+
+```{r, echo = FALSE}
 #print composite table
 temp$composite_fit <- temp$composite_fit[, -2]
 rownames(temp$composite_fit) <- substr(rownames(temp$composite_fit), 1, 1)
@@ -1663,7 +1738,11 @@ flextable(temp$composite_fit) %>%
   set_caption("Estimates and diagnostics for composite model.")
 ```
 
+<br>
+
 ### Deep Split: 4
+
+<br>
 
 ```{r echo = FALSE}
 #store temporary object
@@ -1677,7 +1756,11 @@ temp$exponential_fit <- cbind(Param. = substr(rownames(temp$exponential_fit), 1,
 flextable(temp$exponential_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for exponential model.")
+```
 
+<br>
+
+```{r, echo = FALSE}
 #print power-law table
 temp$power_law_fit <- temp$power_law_fit[, -2]
 rownames(temp$power_law_fit) <- substr(rownames(temp$power_law_fit), 1, 1)
@@ -1687,7 +1770,11 @@ temp$power_law_fit <- cbind(Param. = substr(rownames(temp$power_law_fit), 1, 1),
 flextable(temp$power_law_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for power-law model.")
+```
 
+<br>
+
+```{r, echo = FALSE}
 #print composite table
 temp$composite_fit <- temp$composite_fit[, -2]
 rownames(temp$composite_fit) <- substr(rownames(temp$composite_fit), 1, 1)
