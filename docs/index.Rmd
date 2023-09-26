@@ -1,25 +1,25 @@
 ---
 title: "Language-like efficiency and structure in house finch song"
-abstract: "Communication needs to be complex enough to be functional while minimizing learning and production costs. Recent work suggests that the vocalizations and gestures of some songbirds, cetaceans, and great apes may conform to linguistic laws that reflect this trade-off between efficiency and complexity. Studies of non-human communication face an additional challenge, though, in that clustering signals into types cannot be done a priori, and decisions about the appropriate grain of analysis may affect statistical signals in the data. The aim of this study was to assess the evidence for language-like efficiency and structure in house finch (*Haemorhous mexicanus*) song across three levels of granularity in syllable clustering. The results show strong evidence for Zipf's rank-frequency law, Zipf's law of abbreviation, and Menzerath's law. Additional analyses show that house finch songs have small-world structure, thought to reflect systematic structure in syntax, and the mutual information decay of sequences is consistent with a combination of Markovian and hierarchical processes. These statistical patterns are robust across three grains of analysis, pointing to a limited form of scale invariance. In sum, it appears that house finch song has been shaped by pressure for efficiency, possibly to offset the costs of female preferences for complexity."
+abstract: "Communication needs to be complex enough to be functional while minimizing learning and production costs. Recent work suggests that the vocalizations and gestures of some songbirds, cetaceans, and great apes may conform to linguistic laws that reflect this trade-off between efficiency and complexity. In studies of non-human communication, though, clustering signals into types cannot be done a priori, and decisions about the appropriate grain of analysis may affect statistical signals in the data. The aim of this study was to assess the evidence for language-like efficiency and structure in house finch (*Haemorhous mexicanus*) song across three levels of granularity in syllable clustering. The results show strong evidence for Zipf's rank-frequency law, Zipf's law of abbreviation, and Menzerath's law. Additional analyses show that house finch songs have small-world structure, thought to reflect systematic structure in syntax, and the mutual information decay of sequences is consistent with a combination of Markovian and hierarchical processes. These statistical patterns are robust across three grains of analysis, pointing to a limited form of scale invariance. In sum, it appears that house finch song has been shaped by pressure for efficiency, possibly to offset the costs of female preferences for complexity."
 keywords: "birdsong, communicative efficiency, linguistic laws, hierarchical structure, cultural evolution"
-author:
-  name: Mason Youngblood
-  email: masonyoungblood@gmail.com
-  affiliation: Institute for Advanced Computational Science, Stony Brook University
-output:
-  bookdown::html_document2:
-    theme: cosmo
-    code_folding: hide
-    toc: true
-    toc_depth: 2
-    toc_float: true
-    global_numbering: false
 # author:
-#   - Mason Youngblood^[Institute for Advanced Computational Science, Stony Brook University, masonyoungblood@gmail.com]
+#   name: Mason Youngblood
+#   email: masonyoungblood@gmail.com
+#   affiliation: Institute for Advanced Computational Science, Stony Brook University
 # output:
-#   bookdown::word_document2:
-#     reference_docx: "template.docx"
+#   bookdown::html_document2:
+#     theme: cosmo
+#     code_folding: hide
+#     toc: true
+#     toc_depth: 3
+#     toc_float: true
 #     global_numbering: false
+author:
+  - Mason Youngblood^[Institute for Advanced Computational Science, Stony Brook University, masonyoungblood@gmail.com]
+output:
+  bookdown::word_document2:
+    reference_docx: "template.docx"
+    global_numbering: false
 always_allow_html: true
 bibliography: bibliography.json
 link-citations: true
@@ -27,12 +27,12 @@ csl: apa.csl
 fig_caption: true
 ---
 
-```{r, echo = FALSE, eval = FALSE}
+```{r, echo = FALSE, eval = TRUE}
 #optionally hide all code
 knitr::opts_chunk$set(echo = FALSE)
 
-#do not allow flextable header row to wrap
-flextable::set_flextable_defaults(font.family = "Garamond", font.size = 10, padding.top = 1, padding.bottom = 1)
+#set fonts of flextables
+flextable::set_flextable_defaults(font.family = "Garamond", font.size = 10, padding.top = 1, padding.bottom = 1, keep_with_next = TRUE)
 ```
 
 <!--- Bibliography management done via (cmd+k to insert): https://gsverhoeven.github.io/post/zotero-rmarkdown-csl/ -->
@@ -47,13 +47,13 @@ div.col-md-12 .pull-right {
 }
 ```
 
-<br>![&copy; National Park Service](https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop)
+<!-- <br>![&copy; National Park Service](https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop) -->
 
 # Introduction
 
 ## Efficiency & Complexity
 
-Vocal communication is costly. Individuals learn and produce signals in noisy environments, all while avoiding predation from species adapted to detect them. As a result, communication systems tend to be optimized for efficiency, or the benefit that they bestow relative to the costs of learning and producing them:
+Vocal communication is costly. Individuals learn and produce signals in noisy environments, all while avoiding predators adapted to detect them. As a result, communication systems tend to be optimized for efficiency, or the benefit that they bestow relative to the costs of learning and producing them:
 
 \begin{equation}
 \textrm{efficiency} \propto \frac{\sum{\pi}}{C_{L} + \sum{C_{P}}}
@@ -62,7 +62,7 @@ Vocal communication is costly. Individuals learn and produce signals in noisy en
 
 where $\sum{\pi}$ is the lifetime benefit of the communication system, $C_{L}$ is the cost of learning it, and $\sum{C_{P}}$ is the lifetime cost of producing it [@gruber_etal22]. Note that efficiency here is optimized over the course of cultural and biological evolution, as $\sum{\pi}$, $C_{L}$, and $\sum{C_{P}}$ are incomputable by the individual. This framing is consistent with understandings of efficiency in linguistics [@gibson_etal19]: the famous "principle of least effort" can be thought of as a minimization of these costs [@zipf49].
 
-On the other hand, simpler sounds that are easier to learn and produce vary across fewer dimensions and are less distinctive from one another [@mitonGraphicComplexityWriting2021]. Signals need to be distinguishable to be functional [@deboer00], and complexity expands the possibilities within a signal space in a way that enhances functionality (e.g. to communicate concepts in language, or attract mates in birdsong) [@fitch00]. But there is, of course, a limit. Simulations show that cultural evolution plateaus when complex behaviors are too costly [@mesoudi11]. Evidence from linguistics, animal behavior, and cultural evolution suggest that communication systems generally evolve to balance this complexity-efficiency trade-off [@jaeger_tily11; @gibson_etal19; @gruber_etal22; @hahn_etal20; @youngblood_etal23].
+On the other hand, simpler sounds that are easier to learn and produce vary across fewer dimensions and are less distinctive from one another [@mitonGraphicComplexityWriting2021]. Signals need to be distinguishable to be functional [@deboer00], and complexity expands the possibilities within a signal space in a way that enhances functionality (e.g. to communicate concepts in language, or attract mates in birdsong) [@fitch00]. But there is, of course, a limit. Simulations show that cultural evolution plateaus when complex behaviors are too costly [@mesoudi11]. Evidence from linguistics, animal behavior, and cultural evolution suggests that communication systems generally evolve to balance this complexity-efficiency trade-off [@jaeger_tily11; @gibson_etal19; @gruber_etal22; @hahn_etal20; @youngblood_etal23].
 
 Notions of complexity vary widely and are sometimes uncorrelated across levels of analysis [@mikula_etal18; @benedict_najar19]. In the birdsong literature, for example, complexity is usually described at one of three levels: syllables (individual sounds within songs), songs (sequences of syllables), or repertoires (full set of syllables or songs that a bird produces). Syllable and repertoire complexity are approximated with measures of production cost (e.g. frequency bandwidth, number of transitions in pitch [@benedict_najar19; @youngbloodContentBiasCultural2022]) and learning cost (e.g. diversity of unique syllables or songs [@garamszegi_etal05; @soma_garamszegi11]), respectively. Song complexity, on the other hand, is often characterized by measures of hierarchical or combinatorial structure [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019]. Structured signals are more compressible and learnable [@raviv_etal21; @Verhoef2012; @gibson_etal19], which allows more information to "pass through the bottleneck" of cultural transmission [@kirby17; @gruber_etal22]. The former increases both production and learning costs, whereas the latter decreases learning costs. Both notions of complexity, however, should boost the benefits of communication by expanding the signal space. Syllable complexity allows for greater diversity in syllable types, and song complexity allows those syllable types to be combined into a wider array of song types.
 
@@ -119,7 +119,7 @@ Unless otherwise stated, all models were fit in STAN using the brms package in R
 
 ## Data
 
-The recordings used in this study were collected in 1975 [@Mundinger1975], 2012 [@Ju2019], and 2019 [@youngbloodContentBiasCultural2022] in the New York metropolitan area (Brooklyn, Bronx, Queens, and Nassau County). Recordings from 1975 were collected with a Nagra III reel-to-reel tape recorder and a Sennheiser 804 shotgun microphone and converted to digital files (32 bit, 96 kHz) by the Cornell Lab of Ornithology in 2013 [@Ju2019]. Recordings from 2012 (16 bit, 44.1 kHz) and 2019 (32 bit, 48 kHz) were collected with a Marantz PD661 solid-state recorder and a Sennheiser ME66 shotgun microphone. The recordings from 1975 were downsampled to 48 kHz prior to analysis (Luscinia processes both 44.1 kHz and 48 kHz files). In all three years special precautions were taken to avoid recording the same bird twice [@Mundinger1975, @Ju2019]. Each site was visited only once. Within a site, only one individual was recorded within a 160 m radius until they stopped singing or flew away.
+The recordings used in this study were collected in 1975 [@Mundinger1975], 2012 [@Ju2019], and 2019 [@youngbloodContentBiasCultural2022] in the New York metropolitan area (Brooklyn, Bronx, Queens, and Nassau County). The main analysis was conducted using recordings from all three years, but the patterns are qualitatively the same when each year is analyzed separately (see [Supplementary Information]). Recordings from 1975 were collected with a Nagra III reel-to-reel tape recorder and a Sennheiser 804 shotgun microphone and converted to digital files (32 bit, 96 kHz) by the Cornell Lab of Ornithology in 2013 [@Ju2019]. Recordings from 2012 (16 bit, 44.1 kHz) and 2019 (32 bit, 48 kHz) were collected with a Marantz PD661 solid-state recorder and a Sennheiser ME66 shotgun microphone. The recordings from 1975 were downsampled to 48 kHz prior to analysis (Luscinia processes both 44.1 kHz and 48 kHz files). In all three years special precautions were taken to avoid recording the same bird twice [@Mundinger1975, @Ju2019]. Each site was visited only once. Within a site, only one individual was recorded within a 160 m radius until they stopped singing or flew away.
 
 All songs were analyzed by @youngbloodContentBiasCultural2022 using Luscinia, a database and analysis program developed specifically for birdsong (https://rflachlan.github.io/Luscinia/). Songs were analyzed with a high-pass threshold of 2000 Hz, a maximum frequency of 9000 Hz and 5 dB of noise removal. 965 songs (26.2%) were excluded from the analysis due to high levels of noise or overlap with other bird species. Continuous traces with more than 20 ms between them were classified as syllables [@Mundinger1975]. Some syllables were further separable into elements, or traces with less than 20 ms between them. For this study, I used the mean frequency trace (mean frequency in each 1 ms bin) for each syllable in every song analyzed by @youngbloodContentBiasCultural2022.
 
@@ -130,7 +130,7 @@ url <- "https://ars.els-cdn.com/content/image/1-s2.0-S000334722100395X-gr2_lrg.j
 knitr::include_graphics(url)
 ```
 
-The data used in this study comes directly from [Youngblood and Lahti's repository](https://github.com/masonyoungblood/TransmissionBias) [@youngbloodContentBiasCultural2022].
+The data used in this study comes directly from the repository of @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias).
 
 ```{r load-data, eval = FALSE}
 #load data from repository for Youngblood & Lahti (2022)
@@ -141,7 +141,7 @@ load(url("https://github.com/masonyoungblood/TransmissionBias/raw/master/example
 
 Mean frequency was log-transformed prior to clustering [@Lachlan2018]. First, the normalized distances between all of the syllables were calculated via dynamic time warping with a window size of 10 (10% of the average signal length) using the dtwclust package in R [@SardaEspinosa2019]. A window size of 10% of the signal length is commonly used in speech processing research and seems to be a practical upper limit for many applications [@Ratanamahatana2005]. Infinite distances (0.19% of cases) caused by comparisons of syllables with extreme signal length differences were assigned the maximum observed distance value. Next, hierarchical clustering and dynamic tree cut were used to cluster the syllables into types [@Ju2019, @Roginek2018]. Hierarchical clustering was conducted with the UPGMA method implemented in the fastcluster package in R [@JSSv053i09], and dynamic tree cut was conducted with the dynamicTreeCut package in R [@langfelder_etal08].
 
-For dynamic tree cut, I ran the hybrid algorithm with a minimum cluster size of 1 to maximize the representation of rare syllable types. The deep split parameter ($DS$) determines the granularity of clustering by controlling the value of two other parameters: the maximum core scatter ($MCS$), which controls the maximum within-group variation, and the minimum gap ($MG$), which controls the minimum between-group variation [@langfelder_etal08; @ju16]. $DS = \{0, 1, 2, 3, 4\}$ correspond to $MCS = \{0.64, 0.73, 0.82, 0.91, 0.95\}$, and $MG = (1 - MCS)*0.75$. In their analyses of house finch song, @Ju2019 and @Roginek2018 manually set $MCS = 1$ and $MG = 0.5$ while @youngbloodContentBiasCultural2022 used $DS = 3$ (corresponding to $MCS = 0.91$ and $MG = 0.0675$), all of which led to a similar number of syllable types. I will follow @youngbloodContentBiasCultural2022 in using the simpler deep split parameter to control granularity in clustering, as this approach is recommended by the creators of dynamic tree cut [@langfelder_etal08] and has been widely used for a variety of applications [@liu_etal22; @zhao_etal20] including vocal analysis [@burkett_etal15].
+For dynamic tree cut, I ran the hybrid algorithm with a minimum cluster size of 1 to maximize the representation of rare syllable types. The deep split parameter ($DS$) determines the granularity of clustering by controlling the value of two other parameters: the maximum core scatter ($MCS$), which controls the maximum within-group variation, and the minimum gap ($MG$), which controls the minimum between-group variation [@langfelder_etal08; @ju16]. $DS = \{0, 1, 2, 3, 4\}$ correspond to $MCS = \{0.64, 0.73, 0.82, 0.91, 0.95\}$, and $MG = (1 - MCS)*0.75$. In their analyses of house finch song, @Ju2019 and @Roginek2018 manually set $MCS = 1$ and $MG = 0.5$ while @youngbloodContentBiasCultural2022 used $DS = 3$ (corresponding to $MCS = 0.91$ and $MG = 0.0675$), all of which led to a similar number of syllable types. I will follow @youngbloodContentBiasCultural2022 in using the simpler deep split parameter to control granularity in clustering, as this approach is recommended by the creators of dynamic tree cut [@langfelder_etal08] and has been widely used for a variety of applications [@liu_etal22; @zhao_etal20] including vocal analysis [@burkett_etal15]. I restricted this analysis to $DS = \{2, 3, 4\}$ because values of $DS = \{0, 1\}$ lead to extremely unrealistic underestimates of the number of syllables types. Of the values explored here, $DS = 2$ leads to over-lumping of syllables into types (low granularity), $DS = 3$ leads to a typical syllable classification [@youngbloodContentBiasCultural2022; @Ju2019; @Roginek2018], and $DS = 4$ lead to over-splitting of syllables into types (high granularity).
 
 ```{r clustering, eval = FALSE}
 #load library
@@ -395,6 +395,69 @@ zipf_rf_models <- list(data = list(ds_2 = data_a,
 save(zipf_rf_models, file = "data_models/zipf_rf_models.RData")
 ```
 
+```{r, eval = FALSE, echo = FALSE}
+#load library
+library(brms)
+
+#load processed data and rename
+load("data_models/processed_data.RData")
+data <- processed_data$data
+syl_types <- processed_data$syl_types
+rm(processed_data)
+
+#iterate through years and run models
+zipf_rf_models_year <- lapply(1:3, function(i){
+  #store data from target year
+  temp <- data[which(data$year == i), ]
+  
+  #get frequencies for three levels of deep split
+  freqs_a <- as.numeric(sort(table(temp$cluster_2), decreasing = TRUE))/nrow(temp)
+  freqs_b <- as.numeric(sort(table(temp$cluster_3), decreasing = TRUE))/nrow(temp)
+  freqs_c <- as.numeric(sort(table(temp$cluster_4), decreasing = TRUE))/nrow(temp)
+  data_a <- data.frame(freq = freqs_a, rank = 1:length(freqs_a))
+  data_b <- data.frame(freq = freqs_b, rank = 1:length(freqs_b))
+  data_c <- data.frame(freq = freqs_c, rank = 1:length(freqs_c))
+  
+  #set priors
+  zipf_priors <- prior(normal(0, 10), lb = 1, nlpar = "a") + 
+    prior(normal(0, 10), lb = 0, nlpar = "c")
+  mand_priors <- prior(normal(0, 10), lb = 1, nlpar = "a") + 
+    prior(normal(0, 10), lb = -1, nlpar = "b") + 
+    prior(normal(0, 10), lb = 0, nlpar = "c")
+  
+  #fit the zipf models
+  zipf_fit_a <- brm(bf(freq ~ c/(rank^a), a + c ~ 1, nl = TRUE),
+                    data = data_a, prior = zipf_priors,
+                    iter = 5000, cores = 4)
+  zipf_fit_b <- brm(bf(freq ~ c/(rank^a), a + c ~ 1, nl = TRUE),
+                    data = data_b, prior = zipf_priors,
+                    iter = 5000, cores = 4)
+  zipf_fit_c <- brm(bf(freq ~ c/(rank^a), a + c ~ 1, nl = TRUE),
+                    data = data_c, prior = zipf_priors,
+                    iter = 5000, cores = 4)
+  
+  #fit the mandelbrot models
+  mand_fit_a <- brm(bf(freq ~ c/((rank + b)^a), a + b + c ~ 1, nl = TRUE),
+                    data = data_a, prior = mand_priors,
+                    iter = 5000, cores = 4)
+  mand_fit_b <- brm(bf(freq ~ c/((rank + b)^a), a + b + c ~ 1, nl = TRUE),
+                    data = data_b, prior = mand_priors,
+                    iter = 5000, cores = 4)
+  mand_fit_c <- brm(bf(freq ~ c/((rank + b)^a), a + b + c ~ 1, nl = TRUE),
+                    data = data_c, prior = mand_priors,
+                    iter = 5000, cores = 4)
+  
+  #return all relevant output
+  return(list(waic = data.frame(zipf = c(waic(zipf_fit_a)$waic, waic(zipf_fit_b)$waic, waic(zipf_fit_c)$waic),
+                                mand = c(waic(mand_fit_a)$waic, waic(mand_fit_b)$waic, waic(mand_fit_c)$waic)),
+              r2 = c(bayes_R2(zipf_fit_a)[1], bayes_R2(zipf_fit_b)[1], bayes_R2(zipf_fit_c)[1], 
+                     bayes_R2(mand_fit_a)[1], bayes_R2(mand_fit_b)[1], bayes_R2(mand_fit_c)[1])))
+})
+
+#save data
+save(zipf_rf_models_year, file = "data_models/zipf_rf_models_year.RData")
+```
+
 ```{r zipf-rank-plot, eval = FALSE, echo = FALSE}
 #load library and data
 library(ggplot2)
@@ -458,9 +521,10 @@ knitr::include_graphics("plots/rank_count.png")
 
 ```{r, echo = FALSE}
 load("data_models/zipf_rf_models.RData")
+load("data_models/zipf_rf_models_year.RData")
 ```
 
-As can be seen in Figure \@ref(fig:figure-zipf-rank), the observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is only weakly consistent with the the original form of Zipf's rank frequency law ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$ at $DS = \{2, 3, 4\}$). $R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23]. The $WAIC$ values and fitted parameters for all six models can be found in the [Supplementary Information].
+As can be seen in Figure \@ref(fig:figure-zipf-rank), the observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is only weakly consistent with the the original form of Zipf's rank frequency law ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$ at $DS = \{2, 3, 4\}$). $R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23]. The Zipf-Mandelbrot distribution also outcompetes Zipf's original form and has $R^2 > `r min(signif(c(zipf_rf_models_year[[1]]$r2[4:6], zipf_rf_models_year[[2]]$r2[4:6], zipf_rf_models_year[[3]]$r2[4:6]), digits = 2))`$ when models are fit separately to the data from each year (1975, 2012, and 2019; see [Supplementary Information]). The $WAIC$ values and fitted parameters for all six models can be found in the [Supplementary Information].
 
 ## Zipf's Law of Abbreviation
 
@@ -514,6 +578,47 @@ zipf_models <- list(duration = list(summary(duration_model_2)$fixed, summary(dur
 save(zipf_models, file = "data_models/zipf_models.RData")
 ```
 
+```{r, echo = FALSE, eval = FALSE}
+#load processed data and rename
+load("data_models/processed_data.RData")
+data <- processed_data$data
+data$year <- as.factor(data$year)
+
+#create function for extracting effect and confidence intervals from model
+extraction <- function(model){
+  temp_a <- fixef(model)[2]
+  temp_b <- confint(model)[5, ]
+  return(as.numeric(c(temp_a, temp_b)))
+}
+
+#run duration model across all three deep split values
+duration_model_2 <- extraction(lme4::lmer(log(duration) ~ scale(count_2) + (1|cluster_2) + (1|year), data = data))
+duration_model_3 <- extraction(lme4::lmer(log(duration) ~ scale(count_3) + (1|cluster_3) + (1|year), data = data))
+duration_model_4 <- extraction(lme4::lmer(log(duration) ~ scale(count_4) + (1|cluster_4) + (1|year), data = data))
+
+#run bandwidth model across all three deep split values
+bandwidth_model_2 <- extraction(lme4::lmer(log(bandwidth) ~ scale(count_2) + (1|cluster_2) + (1|year), data = data))
+bandwidth_model_3 <- extraction(lme4::lmer(log(bandwidth) ~ scale(count_3) + (1|cluster_3) + (1|year), data = data))
+bandwidth_model_4 <- extraction(lme4::lmer(log(bandwidth) ~ scale(count_4) + (1|cluster_4) + (1|year), data = data))
+
+#run concavity model across all three deep split values, with 0.0001 added to avoid log-transformation issues
+concavity_model_2 <- extraction(lme4::lmer(log(concavity + 0.0001) ~ scale(count_2) + (1|cluster_2) + (1|year), data = data))
+concavity_model_3 <- extraction(lme4::lmer(log(concavity + 0.0001) ~ scale(count_3) + (1|cluster_3) + (1|year), data = data))
+concavity_model_4 <- extraction(lme4::lmer(log(concavity + 0.0001) ~ scale(count_4) + (1|cluster_4) + (1|year), data = data))
+
+#run excursion model across all three deep split values, with 0.0001 added to avoid log-transformation issues
+excursion_model_2 <- extraction(lme4::lmer(log(excursion + 0.0001) ~ scale(count_2) + (1|cluster_2) + (1|year), data = data))
+excursion_model_3 <- extraction(lme4::lmer(log(excursion + 0.0001) ~ scale(count_3) + (1|cluster_3) + (1|year), data = data))
+excursion_model_4 <- extraction(lme4::lmer(log(excursion + 0.0001) ~ scale(count_4) + (1|cluster_4) + (1|year), data = data))
+
+#combine into object that contains median estimate and bounds of 95% CI for main effect of each model at each level of deep split
+zipf_models_year <- list(duration = rbind(duration_model_2, duration_model_3, duration_model_4),
+                         bandwidth = rbind(bandwidth_model_2, bandwidth_model_3, bandwidth_model_4),
+                         concavity = rbind(concavity_model_2, concavity_model_3, concavity_model_4),
+                         excursion = rbind(excursion_model_2, excursion_model_3, excursion_model_4))
+save(zipf_models_year, file = "data_models/zipf_models_year.RData")
+```
+
 ```{r zipf-abbr-tables, echo = FALSE, message = FALSE}
 #load packages
 library(flextable)
@@ -536,7 +641,7 @@ rownames(base_table) <- NULL
 flex_table <- flextable(base_table) %>% 
   merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
-  set_caption("The estimated effect of count on each measure of production cost, using the syllable classifications from each level of deep split. 95% credible intervals that do not overlap with 0, which indicate a strong effect, are marked with an asterisk.")
+  set_caption("The estimated effect of count on each measure of production cost, using the syllable classifications from each level of deep split. 95% credible intervals that do not overlap with 0 are marked with an asterisk.")
 flex_table
 ```
 
@@ -609,7 +714,7 @@ cowplot::plot_grid(ggplot() + theme_void(), y_axis, cowplot::plot_grid(zipf_plot
 dev.off()
 ```
 
-The results of the log-normal models can be seen in Table \@ref(tab:zipf-abbr-tables). Duration, bandwidth, and excursion had strong negative effects on count at all three levels of granularity. Concavity had no effect on count at the first two levels of granularity, but had a very weak negative effect at the third level of granularity.
+The results of the log-normal models can be seen in Table \@ref(tab:zipf-abbr-tables). Duration, bandwidth, and excursion had strong negative effects on count at all three levels of granularity. Concavity had no effect on count at the first two levels of granularity, but had a very weak negative effect at the third level of granularity. The results are qualitatively identical when the year of recording (1975, 2012, or 2019) is included as a varying intercept (see [Supplementary Information]).
 
 ```{r figure-zipf-abbr, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between four measures of production cost (x-axis) and count (y-axis) for each level of deep split (left, center, right). Each point shows the median value for a syllable type, so the orange best fit lines are from a simple Poisson model (count ~ cost) rather than the full log-normal model."}
 knitr::include_graphics("plots/dists.png")
@@ -728,6 +833,20 @@ menz_models <- list(actual = list(estimates = summary(model)$fixed, samples = po
 save(menz_models, file = "data_models/menz_models.RData")
 ```
 
+```{r, echo = FALSE, eval = FALSE}
+#load processed data
+load("data_models/processed_data.RData")
+data <- processed_data$data
+data$year <- as.factor(data$year)
+
+#run the actual model on the data
+menz_models_year <- lme4::lmer(log(duration) ~ scale(song_length) + (1|song) + (1|year), data = data)
+menz_models_year <- cbind(fixef(menz_models_year), confint(menz_models_year)[4:5, ])
+
+#save output
+save(menz_models_year, file = "data_models/menz_models_year.RData")
+```
+
 ```{r menzerath-plot, echo = FALSE, eval = FALSE}
 #load packages
 library(ggplot2)
@@ -785,7 +904,7 @@ knitr::include_graphics("plots/menzerath.png")
 load("data_models/menz_models.RData")
 ```
 
-The results of the log-normal model indicate that song length has a negative effect on syllable duration (Mean Estimate: `r signif(menz_models$actual$estimates[2, 1], digits = 2)`; 95% CI: [`r signif(menz_models$actual$estimates[2, 3], digits = 2)`, `r signif(menz_models$actual$estimates[2, 4], digits = 2)`]) (left panel of Figure \@ref(fig:figure-menzerath)). The posterior distribution for this effect from the model fit to the actual data (orange) is more negative than the posterior distributions from 10 simulated datasets from the production constraint null model of @jamesPhylogenyMechanismsShared2021 (green) and a simple random null model (blue), although there is notable overlap between the lower tail of the production constraing model and the upper tail of the actual data (right panel of Figure \@ref(fig:figure-menzerath)).
+The results of the log-normal model indicate that song length has a negative effect on syllable duration (Mean Estimate: `r signif(menz_models$actual$estimates[2, 1], digits = 2)`; 95% CI: [`r signif(menz_models$actual$estimates[2, 3], digits = 2)`, `r signif(menz_models$actual$estimates[2, 4], digits = 2)`]) (left panel of Figure \@ref(fig:figure-menzerath)). The posterior distribution for this effect from the model fit to the actual data (orange) is more negative than the posterior distributions from 10 simulated datasets from the production constraint null model of @jamesPhylogenyMechanismsShared2021 (green) and a simple random null model (blue), although there is notable overlap between the lower tail of the production constraing model and the upper tail of the actual data (right panel of Figure \@ref(fig:figure-menzerath)). The negative effect of song length on syllable duration persists when the year of recording (1975, 2012, or 2019) is included as a varying intercept (see [Supplementary Information]).
 
 ## Small-Worldness Index
 
@@ -868,6 +987,64 @@ small_world <- parallel::mclapply(0:4, function(ds){
 
 #save indices
 save(small_world, file = "data_models/small_world.RData")
+```
+
+```{r, echo = FALSE, eval = FALSE}
+#load library
+library(igraph)
+
+#load processed data
+load("data_models/processed_data.RData")
+data <- processed_data$data
+syl_types <- processed_data$syl_types
+rm(processed_data)
+
+#get swi for each year and each level of deep split
+small_world_year <- do.call(rbind, lapply(1:3, function(i){
+  #get data for target year
+  temp <- data[which(data$year == i), ]
+  
+  #get number of unique songs
+  unique_songs <- unique(temp$song)
+  
+  #compute swi at each value of deep split
+  small_world <- parallel::mclapply(2:4, function(ds){
+    #get column ID corresponding to deep split value
+    if(ds == 2){syls <- temp$cluster_2}
+    if(ds == 3){syls <- temp$cluster_3}
+    if(ds == 4){syls <- temp$cluster_4}
+    
+    #extract all of the structured directed sequences
+    directed_sequences <- do.call(rbind, lapply(1:length(unique_songs), function(i){
+      sequence <- syls[which(temp$song == unique_songs[i])]
+      return(matrix(c(sequence[1:(length(sequence)-1)], sequence[2:length(sequence)]), ncol = 2))
+    }))
+  
+    #convert to factor
+    directed_sequences <- matrix(as.numeric(factor(directed_sequences)), ncol = 2)
+    
+    #construct structured graph, ignoring edge weights
+    graph <- simplify(graph_from_edgelist(unique(directed_sequences), directed = TRUE))
+  
+    #get small world index for it
+    rand_graph <- sample_gnm(n = length(V(graph)), m = length(E(graph)), directed = TRUE)
+    index <- (transitivity(graph)/transitivity(rand_graph))/(mean_distance(graph)/mean_distance(rand_graph))
+    
+    #return objects
+    return(index)
+  }, mc.cores = 3)
+  
+  #return object
+  return(unlist(small_world))
+}))
+
+#format data frame
+small_world_year <- as.data.frame(small_world_year)
+colnames(small_world_year) <- c("DS: 2", "DS: 3", "DS: 4")
+rownames(small_world_year) <- c("1975", "2012", "2019")
+
+#save indices
+save(small_world_year, file = "data_models/small_world_year.RData")
 ```
 
 ```{r small-worldness-plot, echo = FALSE, eval = FALSE}
@@ -968,7 +1145,7 @@ dev.off()
 knitr::include_graphics("plots/small_world.png")
 ```
 
-Figure \@ref(fig:figure-small-world)B shows the distribution of $SWI$ calculated from random sequences with the same distribution of types (orange) and the actual sequences (blue). At all three levels of granularity, the observed small-worldness of the real songs is above both the standard threshold ($SWI > 1$) and the pseudorandom sequences.
+Figure \@ref(fig:figure-small-world)B shows the distribution of $SWI$ calculated from random sequences with the same distribution of types (orange) and the actual sequences (blue). At all three levels of granularity, the observed small-worldness of the real songs is above both the standard threshold ($SWI > 1$) and the pseudorandom sequences. $SWI > 1$ when computed separately from the data from each year (1975, 2012, and 2019; see [Supplementary Information])
 
 ## Mutual Information
 
@@ -1191,6 +1368,155 @@ mi_models <- lapply(1:3, function(g){
 save(mi_models, file = "data_models/mi_models.RData")
 ```
 
+```{r mutual-information-year, echo = FALSE, eval = FALSE}
+#load packages
+library(brms)
+
+#load data
+load("data_models/processed_data.RData")
+data <- processed_data$data
+
+#create function for the grassberger method of entropy estimation used by lin and tegmark (log is ln by default, which is what grassberger used originally)
+s_calc <- function(vals){return(log(sum(vals)) - ((1/sum(vals))*sum(vals*digamma(vals))))}
+
+#iterate through each year
+mi_data_year <- lapply(1:3, function(h){
+  #subset data by target year
+  temp <- data[which(data$year == h), ]
+  
+  #get unique songs and song lengths
+  unique_songs <- unique(temp$song)
+  song_lengths <- as.numeric(sapply(unique_songs, function(x){length(which(temp$song == x))}))
+  
+  #get unique individuals and the lengths of their sequences
+  unique_inds <- unique(temp$individual)
+  inds_lengths <- as.numeric(sapply(unique_inds, function(x){length(which(temp$individual == x))}))
+  
+  #set random seed
+  set.seed(12345)
+  
+  #calculate mutual information across three levels of deep split
+  mi_data <- parallel::mclapply(1:3, function(i){
+    #use appropriate syllables
+    if(i == 1){temp$syls <- temp$cluster_2}
+    if(i == 2){temp$syls <- temp$cluster_3}
+    if(i == 3){temp$syls <- temp$cluster_4}
+  
+    #compute actual mutual information curves
+    actual <- sapply(1:(max(inds_lengths) - 1), function(m){
+      #set m as the distance between syllables in the sequence
+      dist <- m
+  
+      #store pairs within bouts
+      pairs <- do.call(rbind, lapply(unique_inds[which(inds_lengths > m)], function(r){
+        seq <- temp$syls[which(temp$individual == r)]
+        t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+      }))
+      
+      #get frequencies of syllables in each column
+      n_x <- as.numeric(table(pairs[, 1]))
+      n_y <- as.numeric(table(pairs[, 2]))
+  
+      #get frequencies of pairs in the data
+      pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+      index <- !duplicated(pairs)
+      pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+  
+      #calculate s for each
+      s_x <- s_calc(n_x)
+      s_y <- s_calc(n_y)
+      s_xy <- s_calc(pair_freqs)
+  
+      #compute mutual information and return
+      return(s_x + s_y - s_xy)
+    })
+  
+    #compute shuffled mutual information curves
+    shuffled <- sapply(1:(max(inds_lengths) - 1), function(m){
+      #set m as the distance between syllables in the sequence
+      dist <- m
+  
+      #store pairs within bouts
+      pairs <- do.call(rbind, lapply(unique_inds[which(inds_lengths > m)], function(r){
+        seq <- sample(temp$syls[which(temp$individual == r)])
+        t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+      }))
+  
+      #get frequencies of syllables in each column
+      n_x <- as.numeric(table(pairs[, 1]))
+      n_y <- as.numeric(table(pairs[, 2]))
+  
+      #get frequencies of pairs in the data
+      pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+      index <- !duplicated(pairs)
+      pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+  
+      #calculate s for each
+      s_x <- s_calc(n_x)
+      s_y <- s_calc(n_y)
+      s_xy <- s_calc(pair_freqs)
+  
+      #compute mutual information and return
+      return(s_x + s_y - s_xy)
+    })
+  
+    #return mutual information decay, with shuffled baseline substracted from actual information
+    return(data.frame(dist = 1:length(actual), mi = c(actual - shuffled), mi_raw = actual, mi_base = shuffled))
+  }, mc.cores = 3)
+  
+  #return objects
+  return(mi_data)
+})
+
+#set priors
+exponential_priors <- prior(normal(0, 1), lb = 0, nlpar = "a") + 
+  prior(normal(0, 1), lb = 0, nlpar = "b")
+power_law_priors <- prior(normal(0, 1), lb = 0, nlpar = "c") + 
+  prior(normal(0, 1), lb = 0, nlpar = "d")
+composite_priors <- prior(normal(0, 1), lb = 0, nlpar = "a") + 
+  prior(normal(0, 1), lb = 0, nlpar = "b") + 
+  prior(normal(0, 1), lb = 0, nlpar = "c") + 
+  prior(normal(0, 1), lb = 0, nlpar = "d")
+
+#run models across the three years at all three levels of deep split
+mi_models_year <- do.call(rbind, lapply(1:3, function(f){
+  mi_models <- do.call(rbind, lapply(1:3, function(g){
+    #fit the exponential model
+    exponential_fit <- brm(bf(mi ~ a*exp((-dist)*b), a + b ~ 1, nl = TRUE),
+                           data = mi_data_year[[f]][[g]][1:100, ], prior = exponential_priors,
+                           iter = 5000, cores = 4)
+    
+    #fit the power law model
+    power_law_fit <- brm(bf(mi ~ c*(dist^(-d)), c + d ~ 1, nl = TRUE),
+                         data = mi_data_year[[f]][[g]][1:100, ], prior = power_law_priors, 
+                         iter = 5000, cores = 4)
+    
+    #fit the composite model
+    composite_fit <- brm(bf(mi ~ a*exp((-dist)*b) + c*(dist^(-d)), a + b + c + d ~ 1, nl = TRUE), 
+                         data = mi_data_year[[f]][[g]][1:100, ], prior = composite_priors, 
+                         iter = 5000, cores = 4)
+    
+    #compute aic
+    waic <- WAIC(exponential_fit, power_law_fit, composite_fit)
+    waic <- c(waic$loos$exponential_fit$estimates[3, 1], waic$loos$power_law_fit$estimates[3, 1], waic$loos$composite_fit$estimates[3, 1])
+  
+    #return data and model fits and aic
+    return(waic)
+  }))
+  
+  #return object
+  return(mi_models)
+}))
+  
+#format data frame
+mi_models_year <- as.data.frame(mi_models_year)
+mi_models_year <- cbind(rep(c(2, 3, 4), each = 3), rep(c(1975, 2012, 2019), 3), mi_models_year)
+colnames(mi_models_year) <- c("DS", "Year", "Exponential", "Power-Law", "Composite")
+
+#save object
+save(mi_models_year, file = "data_models/mi_models_year.RData")
+```
+
 ```{r mi-table, echo = FALSE, message = FALSE}
 #load packages
 library(flextable)
@@ -1357,7 +1683,7 @@ dev.off()
 knitr::include_graphics("plots/mut_info.png")
 ```
 
-At all three levels of granularity, the composite model has a lower $WAIC$ and higher $R^2$ than both the exponential and power-law models (Table \@ref(tab:mi-table) and Figure \@ref(fig:figure-menzerath)), suggesting that mutual information decay in house finch song is more consistent with a combination of Markovian and hierarchical processes rather than with one or the other.
+At all three levels of granularity, the composite model has a lower $WAIC$ and higher $R^2$ than both the exponential and power-law models (Table \@ref(tab:mi-table) and Figure \@ref(fig:figure-menzerath)), suggesting that mutual information decay in house finch song is more consistent with a combination of Markovian and hierarchical processes rather than with one or the other. The composite model also outcompetes both the exponential and power-law models when fit to mutual information decay curves computed separately for each year of recording (1975, 2012, and 2019; see [Supplementary Information]).
 
 # Discussion
 
@@ -1393,6 +1719,8 @@ library(flextable)
 ```
 
 ## Zipf's Rank-Frequency Law
+
+### Priors and Diagnostics
 
 <br>
 
@@ -1440,7 +1768,9 @@ flextable(temp) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for the Zipf model.")
 ```
-
+ 
+ <br>
+ 
 ```{r, echo = FALSE}
 #format zipf-mandelbrot model
 temp <- zipf_rf_models$mand[[1]][, -2]
@@ -1468,6 +1798,8 @@ flextable(temp) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for the Zipf model.")
 ```
+
+<br>
 
 ```{r, echo = FALSE}
 #format zipf-mandelbrot model
@@ -1497,6 +1829,8 @@ flextable(temp) %>%
   set_caption("Estimates and diagnostics for the Zipf model.")
 ```
 
+<br>
+
 ```{r, echo = FALSE}
 #format zipf-mandelbrot model
 temp <- zipf_rf_models$mand[[3]][, -2]
@@ -1510,7 +1844,52 @@ flextable(temp) %>%
 
 <br>
 
+### Analysis by Year
+
+<br>
+
+```{r, echo = FALSE}
+#load table
+load("data_models/zipf_rf_models_year.RData")
+
+#format table
+zipf_rf_models_year_table <- rbind(-c(zipf_rf_models_year[[1]]$waic[, 1] - zipf_rf_models_year[[1]]$waic[, 2]),
+                                   -c(zipf_rf_models_year[[2]]$waic[, 1] - zipf_rf_models_year[[2]]$waic[, 2]),
+                                   -c(zipf_rf_models_year[[3]]$waic[, 1] - zipf_rf_models_year[[3]]$waic[, 2]))
+zipf_rf_models_year_table <- round(zipf_rf_models_year_table)
+zipf_rf_models_year_table <- as.data.frame(zipf_rf_models_year_table)
+zipf_rf_models_year_table <- cbind(c("1975", "2012", "2019"), zipf_rf_models_year_table)
+colnames(zipf_rf_models_year_table) <- c("Year", "DS: 2", "DS: 3", "DS: 4")
+
+#print table
+flextable(zipf_rf_models_year_table) %>% 
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("\u0394WAIC comparing the fit of Zipf-Mandelbrot to Zipf's law separately to the data from each year at each level of deep split. Zipf-Mandelbrot provides a better fit in all conditions.")
+```
+
+<br>
+
+```{r, echo = FALSE}
+#format table
+zipf_rf_models_year_r2 <- rbind(zipf_rf_models_year[[1]]$r2[4:6],
+                                 zipf_rf_models_year[[2]]$r2[4:6],
+                                 zipf_rf_models_year[[3]]$r2[4:6])
+zipf_rf_models_year_r2 <- round(zipf_rf_models_year_r2, digits = 3)
+zipf_rf_models_year_r2 <- as.data.frame(zipf_rf_models_year_r2)
+zipf_rf_models_year_r2 <- cbind(c("1975", "2012", "2019"), zipf_rf_models_year_r2)
+colnames(zipf_rf_models_year_r2) <- c("Year", "DS: 2", "DS: 3", "DS: 4")
+
+#print table
+flextable(zipf_rf_models_year_r2) %>% 
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The R\u00B2 for the Zipf-Mandelbrot distribution fit separately to the data from each year at each level of deep split.")
+```
+
+<br>
+
 ## Zipf's Law of Abbreviation
+
+### Priors and Diagnostics
 
 <br>
 
@@ -1552,7 +1931,34 @@ flex_table
 
 <br>
 
+### Analysis by Year
+
+<br>
+
+```{r echo = FALSE}
+#load data
+load("data_models/zipf_models_year.RData")
+
+#format table
+base_table <- as.data.frame(round(do.call(rbind, zipf_models_year), digits = 2))
+base_table <- cbind(rep(c("duration ~ count", "bandwidth ~ count", "concavity ~ count", "excursion ~ count"), each = 3), rep(c(2, 3, 4), 4), base_table)
+base_table <- cbind(base_table, ifelse(base_table[, 4]*base_table[, 5] > 0, "*", ""))
+colnames(base_table) <- c("Model", "DS", "Est.", "2.5%", "97.5%", " ")
+rownames(base_table) <- NULL
+
+#print table
+flex_table <- flextable(base_table) %>% 
+  merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The estimated effect of count on each measure of production cost, in frequentist models that include year as a varying intercept, using the syllable classifications from each level of deep split. 95% confidence intervals that do not overlap with 0 are marked with an asterisk. The results are qualitatively identical to the main analysis.")
+flex_table
+```
+
+<br>
+
 ## Menzerath's Law
+
+### Priors and Diagnostics
 
 <br>
 
@@ -1604,7 +2010,51 @@ flextable(rhat_table) %>%
 
 <br>
 
+### Analysis by Year
+
+<br>
+
+```{r, echo = FALSE}
+#load table
+load("data_models/menz_models_year.RData")
+
+#format table
+menz_models_year_table <- cbind(c("Intercept", "Song Length"), as.data.frame(signif(menz_models_year, digits = 2)))
+colnames(menz_models_year_table) <- c("Param.", "Estimate", "2.5%", "97.5%")
+
+#print table
+flextable(menz_models_year_table) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("Estimates for a frequentist version of the model of Menzerath's law applied to the real data, with year added as a varying intercept. The results are qualitatively identical to the main analysis.")
+```
+
+<br>
+
+## Small-Worldness Index
+
+### Analysis by Year
+
+<br>
+
+```{r, echo = FALSE}
+#load table
+load("data_models/small_world_year.RData")
+
+#format table
+small_world_year <- cbind(rownames(small_world_year), round(small_world_year, digits = 2))
+colnames(small_world_year)[1] <- "Year"
+
+#print table
+flextable(small_world_year) %>% 
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The small-worldness index computed separately from the data from each year at each level of deep split.")
+```
+
+<br>
+
 ## Mutual Information
+
+### Priors and Diagnostics
 
 <br>
 
@@ -1633,7 +2083,7 @@ waic_table <- cbind(rownames(waic_table), waic_table)
 colnames(waic_table) <- 1:ncol(waic_table)
 
 #print table
-flex_table <- flextable(waic_table) %>% 
+flextable(waic_table) %>% 
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_header_labels(values = c("", rep(c("Exp", "PL", "Comp"), 3))) %>%
   add_header_row(values = c("", "2", "3", "4"), colwidths = c(1, 3, 3, 3)) %>%
@@ -1641,7 +2091,6 @@ flex_table <- flextable(waic_table) %>%
   align(part = c("body"), align = "center") %>%
   vline(j = c(1, 4, 7)) %>% 
   set_caption("The WAIC values for each model, at each level of deep split, for increasing maximum distances between syllables.")
-flex_table
 ```
 
 <br>
@@ -1786,6 +2235,26 @@ temp$composite_fit <- cbind(Param. = substr(rownames(temp$composite_fit), 1, 1),
 flextable(temp$composite_fit) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("Estimates and diagnostics for composite model.")
+```
+
+<br>
+
+### Analysis by Year
+
+<br>
+
+```{r, echo = FALSE}
+#load table
+load("data_models/mi_models_year.RData")
+
+#format table
+mi_models_year[, 3:5] <- round(mi_models_year[, 3:5])
+mi_models_year$Year <- as.character(mi_models_year$Year)
+
+flextable(mi_models_year) %>% 
+  merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The WAIC values for the exponential, power-law, and composite models applied to the mutual information calculated separately from the data from each year at each level of deep split. The composite model outcompetes both alternatives in all conditions.")
 ```
 
 <!-- Get rid of extra white space at the bottom caused by table of contents -->
