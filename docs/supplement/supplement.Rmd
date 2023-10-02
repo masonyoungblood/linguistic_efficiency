@@ -1,33 +1,33 @@
 ---
 title: "Supplementary information"
 subtitle: "Language-like efficiency and structure in house finch song"
-# author:
-#   name: Mason Youngblood
-#   email: masonyoungblood@gmail.com
-#   affiliation: Minds and Traditions Research Group, Max Planck Institute for Geoanthropology <br> Institute for Advanced Computational Science, Stony Brook University
-# output:
-#   bookdown::html_document2:
-#     theme: cosmo
-#     toc: true
-#     toc_depth: 3
-#     toc_float: true
-#     global_numbering: true
 author:
-  - Mason Youngblood ^[Minds and Traditions Research Group, Max Planck Institute for Geoanthropology, masonyoungblood@gmail.com] ^[Institute for Advanced Computational Science, Stony Brook University]
+  name: Mason Youngblood
+  email: masonyoungblood@gmail.com
+  affiliation: Minds and Traditions Research Group, Max Planck Institute for Geoanthropology <br> Institute for Advanced Computational Science, Stony Brook University
 output:
-  bookdown::word_document2:
-    reference_docx: "../template.docx"
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_depth: 3
+    toc_float: true
     global_numbering: true
+# author:
+#   - Mason Youngblood ^[Minds and Traditions Research Group, Max Planck Institute for Geoanthropology, masonyoungblood@gmail.com] ^[Institute for Advanced Computational Science, Stony Brook University]
+# output:
+#   bookdown::word_document2:
+#     reference_docx: "../template.docx"
+#     global_numbering: true
 always_allow_html: true
 bibliography: ../bibliography.json
 link-citations: true
 # csl: apa.csl
 csl: ../vancouver.csl
 fig_caption: true
-cover-image: https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop
+cover-image: ../plots/cover_image.jpeg
 ---
 
-```{r, echo = FALSE, eval = TRUE}
+```{r, echo = FALSE, eval = FALSE}
 #optionally hide all code
 knitr::opts_chunk$set(echo = FALSE)
 
@@ -42,12 +42,12 @@ library(officer)
 library(dplyr)
 ```
 
-<!-- # Links {-} -->
+# Links {-}
 
-<!-- * Main text: https://masonyoungblood.github.io/linguistic_efficiency/ -->
-<!-- * Supplementary information: https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html -->
-<!-- * PsyArXiv preprint: https://psyarxiv.com/bghqm -->
-<!-- * GitHub repository: https://github.com/masonyoungblood/linguistic_efficiency -->
+* Main text: https://masonyoungblood.github.io/linguistic_efficiency/
+* Supplementary information: https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html
+* PsyArXiv preprint: https://psyarxiv.com/bghqm
+* GitHub repository: https://github.com/masonyoungblood/linguistic_efficiency
 
 # Data
 
