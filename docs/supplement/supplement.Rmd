@@ -43,10 +43,10 @@ library(dplyr)
 
 # Links {-}
 
-* Main text: https://masonyoungblood.github.io/linguistic_efficiency/
-* Supplementary information: https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html
-* PsyArXiv preprint: https://psyarxiv.com/bghqm
-* GitHub repository: https://github.com/masonyoungblood/linguistic_efficiency
+* [Main text](https://masonyoungblood.github.io/linguistic_efficiency/)
+* [Supplementary information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)
+* [PsyArXiv preprint](https://psyarxiv.com/bghqm)
+* [GitHub repository](https://github.com/masonyoungblood/linguistic_efficiency)
 
 # Data
 
