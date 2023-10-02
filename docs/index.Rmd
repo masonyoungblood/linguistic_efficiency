@@ -26,6 +26,8 @@ link-citations: true
 # csl: apa.csl
 csl: vancouver.csl
 fig_caption: true
+cover-image: featured.jpg
+url: https://masonyoungblood.github.io/linguistic_efficiency/
 ---
 
 <!-- 3 large figures (1.5 pgs) -->
