@@ -26,7 +26,6 @@ link-citations: true
 # csl: apa.csl
 csl: vancouver.csl
 fig_caption: true
-featuredImage: "https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop"
 ---
 
 <!-- 3 large figures (1.5 pgs) -->
@@ -54,7 +53,7 @@ div.col-md-12 .pull-right {
 }
 ```
 
-<br>![](https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop)
+<br>![](featured.jpg)
 &copy; National Park Service
 
 # Links {-}
