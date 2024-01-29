@@ -19,7 +19,7 @@ output:
 #     reference_docx: "../template.docx"
 #     global_numbering: true
 always_allow_html: true
-bibliography: ../bibliography.json
+bibliography: bibliography.json
 link-citations: true
 # csl: apa.csl
 csl: ../vancouver.csl
@@ -65,11 +65,75 @@ knitr::include_graphics(url)
 
 The deep split parameter ($DS$) determines the granularity of clustering by controlling the value of two other parameters: the maximum core scatter ($MCS$), which controls the maximum within-group variation, and the minimum gap ($MG$), which controls the minimum between-group variation [@langfelder_etal08; @ju16]. $DS = \{0, 1, 2, 3, 4\}$ correspond to $MCS = \{0.64, 0.73, 0.82, 0.91, 0.95\}$, and $MG = (1 - MCS)*0.75$. In their analyses of house finch song, @Ju2019 and @Roginek2018 manually set $MCS = 1$ and $MG = 0.5$ while @youngbloodContentBiasCultural2022 used $DS = 3$ (corresponding to $MCS = 0.91$ and $MG = 0.0675$), all of which led to a similar number of syllable types. I will follow @youngbloodContentBiasCultural2022 in using the simpler deep split parameter to control granularity in clustering, as this approach is recommended by the creators of dynamic tree cut [@langfelder_etal08] and has been widely used for a variety of applications [@liu_etal22; @zhao_etal20] including vocal analysis [@burkett_etal15].
 
+## Sampling Coverage
+
+Unseen species models, fit using the iNEXT package in R [@hsiehINEXTPackageRarefaction2016], were used to assess sampling coverage (see caption for details).
+
+```{r figure-unseen-species, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The results of unseen species models applied to the full frequency distribution of syllables classified at each level of deep split, run using the iNEXT package in R [@hsiehINEXTPackageRarefaction2016]. The point in each plot marks the observed richness (y-axis) for the total number syllables sampled (x-axis). The solid lines mark interpolated richness, the dashed lines mark extrapolated richness, and the shaded areas mark 95% confidence intervals. The interpolated richness values are the number of types you observe if you subsample that number of tokens from the real data. The extrapolated values are the projected number of types you would observe if you were able to continue sampling tokens from the same population. More details can be found in Hsieh et al. [@hsiehINEXTPackageRarefaction2016]: https://doi.org/10.1111/2041-210X.12613. We appear to have complete coverage of syllable types regardless of the level of deep split that is used."}
+knitr::include_graphics("../plots/unseen_species.png")
+```
+
+## Assessment of Duration Bias
+
+Automated clustering methods may detect more variation in the features of longer syllables compared to shorter syllables, leading to a bias in classification where longer syllables are parsed into more categories. The risk of such bias should be minimized due to the use of dynamic time warping, which warps signals in the time domain (in this study up to 10% of the average signal length) before computing similarity [@Ratanamahatana2005], and dynamic tree cut, which varies the granularity of classification to maximize the connectedness of items at the tips of branches [@langfelder_etal08]. That being said, there are two ways that we can assess whether the automated classification procedure is biased towards longer syllables: (1) comparing the median duration of types at each level of granularity in syllable clustering, and (2) tracking whether individual tokens are assigned to different-duration types as granularity increases.
+
+```{r figure-explore-durations, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The median duration of types from each level of granularity in syllable clustering (A, on the left), and the median duration of types that individual tokens are assigned to with increasing levels of granularity (avg. marked by the oranged dotted line) (B, on the right)."}
+knitr::include_graphics("../plots/explore_durations.png")
+```
+
+There is a subtle decrease in the distribution of the median duration of types as the granularity of clustering increases (panel A, on the left), but the effect is not significant in a simple linear model (duration ~ granularity) (p > 0.05). If we track the median duration of the types that individual tokens are assigned to at increasing levels of granularity (panel B, on the right), there appears to be no clear trend (avg. is the orange line). A simple linear model with type as a random effect (duration ~ granularity + (1|type)) does detect a significant increase in the median duration of types that tokens are assigned to with increasing granularity (estimate: 0.0018; 95% CI: 0.00061, 0.0029), but this effect is extremely low and only comes out to an increase of about 1 ms per unit increase in deep split (for signals that are ~100 ms on average).
+
+I think that duration-bias from the automated classification procedure is unlikely to be an issue in the analysis, but just to be sure I have replicated the results for Zipf's law of abbreviation with manually-classified syllables from an experimental cross-fostering study conducted in house finches [@Mann2020]. See [Replication with Data from Mann et al.] below for details.
+
+## Variance Captured by Types
+
+The hierarchical clustering leads to syllable types that explain a large amount of the variation in the duration, bandwidth, and excursion of tokens, but only captures concavity at the higher levels of deep split.
+
+<br>
+
+```{r, echo = FALSE}
+#load models
+load("../data_models/token_var_by_type.RData")
+
+#format table
+token_var_by_type <- round(token_var_by_type, digits = 2)
+token_var_by_type <- cbind(Parameter = rownames(token_var_by_type), token_var_by_type)
+
+#print table
+flextable(token_var_by_type) %>% 
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The proportion of the variance (R^2^) in the acoustic features of tokens that is accounted for by types identified at all three levels of granularity in syllable clustering, computed from frequentist models with the following specification: feature ~ (1|type).")
+```
+
+<br>
+
 # Zipf's Rank-Frequency Law
 
 ```{r figure-zipf-rank, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between rank (x-axis) and count (y-axis) at each level of deep split (left, center, and right). The blue and orange lines denote the expected distributions according to Zipf's rank-frequency law (blue) and Mandelbrot's extension of it (orange)."}
 knitr::include_graphics("../plots/rank_count.png")
 ```
+
+## Expanded Description of the Model
+
+Mandelbrot's generalization of Zipf's rank-frequency law takes the following form [@Mandelbrot1953; @Mandelbrot1962]:
+
+\begin{equation}
+f(r) = \frac{c}{(r + \beta)^\alpha}
+(\#eq:zipf-rf-a)
+\end{equation}
+
+where $f(r)$ is the normalized frequency at each rank $r$, $c$ is a normalization term, and $\alpha$ and $\beta$ are parameters that control slope and convexity (respectively). According to @izsak06, the bounds of \@ref(eq:zipf-rf-a) are $\alpha > 1$, $\beta > -1$, and $c > 1$. When $\beta = 0$, this function simplifies to the original form of Zipf's rank-frequency law: $f(r) \propto 1/r^\alpha$.
+
+$c$ is usually a normalization constant [@izsak06; @mouillot_lepretre00; @macutek22] defined as:
+
+\begin{equation}
+c = \sum_{i=1}^{\infty}\frac{1}{(r + \beta)^\alpha}
+(\#eq:zipf-rf-b)
+\end{equation}
+
+In practice, this form of Zipf's rank-frequency law is notoriously difficult to fit to data due to strong correlations between $\alpha$ and $\beta$, which in turn determine $c$ [@mouillot_lepretre00; @izsak06; @macutek22]. Here, I use a simplified version of \@ref(eq:zipf-rf-a) that treats $c$ as a third parameter that is estimated alongside $\alpha$ and $\beta$ [@ausloos14], as has been done in studies of chickadee calls [@hailman94; @freeberg_lucas12; @ficken_etal94], which should be interpreted as an approximation of the Zipf-Mandelbrot distribution.
+
+The model was fit as a non-linear model on the original scale, as opposed to the log-log scale.
 
 ## Priors and Diagnostics
 
@@ -240,8 +304,12 @@ flextable(zipf_rf_models_year_r2) %>%
 
 # Zipf's Law of Abbreviation
 
-```{r figure-zipf-abbr, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between four measures of production cost (x-axis) and count (y-axis) for each level of deep split (left, center, right). Each point shows the median value for a syllable type, so the orange best fit lines are from a simple Poisson model (count ~ cost) rather than the full log-normal model."}
+```{r figure-zipf-abbr, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between four measures of production cost (x-axis) and count (y-axis) for each syllable type at each level of deep split (left, center, right). Each point shows the median value for a syllable type, so the orange best fit lines are from a simple Poisson model (count ~ cost) rather than the full log-normal model."}
 knitr::include_graphics("../plots/dists.png")
+```
+
+```{r figure-zipf-abbr-tokens, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The relationship between four measures of production cost (x-axis) and count (y-axis) for each token (observation of each syllable type) at each level of deep split (left, center, right). Note that the y-axis is the count of each syllable type, which is why values are repeated across the individual tokens."}
+knitr::include_graphics("../plots/token_dists.png")
 ```
 
 ## Priors and Diagnostics
@@ -306,6 +374,161 @@ flex_table <- flextable(base_table) %>%
   merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("The estimated effect of count on each measure of production cost, in frequentist models that include year as a varying intercept, using the syllable classifications from each level of deep split. 95% confidence intervals that do not overlap with 0 are marked with an asterisk. The results are qualitatively identical to the main analysis.")
+flex_table
+```
+
+<br>
+
+## Replication using Kendall's tau
+
+<br>
+
+I replicated the analysis using a method recently proposed by Lewis et al. [@lewis_etal23] and released as the R package ZLAvian by Gilman et al. [@gilman_etal23]. This method computes Kendall's tau, or the concordance between duration and frequency, where (tau + 1)/2 is the probability that if two random syllables are sampled (from either individuals or from the population) the longer note will be more common. The estimated tau is then compared against a null distribution that conservatively accounts for social learning [@gilman_etal23].
+
+At the population level, Kendall’s tau is significantly lower than the null for all four measures of production cost at every level of granularity in syllable clustering. There is also an individual level effect for bandwidth and excursion at all three levels of granularity, but the results are more mixed for duration and concavity. I think this is likely because we only have a median of 6 songs recorded for individual birds. I also replicated the analysis using data from a cross-fostering experiment [@Mann2020], where individual birds were much more heavily sampled (100, 64, and 62 songs recorded for each one), and found individual level effects of duration, bandwidth, and excursion (see [Replication with Data from Mann et al.] below).
+
+<br>
+
+```{r echo = FALSE}
+#load data
+load("../data_models/zla_kendall_table.RData")
+
+#format table
+base_table <- zla_kendall_table
+base_table$tau <- round(base_table$tau, digits = 2)
+base_table$p <- format(base_table$p, scientific = TRUE, digits = 2)
+colnames(base_table) <- c("Parameter", "DS", "Level", "tau", "p-value", " ")
+rownames(base_table) <- NULL
+
+#print table
+flex_table <- flextable(base_table) %>% 
+  merge_at(1:6, 1) %>% merge_at(7:12, 1) %>% merge_at(13:18, 1) %>% merge_at(19:24, 1) %>%
+  merge_at(1:2, 2) %>% merge_at(3:4, 2) %>% merge_at(5:6, 2) %>% merge_at(7:8, 2) %>%
+  merge_at(9:10, 2) %>% merge_at(11:12, 2) %>% merge_at(13:14, 2) %>% merge_at(15:16, 2) %>%
+  merge_at(17:18, 2) %>% merge_at(19:20, 2) %>% merge_at(21:22, 2) %>% merge_at(23:24, 2) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The estimate of Kendall's tau, computed using the method of Lewis et al. [@lewis_etal23] and Gilman et al. [@gilman_etal23] from the ZLAvian package in R. p-values values are marked with stars to denote their level of statistical significance: * for p < 0.05, ** for p < 0.01, *** for p < 0.001, **** for p < 0.0001.")
+flex_table
+```
+
+<br>
+
+## Replication with Data from Mann et al.
+
+<br>
+
+I contacted two labs with large corpora of field-recorded house finches, and neither of them had manually-classified syllables with analyzed acoustic features. However, there is one cross-fostering study conducted by Paul Mundinger in 1972, and analyzed and published by Mann et al. in 2021 [@Mann2020], that includes both manually-classified syllables and acoustic features. I replicated the analysis using these data to ensure that my results for Zipf's law of abbreviation were not an artifact of the automated classification procedure.
+
+Mann et al. [@Mann2020] compared the acoustic features of songs from (1) house finches tutored by other house finches, (2) house finches tutored by canaries, (3) house finches reared without tutors, and (4) canaries. Mann et al. [@Mann2020] classified syllable types separately for each individual bird, so I analyzed the repertoires of the most heavily sampled bird from the first three categories (B1-74 (house finch tutor): 62 songs; B1 (canary tutor): 100 songs; D4 (no tutor): 64 songs). The results of the model, run with the exact same specification as the in main analysis, can been seen below.
+
+<br>
+
+```{r echo = FALSE}
+#load libraries
+library(flextable)
+library(dplyr)
+
+#load data
+load("../data_models/mann_zipf_replication.RData")
+
+#format table
+base_table <- as.data.frame(round(do.call(rbind, mann_zipf_replication[[1]]), digits = 4))
+base_table <- cbind(rep(c("duration ~ count", "bandwidth ~ count", "concavity ~ count", "excursion ~ count"), each = 3), rep(c("House Finch", "Canary", "None"), 4), base_table)
+base_table <- cbind(base_table, ifelse(base_table[, 5]*base_table[, 6] > 0, "*", ""))
+colnames(base_table) <- c("Model", "Tutor", "Est.", "Err.", "2.5%", "97.5%", " ")
+rownames(base_table) <- NULL
+
+#print table
+flex_table <- flextable(base_table) %>% 
+  merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The estimated effect of count on each measure of production cost, using the syllable classifications from individual birds from Mann et al. [@Mann2020] who were tutored by a house finch, a canary, or were reared without a tutor. 95% confidence intervals that do not overlap with 0 are marked with an asterisk.")
+flex_table
+```
+
+<br>
+
+Under typical circumstances, where a house finch learns song from another house finch, the results are qualitatively the same as the main analysis&mdash;duration, bandwidth, and excursion all have strong negative effects on count. Interestingly, only duration and excursion negatively predict count in the canary-tutored house finch, and only bandwidth negatively predicts count in the house finch reared without a tutor.
+
+I also replicated the analysis using a method recently proposed by Lewis et al. [@lewis_etal23] and released as the R package ZLAvian by Gilman et al. [@gilman_etal23]. This method computes Kendall's tau, or the concordance between duration and frequency, where (tau + 1)/2 is the probability that if two random syllables are sampled the longer note will be more common. The estimated tau is then compared against a null distribution that conservatively accounts for social learning [@gilman_etal23]. Kendall's tau can be computed at the population level (i.e. random syllables are sampled from the population rather than a single bird, see above), but here I only report the results at the individual level since I am using data from individual repertoires.
+
+<br>
+
+```{r echo = FALSE}
+#load data
+load("../data_models/mann_zipf_replication.RData")
+
+#format table
+base_table <- as.data.frame(round(do.call(rbind, mann_zipf_replication[[2]]), digits = 3))
+base_table <- cbind(rep(c("duration", "bandwidth", "concavity", "excursion"), each = 3), rep(c("house finch", "canary", "none"), 4), base_table)
+base_table$sig <- ""
+base_table$sig <- ""
+base_table$sig[which(base_table[, 4] < 0.05)] <- "*"
+base_table$sig[which(base_table[, 4] < 0.01)] <- "**"
+base_table$sig[which(base_table[, 4] < 0.001)] <- "***"
+base_table$sig[which(base_table[, 4] < 0.0001)] <- "****"
+colnames(base_table) <- c("Parameter", "Tutor", "tau", "p", " ")
+rownames(base_table) <- NULL
+
+#print table
+flex_table <- flextable(base_table) %>% 
+  merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The estimate of Kendall's tau, computed using the method of Lewis et al. [@lewis_etal23] and Gilman et al. [@gilman_etal23] from the ZLAvian package in R. In this case, were data represent individual repertoires, tau is only computed at the individual level. p-values less than 0.05 are marked with a single star, and values less than 0.01 are marked with two stars.")
+flex_table
+```
+
+<br>
+
+The results are mostly consistent with the Bayesian model above: Kendall's tau is significantly negative for duration under all conditions, for bandwidth when birds learned from a house finch or were raised in isolation, and for excursion when birds learned from a house finch or a canary. Interestingly, we found that Kendall's tau for duration is consistently significantly negative at the individual level for the Mann et al. [@Mann2020] data, whereas it is only consistently significantly negative at the population level for the Youngblood and Lahti [@youngbloodContentBiasCultural2022] data (see [Replication using Kendall's tau] above). This is likely because there are many more songs recorded from the individual birds in the Mann et al. [@Mann2020] data (N = 100, 64, and 62) compared to the Youngblood and Lahti [@youngbloodContentBiasCultural2022] data (median of 6).
+
+<br>
+
+## Robustness to Lognormality Assumption
+
+<br>
+
+```{r echo = FALSE}
+#load data
+load("../data_models/zipf_models_check_lognormal.RData")
+
+#format table
+base_table <- as.data.frame(round(do.call(rbind, zipf_models_check_lognormal), digits = 2))
+base_table <- cbind(rep(c("duration ~ count", "bandwidth ~ count", "concavity ~ count", "excursion ~ count"), each = 3), rep(c(2, 3, 4), 4), base_table)
+base_table <- cbind(base_table, ifelse(base_table[, 4]*base_table[, 5] > 0, "*", ""))
+colnames(base_table) <- c("Model", "DS", "Est.", "2.5%", "97.5%", " ")
+rownames(base_table) <- NULL
+
+#print table
+flex_table <- flextable(base_table) %>% 
+  merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The estimated effect of count on each measure of production cost in frequentist models that drop the lognormality assumption and do not log-transform the y-axis, using the syllable classifications from each level of deep split. 95% confidence intervals that do not overlap with 0 are marked with an asterisk. The results are qualitatively identical to the main analysis.")
+flex_table
+```
+
+<br>
+
+## Robustness to Long Tail
+
+<br>
+
+```{r echo = FALSE}
+#load data
+load("../data_models/zipf_models_check_90.RData")
+
+#format table
+base_table <- as.data.frame(round(do.call(rbind, zipf_models_check_90), digits = 2))
+base_table <- cbind(rep(c("duration ~ count", "bandwidth ~ count", "concavity ~ count", "excursion ~ count"), each = 3), rep(c(2, 3, 4), 4), base_table)
+base_table <- cbind(base_table, ifelse(base_table[, 4]*base_table[, 5] > 0, "*", ""))
+colnames(base_table) <- c("Model", "DS", "Est.", "2.5%", "97.5%", " ")
+rownames(base_table) <- NULL
+
+#print table
+flex_table <- flextable(base_table) %>% 
+  merge_at(1:3, 1) %>% merge_at(4:6, 1) %>% merge_at(7:9, 1) %>% merge_at(10:12, 1) %>%
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The estimated effect of count on each measure of production cost in frequentist models that only include the middle 90% of the distribution, using the syllable classifications from each level of deep split. 95% confidence intervals that do not overlap with 0 are marked with an asterisk. The results are qualitatively identical to the main analysis.")
 flex_table
 ```
 
@@ -641,6 +864,38 @@ flextable(mi_models_year) %>%
   theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
   set_caption("The WAIC values for the exponential, power-law, and composite models applied to the mutual information calculated separately from the data from each year at each level of deep split. The composite model outcompetes both alternatives in all conditions.")
 ```
+
+<br>
+
+## Analysis with Song Sequences
+
+<br>
+
+```{r, echo = FALSE}
+library(dplyr)
+library(flextable)
+
+#load table
+load("../data_models/mi_models_song_lengths.RData")
+
+#format table
+mi_models_song_lengths[, 2:4] <- round(mi_models_song_lengths[, 2:4])
+
+flextable(mi_models_song_lengths) %>% 
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The WAIC values for the exponential, power-law, and composite models applied to the mutual information calculated from individual song sequences rather than from concatenated song bouts. The exponential model outcompetes both alternatives at deep split values of 3 and 4, while the power-law and composite models outcompete the exponential model at deep split of 2.")
+```
+
+
+<br>
+
+# Extended Discussion
+
+A long-standing critique of Zipf's laws is that they may be statistical artifacts of other processes [@caplan_etal20], starting with Miller's observation that randomly typing on keyboards can produce similar patterns [@miller57]. That being said, random typing accounts are not realistic causal descriptions of how communication systems emerge, and there are good empirical reasons to doubt that they undermine efficiency accounts [@piantadosi14]. Randomly-generated texts produce rank-frequency distributions that differ from those in real corpora [@ferrer-i-cancho_elvevag10], random typing models are not truly neutral as they can be mathematically reframed as minimizing costs [@ferrer-i-cancho16; @ferrer-i-cancho_etal22], and there is direct experimental evidence that Zipfian abbreviation emerges from pressure for efficient communication [@kanwal_etal17]. In my view, the most important contribution of the random typing account is to highlight that the problem of equifinality---different processes leading to similar outcomes [@Barrett2019]---means that patterns resembling Zipf's laws are not sufficient to make conclusions about efficiency [@kanwal17; @semple_etal22]. Multiple lines of evidence should be presented alongside other work demonstrating that efficiency is shaping the system (e.g. physical [@Mann2020] and environmental [@bermudez-cuamatzin_etal23] constraints), as I have done here. See @semple_etal22, @piantadosi14, and @kanwal17 for more complete summaries of this debate.
+
+Outside of linguistics, efficiency and complexity are often discussed in relation to cumulative cultural evolution (CCE). Definitions of CCE vary and a full review is outside of the scope of this study, but for convenience we will use the definition of @williamsCumulativeCulturalEvolution2022: "the accumulation of sequential changes within a single socially learned behavior that results in improved function". Discussions of CCE often focus on increasing complexity over time [@wilks_blakey18], which was once thought to be a hallmark of human culture [@tomasello99] but has now been observed in several non-human communication systems including humpback whale [@garland_etal22] and Savannah sparrow song [@williamsCumulativeCulturalEvolution2022]. @gruber_etal22 make a convincing argument that efficiency deserves more attention in CCE, as increases in complexity in one domain require increases in efficiency in another (see Equation 1 in the Introduction). House finch song may be a good research model for how the interplay between efficiency and complexity drives CCE, as male house finches have a social learning bias for more complex syllables [@youngbloodContentBiasCultural2022], possibly as an adaptation to female preferences for more complex songs [@Nolan2004; @Mennill2006; @Ciaburri2019], and there appears to be pressure for efficiency at the level of both syllables and songs. That being said, CCE may not be the best framework for understanding the interaction between efficiency and complexity in birdsong, as its logic is more difficult to apply to "aesthetic" behavior [@sinclair_etal22] especially when it is optimized for female preferences that evolve to maximize inclusive fitness rather than the specific properties of songs that males sing [@geller_lahti23].
+
+House finch song exhibits language-like efficiency and structure, but music-like structure has not been similarly studied in this species. In the last two decades researchers have identified aspects of birdsong, such as rhythm and pitch intervals in thrush nightingales [@roeskeCategoricalRhythmsAre2020; @roeske_etal18; @rothenberg_etal14], that closely resemble aspects of human music. Future studies should explore language- and music-like properties of birdsong in parallel across multiple levels of granularity to inform the ongoing debate about whether birdsong is more akin to music or language [@fitch06; @shannon16; @rohrmeier_etal15].
 
 # References {-}
 

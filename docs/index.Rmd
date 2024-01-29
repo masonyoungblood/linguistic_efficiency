@@ -74,13 +74,13 @@ div.col-md-12 .pull-right {
 (\#eq:efficiency)
 \end{equation}
 
-where $\sum{\pi}$ is the lifetime benefit of the communication system, $C_{L}$ is the cost of learning it, and $\sum{C_{P}}$ is the lifetime cost of producing it [@gruber_etal22]. <!--Note that efficiency here is optimized over the course of cultural and biological evolution, as $\sum{\pi}$, $C_{L}$, and $\sum{C_{P}}$ are incomputable by the individual. -->This framing is consistent with understandings of efficiency in linguistics [@gibson_etal19]: the famous "principle of least effort" can be thought of as a minimization of these costs [@zipf49].
+where $\sum{\pi}$ is the lifetime benefit of the communication system (which includes perception by receivers), $C_{L}$ is the cost of learning it, and $\sum{C_{P}}$ is the lifetime cost of producing it [@gruber_etal22]. <!--Note that efficiency here is optimized over the course of cultural and biological evolution, as $\sum{\pi}$, $C_{L}$, and $\sum{C_{P}}$ are incomputable by the individual. -->This framing is consistent with understandings of efficiency in linguistics [@gibson_etal19]: the famous "principle of least effort" can be thought of as a minimization of these costs [@zipf49].
 
 On the other hand, simpler sounds that are easier to learn and produce vary across fewer dimensions and are less distinctive from one another [@mitonGraphicComplexityWriting2021]. Signals need to be distinguishable to be functional [@deboer00], and complexity expands the possibilities within a signal space in a way that enhances functionality (e.g. to communicate concepts in language, or attract mates in birdsong) [@fitch00]. But there is, of course, a limit. Simulations show that cultural evolution plateaus when complex behaviors are too costly [@mesoudi11]. Evidence from linguistics, animal behavior, and cultural evolution suggests that communication systems generally evolve to balance this complexity-efficiency trade-off [@gibson_etal19; @gruber_etal22; @youngblood_etal23]<!--[@jaeger_tily11; @hahn_etal20]-->.
 
-<!--Notions of complexity vary widely and are sometimes uncorrelated across levels of analysis [@mikula_etal18; @benedict_najar19]. -->In the birdsong literature, complexity is usually described at one of three levels: syllables (individual sounds within songs), songs (sequences of syllables), or repertoires (full set of syllables or songs that a bird produces). Syllable and repertoire complexity are approximated with measures of production cost (e.g. frequency bandwidth, number of transitions in pitch [@youngbloodContentBiasCultural2022]<!--[@benedict_najar19]-->) and learning cost (e.g. diversity of unique syllables or songs [@garamszegi_etal05]<!--[@soma_garamszegi11]-->), respectively. Song complexity, on the other hand, is often characterized by measures of hierarchical or combinatorial structure [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019]. Structured signals are more compressible and learnable [@raviv_etal21; @Verhoef2012; @gibson_etal19], which allows more information to "pass through the bottleneck" of cultural transmission [@kirby17; @gruber_etal22]. The former increases both production and learning costs, whereas the latter decreases learning costs. Both notions of complexity, however, should boost the benefits of communication by expanding the signal space. Syllable complexity allows for greater diversity in syllable types, and song complexity allows those syllable types to be combined into a wider array of song types.
+<!--Notions of complexity vary widely and are sometimes uncorrelated across levels of analysis [@mikula_etal18; @benedict_najar19]. -->In the birdsong literature, complexity is usually described at one of three levels: syllables (individual sounds within songs), songs (sequences of syllables), or repertoires (full set of syllables or songs that a bird produces). Syllable and repertoire complexity are approximated with measures of production cost (e.g. frequency bandwidth, number of transitions in pitch [@youngbloodContentBiasCultural2022]<!--[@benedict_najar19]-->) and learning cost (e.g. diversity of unique syllables or songs [@garamszegi_etal05]<!--[@soma_garamszegi11]-->), respectively. Song complexity, on the other hand, is often characterized by measures of hierarchical or combinatorial structure [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019]. Structured signals are more compressible and learnable [@raviv_etal21; @Verhoef2012; @gibson_etal19], which allows more information to "pass through the bottleneck" of cultural transmission [@kirby17; @gruber_etal22]. Syllable complexity increases both production and learning costs, whereas song complexity decreases learning costs. Both notions of complexity, however, should boost the benefits of communication by expanding the signal space. Syllable complexity allows for greater diversity in syllable types, and song complexity allows those syllable types to be combined into a wider array of song types.
 
-The effect of this complexity-efficiency trade-off has been confirmed by experiments showing that artificial languages gain efficiency [@fedzechkina_etal12]<!--[@fay_ellison13; @robertsHowCommunicationChanges2015]--> and structure [@kirby_etal08]<!--[@raviv_etal19; @ISI:000357544300009; @nolle_etal18]--> as they are culturally transmitted and used by participants. <!--Efficiency gains can occur from language use alone [@motamedi_etal19], but the emergence of structure seems to require both use and cultural transmission [@carr_etal17; @ISI:000357544300009]. Most experimental work has focused on compositional structure, or the lexical relationships that determine meaning. Birdsong has no mapping between signals and meanings and thus no compositional structure [@miyagawa_etal13], but iterated learning may still lead to combinatorial structure [@kirby_etal14]. -->Studies of continuous whistled communication systems that resemble birdsong have also detected increases in combinatorial structure (i.e. signals comprised of constituent parts that are recombined in different ways) [@Verhoef2012]<!--[@ISI:000388565700005; @ISI:000334983600006; @tamariz_kirby16]-->. Birdsong experiments yield similar results. Zebra finches raised in isolation sing atypical songs, but over several generations they converge towards wild-type song by shortening the longest syllables and gaining spectral structure [@Feher2009]. <!--In a replication of @Feher2009, isolate song also increased in efficiency: song bouts and motifs became shorter and denser, and syllables became shorter and lower in amplitude [@diezZebraFinchesGo2020]. Zebra finches also appear to learn songs more accurately when they have more acoustic variation and less extreme features, possibly as a way to balance the diversity of sequences and efficiency of syllables [@tchernichovskiBalancedImitationSustains2021]. -->Even foraging behaviors that are culturally transmitted become more efficient over time, a tendency that is accelerated by population turnover because new group members are more likely to adopt the more efficient behavior [@Chimento2020].
+The effect of this complexity-efficiency trade-off has been confirmed by experiments showing that artificial languages gain efficiency [@fedzechkina_etal12]<!--[@fay_ellison13; @robertsHowCommunicationChanges2015]--> and structure [@kirby_etal08]<!--[@raviv_etal19; @ISI:000357544300009; @nolle_etal18]--> as they are culturally transmitted and used by participants. <!--Efficiency gains can occur from language use alone [@motamedi_etal19], but the emergence of structure seems to require both use and cultural transmission [@carr_etal17; @ISI:000357544300009]. Most experimental work has focused on compositional structure, or the lexical relationships that determine meaning. Birdsong has no mapping between signals and meanings and thus no compositional structure [@miyagawa_etal13], but iterated learning may still lead to combinatorial structure [@kirby_etal14]. -->Studies of continuous whistled communication systems that resemble birdsong have also detected increases in combinatorial structure (i.e. signals comprised of constituent parts that are recombined in different ways) [@Verhoef2012]<!--[@ISI:000388565700005; @ISI:000334983600006; @tamariz_kirby16]-->. Birdsong experiments yield similar results. Zebra finches raised in isolation sing atypical songs, but over several generations they converge towards wild-type song by shortening the longest syllables and gaining spectral structure [@Feher2009]. <!--In a replication of @Feher2009, isolate song also increased in efficiency: song bouts and motifs became shorter and denser, and syllables became shorter and lower in amplitude [@diezZebraFinchesGo2020]. Zebra finches also appear to learn songs more accurately when they have more acoustic variation and less extreme features, possibly as a way to balance the diversity of sequences and efficiency of syllables [@tchernichovskiBalancedImitationSustains2021]. -->Even foraging behaviors that are culturally transmitted become more efficient over time<!--, a tendency that is accelerated by population turnover because new group members are more likely to adopt the more efficient behavior --> [@Chimento2020].
 
 ## Linguistic Laws & Structure
 
@@ -90,13 +90,13 @@ Zipf's rank-frequency law predicts that the frequency of an item will be proport
 
 Zipf's law of abbreviation predicts that common items will tend to be shorter than rare items because their production cost is lower [@zipf49]. This negative correlation between frequency and duration is widespread in both written [@bentz_ferrer-i-cancho16] and spoken language [@petrini_etal23], and has also been observed in writing systems [@koshevoy_etal23] and non-human communication like chimpanzee gestures [@heesen_etal19] and bird and primate vocalizations [@semple_etal10; @huang_etal20; @favaro_etal20]. <!--In some cases, like hyrax vocalizations, Zipf's law of abbreviation is absent for duration but is present for other measures of production cost such as amplitude [@demartsev_etal19]. -->The explanation for Zipf's law of abbreviation is simple: when common items have a lower production cost than rare items then the overall production cost of signals goes down [@ferrer-i-cancho_etal13]. <!--Shorter signals carry other benefits as well, such as reduced predation risk and reverberation in the environment [@ferrer-i-cancho_etal13].-->
 
-Menzerath's law predicts that longer sequences will be comprised of shorter items to balance production costs [@menzerath54]. This negative correlation between sequence length and item length is found at various levels of analysis in language (e.g. clauses in sentences, morphemes in words) [@cramer05; @stave_etal21; @eroglu13] as well as in music [@boroda_altmann91]. In non-human communication, Menzerath's law appears to be present in chimpanzee gesture [@heesen_etal19] and in some primate and bird vocalizations [@gustisonGeladaVocalSequences2016; @huang_etal20; @favaro_etal20; @jamesPhylogenyMechanismsShared2021; @fedurek_etal17]<!--, although its detection may depend on the type of vocalization [@clink_lau20] and level of analysis [@clink_etal20]-->. The explanation for Menzerath's law is an extension of Zipf's law of abbreviation: when production costs are increased in one domain (e.g. song sequence length) they should be decreased in another (e.g. syllable duration).
+Menzerath's law predicts that longer sequences will be comprised of shorter items to balance production costs [@menzerath54]. This negative correlation between sequence length and item length is found at various levels of analysis in language (e.g. clauses in sentences, morphemes in words) [@cramer05; @stave_etal21; @eroglu13]<!-- as well as in music [@boroda_altmann91]-->. In non-human communication, Menzerath's law appears to be present in chimpanzee gesture [@heesen_etal19] and in the vocalizations of some primates and birds [@gustisonGeladaVocalSequences2016; @huang_etal20; @favaro_etal20; @fedurek_etal17], including house finches [@jamesPhylogenyMechanismsShared2021].<!--, although its detection may depend on the type of vocalization [@clink_lau20] and level of analysis [@clink_etal20]-->. The explanation for Menzerath's law is an extension of Zipf's law of abbreviation: when production costs are increased in one domain (e.g. song sequence length) they should be decreased in another (e.g. syllable duration).
 
 Beyond linguistic laws, there are two proxy measure of linguistic structure that have recently been investigated in non-human communication: small-world structure [@watts_strogatz98] and mutual information decay [@sainburgParallelsSequentialOrganization2019].
 
 Small-world networks are highly clustered and have short average path lengths, so that it only takes a few steps to jump between any pair of nodes (think "six degrees of separation") [@watts_strogatz98; @humphriesNetworkSmallworldnessQuantitative2008]. These sorts of networks are quite common in biological and social systems [@watts_strogatz98; @humphriesNetworkSmallworldnessQuantitative2008], including language. For example, networks of neighboring words in sentences and co-occurring words in thesauruses exhibit small-world structure [@canchoSmallWorldHuman2001; @steyvers_tenenbaum05]<!--[@motter_etal02]-->. <!--One explanation for this is that short distances between concepts make language easier to process [@beckage_etal11]. More broadly, though, s-->Small-worldness is thought to reflect general systematic structure and recurrence, which in turn improve the compressibility and learnability of information [@raviv_etal21; @allenNetworkAnalysisReveals2019; @ISI:000357544300009]. It is also hypothesized to reflect the emergence of syntactic structure over time [@sole_etal10], as both nightingales and children in more advanced stages of vocal development have greater small-world structure in their transition networks [@weissUseNetworkAnalysis2014; @beckage_etal11]. Humpback whales [@allenNetworkAnalysisReveals2019] and several songbird species [@sasahara_etal12; @weissUseNetworkAnalysis2014; @cody_etal16; @hedleyCompositionSequentialOrganization2016] all exhibit small-worldness in their song syntax to a similar degree.<!--: $SWI \sim 1.69-4.7$. The small-worldness index ($SWI$) is based on the level of clustering and the distances between nodes in the network of signal transitions, where values $> 1$ are consistent with small-world structure [@humphriesNetworkSmallworldnessQuantitative2008] (see [Analysis]).-->
 
-Mutual information is a measure of dependency, or the amount of information that the presence of one thing has about another. In the context of language, past words provide information that can help predict future words above chance levels (i.e. "do you need anything from the" $\to$ "store"). <!--Many large language models, for example, are optimized for precisely this task [@schrimpf_etal21; @shlegeris_etal22]. -->Intuitively, a word contains more information about the very next word than the one that comes after it [@pothos_juola07], but correlations can be detected even at very long distances of hundreds of words [@alvarez-lacalle_etal06; @altmann_etal12]. The rate at which the mutual information of words decreases with increasing distance can provide clues about underlying syntactic structure. Simple models of grammar that assume Markov processes (i.e. next word depends only on last few words) lead to exponential decay in mutual information with distance, whereas hierarchical processes (i.e. word order comes from nested syntactic rules that allow for long-range dependencies [@frank_etal12], common view going back to @chomsky57) lead to power-law decay [@li90; @linCriticalBehaviorPhysics2017]<!--[@alvarez-lacalle_etal06]-->. <!--Some past studies have shown that mutual information decay in real language often follows a power-law [@li90; @ebeling94; @linCriticalBehaviorPhysics2017], but other work suggests a more complicated picture somewhere between these accounts [@melnyk_etal05; @frank_etal12]. -->In German, Italian, Japanese, and English, mutual information decay is exponential at short distances and fits a power-law at long distances, suggesting that sequences are generated by a combination of Markovian and hierarchical processes [@sainburgParallelsSequentialOrganization2019; @sainburg_etal22]. This pattern has also been documented in four bird species, suggesting that sequential organization of song is more complex than previously thought [@sainburgParallelsSequentialOrganization2019].
+Mutual information is a measure of dependency, or the amount of information that the presence of one thing has about another. In the context of language, past words provide information that can help predict future words above chance levels (i.e. "do you need anything from the" $\to$ "store"). <!--Many large language models, for example, are optimized for precisely this task [@schrimpf_etal21; @shlegeris_etal22]. -->Intuitively, a word contains more information about the very next word than the one that comes after it [@pothos_juola07], but correlations can be detected even at very long distances of hundreds of words [@alvarez-lacalle_etal06]<!--; [@altmann_etal12]-->. The rate at which the mutual information of words decreases with increasing distance can provide clues about underlying syntactic structure. Simple models of grammar that assume Markov processes (i.e. next word depends only on last few words) lead to exponential decay in mutual information with distance, whereas hierarchical processes (i.e. word order comes from nested syntactic rules that allow for long-range dependencies [@frank_etal12], common view going back to @chomsky57) lead to power-law decay [@li90; @linCriticalBehaviorPhysics2017]<!--[@alvarez-lacalle_etal06]-->. <!--Some past studies have shown that mutual information decay in real language often follows a power-law [@li90; @ebeling94; @linCriticalBehaviorPhysics2017], but other work suggests a more complicated picture somewhere between these accounts [@melnyk_etal05; @frank_etal12]. -->In German, Italian, Japanese, and English, mutual information decay is exponential at short distances and fits a power-law at long distances, suggesting that sequences are generated by a combination of Markovian and hierarchical processes [@sainburgParallelsSequentialOrganization2019; @sainburg_etal22]. This pattern has also been documented in four bird species, suggesting that sequential organization of song is more complex than previously thought [@sainburgParallelsSequentialOrganization2019].
 
 <!-- ```{r law-table, echo = FALSE, message = FALSE} -->
 <!-- #load libraries -->
@@ -119,7 +119,7 @@ Mutual information is a measure of dependency, or the amount of information that
 
 ## Granularity
 
-In languages, the boundaries between signals at different levels of hierarchy (e.g. phonemes, words) are apparent to the humans who use them. In non-human communication systems, categorizing signals into types is its own challenge. <!--For relatively small datasets it is possible to manually inspect recorded signals and assign types. Increasingly, researchers are turning to automated methods such as hierarchical clustering [@Ju2019; @youngbloodContentBiasCultural2022], dimension reduction [@sainburg_etal20], and machine learning [@rivera_etal23; @merinorecalde23] that classify signals into types based on their acoustic features.  -->Automated methods that classify signals into types based on their acoustic features [@sainburg_etal20; @rivera_etal23; @merinorecalde23] reduce subjectivity and enable people to work with much more data, but they also require tuning. For example, hierarchical clustering<!--, which is my preferred classification method,--> requires the user to choose an appropriate threshold below which the "branches" of the "tree" are combined into types (see Figure \@ref(fig:figure-clustering)). This threshold effectively controls the granularity of clustering: higher values over-lump signals into fewer categories, while lower values over-split signals into more categories. The granularity of an analysis may influence the kinds of patterns that can detected. Philosophers of cultural evolution call this the "grain problem"---some statistical patterns may be more apparent at certain levels of analysis [@charbonneau_bourrat21]. In Gibbon vocalizations, for example, evidence for language-like compression is present for notes but not for phrases [@clink_etal20]. <!--Some have even proposed that adherence to Zipf's laws could be used a assess whether classification algorithms have identified relevant units in animal communication systems [@kershenbaum_etal16].-->
+In languages, the boundaries between signals <!--at different levels of hierarchy (e.g. phonemes, words) -->are apparent to the humans who use them. In non-human communication systems, categorizing signals into types is its own challenge. <!--For relatively small datasets it is possible to manually inspect recorded signals and assign types. Increasingly, researchers are turning to automated methods such as hierarchical clustering [@Ju2019; @youngbloodContentBiasCultural2022], dimension reduction [@sainburg_etal20], and machine learning [@rivera_etal23; @merinorecalde23] that classify signals into types based on their acoustic features.  -->Automated methods that classify signals into types based on their acoustic features [@sainburg_etal20; @rivera_etal23; @merinorecalde23] reduce subjectivity and enable people to work with much more data, but they also require tuning. For example, hierarchical clustering<!--, which is my preferred classification method,--> requires the user to choose an appropriate threshold below which the "branches" of the "tree" are combined into types (see Figure \@ref(fig:figure-clustering)). This threshold effectively controls the granularity of clustering: higher values over-lump signals into fewer categories, while lower values over-split signals into more categories. The granularity of an analysis may influence the kinds of patterns that can detected. Philosophers of cultural evolution call this the "grain problem"---some statistical patterns may be more apparent at certain levels of analysis [@charbonneau_bourrat21]. <!--In Gibbon vocalizations, for example, evidence for language-like compression is present for notes but not for phrases [@clink_etal20]. Some have even proposed that adherence to Zipf's laws could be used a assess whether classification algorithms have identified relevant units in animal communication systems [@kershenbaum_etal16].-->
 
 ## Aim & Model
 
@@ -127,11 +127,11 @@ The aim of this study is to assess the evidence for language-like efficiency and
 
 # Analysis
 
-Unless otherwise stated, all models were fit in STAN using the brms package in R [@burkner17], with 20,000 iterations across four MCMC chains. Model comparison was conducted using the widely-applicable information criterion (WAIC), a more robust alternative to AIC [@watanabe21], and a Bayesian form of R^2^ [@gelman_etal19]. Prior specifications, model diagnostics, and full model output for all analyses can be found in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). <!--I use the diagnostic heuristics recommended by @gelman_etal14: effective sample size $> 100$, and $1 < \hat{R} < 1.1$.-->
+Unless otherwise stated, all models were fit in STAN using the brms package in R [@burkner17], with 20,000 iterations across four MCMC chains. <!-- Model comparison was conducted using the widely-applicable information criterion (WAIC), a more robust alternative to AIC [@watanabe21], and a Bayesian form of R^2^ [@gelman_etal19].-->Prior specifications, model diagnostics, and full model output for all analyses can be found in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). <!--I use the diagnostic heuristics recommended by @gelman_etal14: effective sample size $> 100$, and $1 < \hat{R} < 1.1$.-->
 
 ## Data
 
-The recordings used in this study (2,724 songs from 331 individuals) were collected in 1975 [@Mundinger1975], 2012 [@Ju2019], and 2019 [@youngbloodContentBiasCultural2022] in the New York metropolitan area, and analyzed by @youngbloodContentBiasCultural2022 using Luscinia (https://rflachlan.github.io/Luscinia/) (full recording and analysis details, and an example of an analyzed song, are in @youngbloodContentBiasCultural2022 and the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). The main analysis was conducted using recordings from all three years, but the patterns are qualitatively the same when each year is analyzed separately (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+The recordings used in this study (2,724 songs from 331 individuals) were collected in 1975 [@Mundinger1975], 2012 [@Ju2019], and 2019 [@youngbloodContentBiasCultural2022] in the New York metropolitan area, and analyzed by @youngbloodContentBiasCultural2022 using Luscinia (https://rflachlan.github.io/Luscinia/) (full recording and analysis details, and an example of an analyzed song, are in @youngbloodContentBiasCultural2022 and the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). In this population, males have a repertoire of ~35-40 syllable types, which they combine into 1-7 stereotyped song types (mean of 3.1) that are between 6-31 syllables long (mean of 12.1) [@Ju2019]. The main analysis was conducted using recordings from all three years, but the patterns are qualitatively the same when each year is analyzed separately (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
 
 <!-- The data used in this study comes directly from the repository of @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). -->
 
@@ -142,9 +142,11 @@ load(url("https://github.com/masonyoungblood/TransmissionBias/raw/master/example
 
 ## Clustering
 
-Clustering was conducted using the log-transformed mean frequency traces (mean frequency in each 1 ms bin) for each syllable in every song [@Lachlan2018]. First, the normalized distances between all of the syllables were calculated via dynamic time warping with a window size of 10 (10% of the average signal length) using the dtwclust package in R [@SardaEspinosa2019]. A window size of 10% of the signal length is commonly used in speech processing research and seems to be a practical upper limit for many applications [@Ratanamahatana2005]. Infinite distances (0.19% of cases) caused by comparisons of syllables with extreme signal length differences were assigned the maximum observed distance value. Next, hierarchical clustering and dynamic tree cut were used to cluster the syllables into types [@Ju2019, @Roginek2018]. Hierarchical clustering was conducted with the UPGMA method implemented in the fastcluster package in R [@JSSv053i09], and dynamic tree cut was conducted with the dynamicTreeCut package in R [@langfelder_etal08].
+Clustering was conducted using the log-transformed mean frequency traces (mean frequency in each 1 ms bin) for each syllable in every song [@Lachlan2018]. I used the mean frequency traces for clustering because they are time series, which means they capture more subtle variation than other features from Luscinia (e.g. overall bandwidth) and can be compared using dynamic time warping. First, the normalized distances between all of the syllables were calculated via dynamic time warping with a window size of 10 (10% of the average signal length) using the dtwclust package in R [@SardaEspinosa2019]. A window size of 10% of the signal length is commonly used in speech processing research and seems to be a practical upper limit for many applications [@Ratanamahatana2005]. Infinite distances (0.19% of cases) caused by comparisons of syllables with extreme signal length differences were assigned the maximum observed distance value. Next, hierarchical clustering and dynamic tree cut were used to cluster the syllables into types [@Ju2019, @Roginek2018]. Hierarchical clustering was conducted with the UPGMA method implemented in the fastcluster package in R [@JSSv053i09], and dynamic tree cut was conducted with the dynamicTreeCut package in R [@langfelder_etal08].
 
-For dynamic tree cut, I ran the hybrid algorithm with a minimum cluster size of 1 to maximize the representation of rare syllable types, and used the deep split parameter ($DS$) to determine the granularity of clustering (details of $DS$ are in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). I restricted this analysis to $DS = \{2, 3, 4\}$ because values of $DS = \{0, 1\}$ lead to extremely unrealistic underestimates of the number of syllables types. $DS = 2$ leads to over-lumping of syllables into types ($n = 114$; low granularity), $DS = 3$ leads to a typical syllable classification ($n = 596$) [@youngbloodContentBiasCultural2022; @Ju2019; @Roginek2018], and $DS = 4$ lead to over-splitting ($n = 1646$; high granularity). The dendrogram and syllable classifications can be seen in Figure \@ref(fig:figure-clustering).
+For dynamic tree cut, I ran the hybrid algorithm with a minimum cluster size of 1 to maximize the representation of rare syllable types, and used the deep split parameter ($DS$) to determine the granularity of clustering (details of $DS$ are in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). I restricted this analysis to $DS = \{2, 3, 4\}$ because values of $DS = \{0, 1\}$ lead to extremely unrealistic underestimates of the number of syllables types. $DS = 2$ leads to over-lumping of syllables into types ($n = 114$; low granularity), $DS = 3$ leads to a typical syllable classification ($n = 596$) [@youngbloodContentBiasCultural2022; @Ju2019; @Roginek2018], and $DS = 4$ lead to over-splitting ($n = 1646$; high granularity). The dendrogram and syllable classifications can be seen in Figure \@ref(fig:figure-clustering). <!-- Unseen species models indicate that the sample of syllable types in the population is likely complete (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).-->
+
+Automated clustering methods carry a risk of duration-bias&mdash;variation may be more detectable in longer syllables [@gilman_etal23]. <!--This risk should be minimized by the use of dynamic time warping and dynamic tree cut, and-->Supplemental analyses suggest that this is not a significant problem for this study, but I have replicated the analysis of Zipf's law of abbreviation with manually-classified syllables [@Mann2020] for added robustness (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html) for both).
 
 ```{r clustering, eval = FALSE}
 #load library
@@ -318,6 +320,146 @@ load("data_models/processed_data.RData")
 data <- processed_data$data
 ```
 
+```{r unseen-species, echo = FALSE, eval = FALSE}
+#load libraries
+library(iNEXT)
+library(ggplot2)
+library(cowplot)
+
+#run unseen species models
+unseen_2 <- iNEXT(as.numeric(sort(table(data$cluster_2), decreasing = TRUE)), q = 0)
+unseen_3 <- iNEXT(as.numeric(sort(table(data$cluster_3), decreasing = TRUE)), q = 0)
+unseen_4 <- iNEXT(as.numeric(sort(table(data$cluster_4), decreasing = TRUE)), q = 0)
+
+#construct rarefaction plots for each level of deep split
+unseen_plot_2 <- ggiNEXT(unseen_2) + ggtitle("Deep Split: 2") + 
+  xlab("Number of sampled syllables") + ylab("Richness (*q* = 0)") + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + theme(legend.position = "none", axis.title.y = ggtext::element_markdown()) + 
+  guides(linetype = "none") + scale_color_manual(values = "#009E73") + scale_fill_manual(values = "#009E73")
+unseen_plot_2$layers[[1]]$aes_params$size <- 2
+unseen_plot_2$layers[[2]]$aes_params$linewidth <- 0.5
+unseen_plot_3 <- ggiNEXT(unseen_3) + ggtitle("Deep Split: 3") + 
+  xlab("Number of sampled syllables") + ylab("Richness (*q* = 0)") + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + theme(legend.position = "none", axis.title.y = ggtext::element_markdown()) + 
+  guides(linetype = "none") + scale_color_manual(values = "#D55E00") + scale_fill_manual(values = "#D55E00")
+unseen_plot_3$layers[[1]]$aes_params$size <- 2
+unseen_plot_3$layers[[2]]$aes_params$linewidth <- 0.5
+unseen_plot_4 <- ggiNEXT(unseen_4) + ggtitle("Deep Split: 4") + 
+  xlab("Number of sampled syllables") + ylab("Richness (*q* = 0)") + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + theme(legend.position = "none", axis.title.y = ggtext::element_markdown()) + 
+  guides(linetype = "none") + scale_color_manual(values = "#0072B2") + scale_fill_manual(values = "#0072B2")
+unseen_plot_4$layers[[1]]$aes_params$size <- 2
+unseen_plot_4$layers[[2]]$aes_params$linewidth <- 0.5
+
+#combined rarefaction plots and save
+png("plots/unseen_species.png", width = 6.8, height = 1.8, units = "in", res = 600)
+plot_grid(unseen_plot_2, unseen_plot_3, unseen_plot_4, nrow = 1)
+dev.off()
+```
+
+```{r, echo = FALSE, eval = FALSE}
+#compute r-squared for each measure and each level of deep split
+token_var_by_type <- do.call(rbind, parallel::mclapply(1:4, function(x){
+  #create temporary data frame with corresponding measure of cost
+  if(x == 1){temp_data <- data.frame(measure = scale(data$duration))}
+  if(x == 2){temp_data <- data.frame(measure = scale(data$bandwidth))}
+  if(x == 3){temp_data <- data.frame(measure = scale(data$concavity))}
+  if(x == 4){temp_data <- data.frame(measure = scale(data$excursion))}
+  
+  unlist(lapply(1:3, function(y){
+    #add cluster that corresponds to level of deep split
+    if(y == 1){temp_data$cluster <- data$cluster_2}
+    if(y == 2){temp_data$cluster <- data$cluster_3}
+    if(y == 3){temp_data$cluster <- data$cluster_4}
+    
+    #get r-squared value from model that just includes the cluster
+    return(performance::r2(lme4::lmer(scale(measure) ~ (1|cluster), data = temp_data))[1])
+  }))
+}, mc.cores = 4))
+
+#restructure the matrix for inclusion in the supplement
+token_var_by_type <- data.frame(token_var_by_type)
+colnames(token_var_by_type) <- c("DS: 2", "DS: 3", "DS: 4")
+rownames(token_var_by_type) <- c("Duration", "Bandwidth", "Concavity", "Excursion")
+
+#save
+save(token_var_by_type, file = "data_models/token_var_by_type.RData")
+```
+
+```{r, echo = FALSE, eval = FALSE}
+#compute median values for each individual type
+summarized_data <- list(cbind(aggregate(duration ~ cluster_2, data = data, median), 
+                              bandwidth = aggregate(bandwidth ~ cluster_2, data = data, median)$bandwidth, 
+                              concavity = aggregate(concavity ~ cluster_2, data = data, median)$concavity, 
+                              excursion = aggregate(excursion ~ cluster_2, data = data, median)$excursion,
+                              count = as.numeric(table(data$cluster_2))), 
+                        cbind(aggregate(duration ~ cluster_3, data = data, median), 
+                              bandwidth = aggregate(bandwidth ~ cluster_3, data = data, median)$bandwidth, 
+                              concavity = aggregate(concavity ~ cluster_3, data = data, median)$concavity, 
+                              excursion = aggregate(excursion ~ cluster_3, data = data, median)$excursion,
+                              count = as.numeric(table(data$cluster_3))), 
+                        cbind(aggregate(duration ~ cluster_4, data = data, median), 
+                              bandwidth = aggregate(bandwidth ~ cluster_4, data = data, median)$bandwidth, 
+                              concavity = aggregate(concavity ~ cluster_4, data = data, median)$concavity, 
+                              excursion = aggregate(excursion ~ cluster_4, data = data, median)$excursion,
+                              count = as.numeric(table(data$cluster_4))))
+for(x in 1:3){colnames(summarized_data[[x]]) <- c("cluster", "duration", "bandwidth", "concavity", "excursion", "count")}
+
+#collapsed separate data frames into one for plotting
+collapsed_data <- cbind(split = c(rep(2, nrow(summarized_data[[1]])),
+                                  rep(3, nrow(summarized_data[[2]])),
+                                  rep(4, nrow(summarized_data[[3]]))), 
+                        do.call(rbind, summarized_data))
+
+#determine whether distributions are statistically different
+summary(lm(log(duration) ~ factor(split), data = collapsed_data))
+
+#create legend for plotting
+dummy_data <- data.frame(x = rep(1:10, 3), y = rep(1:10, 3), group = rep(c("2", "3", "4"), each = 10))
+legend <- ggplot(dummy_data, aes(x = x, y = y, color = group)) + geom_line() + theme_linedraw(base_size = 8, base_family = "Avenir") + 
+  scale_color_manual(name = "Deep Split", breaks = c("2", "3", "4"), values = c("#009E73", "#D55E00", "#0072B2")) + 
+  theme(legend.position = "right")
+
+#plot distributions for each value of deep split
+dist_plot <- ggplot() + 
+  #geom_density(data = data, aes(x = duration), linewidth = 0.5, linetype = "dashed") + 
+  geom_density(data = collapsed_data, aes(x = duration, group = split, color = factor(split)), linewidth = 0.5) + 
+  scale_color_manual(name = "Deep Split", breaks = c("2", "3", "4"), values = c("#009E73", "#D55E00", "#0072B2")) + 
+  scale_y_continuous(breaks = c(0, 0.008), limits = c(0, 0.009)) + 
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 700)) + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + 
+  xlab("Median Duration (ms)") + ylab("Density") + 
+  theme(legend.position = "none")
+
+#structure data to look at how median duration changes with syllable reassignment to more granular clusters
+reassign_data <- data.frame(med_dur = c(summarized_data[[1]]$duration[match(data$cluster_2, summarized_data[[1]]$cluster)],
+                                        summarized_data[[2]]$duration[match(data$cluster_3, summarized_data[[2]]$cluster)],
+                                        summarized_data[[3]]$duration[match(data$cluster_4, summarized_data[[3]]$cluster)]),
+                            syl_id = rep(1:nrow(data), 3),
+                            cluster = rep(2:4, each = nrow(data)))
+
+#determine whether median duration is biased by granularity
+reassign_model <- lme4::lmer(log(med_dur) ~ cluster + (1|syl_id), reassign_data)
+
+#restructure to have confidence intervals and estimated effect of increase in cluster on duration (ms) of assigned syllabe
+reassign_effect <- c(summary(reassign_model)$coef[2, ], confint(reassign_model)[4, ], Est_in_ms = exp(summary(reassign_model)$coef[2, 1]))
+
+#plot median durations over clusters
+reassign_plot <- ggplot(reassign_data, aes(x = cluster, y = med_dur, group = syl_id)) + 
+  geom_line(color = scales::alpha("black", 0.01), linewidth = 0.2) + 
+  geom_line(aes(y = median(med_dur)), color = "#D55E00", linetype = "dashed") + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + 
+  xlab("Deep Split") + ylab("Med. Duration (ms) of Types\n(for Individual Tokens)") + 
+  scale_x_continuous(breaks = c(2, 3, 4), labels = c(2, 3, 4), expand = c(0, 0)) + 
+  scale_y_continuous(limits = c(0, 800)) + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+#combine and save plot
+png("plots/explore_durations.png", width = 6.8, height = 2.4, units = "in", res = 600)
+plot_grid(plot_grid(dist_plot, get_legend(legend), rel_widths = c(1, 0.2)), reassign_plot, labels = c("A", "B"), rel_widths = c(1, 0.8))
+dev.off()
+```
+
 ## Zipf's Rank-Frequency Law
 
 Mandelbrot's generalization of Zipf's rank-frequency law takes the following form [@Mandelbrot1953; @Mandelbrot1962]:
@@ -327,7 +469,7 @@ f(r) = \frac{c}{(r + \beta)^\alpha}
 (\#eq:zipf-rf-a)
 \end{equation}
 
-where $f(r)$ is the normalized frequency at each rank $r$, $c$ is a normalization term, and $\alpha$ and $\beta$ are parameters that control slope and convexity (respectively). According to @izsak06, the bounds of \@ref(eq:zipf-rf-a) are $\alpha > 1$, $\beta > -1$, and $c > 1$. When $\beta = 0$, this function simplifies to the original form of Zipf's rank-frequency law: $f(r) \propto 1/r^\alpha$.
+where $f(r)$ is the normalized frequency at each rank $r$, $c$ is a normalization parameter, and $\alpha$ and $\beta$ are parameters that control slope and convexity (respectively). According to @izsak06, the bounds of \@ref(eq:zipf-rf-a) are $\alpha > 1$, $\beta > -1$, and $c > 1$. When $\beta = 0$, this function simplifies to the original form of Zipf's rank-frequency law: $f(r) \propto 1/r^\alpha$.
 
 <!-- $c$ is usually a normalization constant [@izsak06; @mouillot_lepretre00; @macutek22] defined as: -->
 
@@ -489,7 +631,7 @@ lines_c <- data.frame(freqs = c(zipf_rf_models$zipf$ds_4[2, 1]/(zipf_rf_models$d
 
 #create zipf rank plot for three levels of deep split
 rank_plot_a <- ggplot() + 
-  geom_point(data = zipf_rf_models$data$ds_2, aes(x = rank, y = freq), size = 0.3, color = "black") + 
+  geom_point(data = zipf_rf_models$data$ds_2, aes(x = rank, y = freq), size = 1, stroke = 0, color = "black") + 
   geom_line(data = lines_a, aes(x = ranks, y = freqs, color = models), linewidth = 0.5) + 
   scale_x_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
   scale_y_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
@@ -498,7 +640,7 @@ rank_plot_a <- ggplot() +
   labs(subtitle = paste0("Deep Split: 2 (", prettyNum(nrow(syl_types[[3]]), big.mark = ","), " Syllable Types)")) + 
   xlab("Rank") + ylab("Count") + theme(legend.position = "none")
 rank_plot_b <- ggplot() + 
-  geom_point(data = zipf_rf_models$data$ds_3, aes(x = rank, y = freq), size = 0.3, color = "black") + 
+  geom_point(data = zipf_rf_models$data$ds_3, aes(x = rank, y = freq), size = 1, stroke = 0, color = "black") + 
   geom_line(data = lines_b, aes(x = ranks, y = freqs, color = models), linewidth = 0.5) + 
   scale_x_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
   scale_y_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
@@ -507,7 +649,7 @@ rank_plot_b <- ggplot() +
   labs(subtitle = paste0("Deep Split: 3 (", prettyNum(nrow(syl_types[[4]]), big.mark = ","), " Syllable Types)")) + 
   xlab("Rank") + ylab("Count") + theme(legend.position = "none")
 rank_plot_c <- ggplot() + 
-  geom_point(data = zipf_rf_models$data$ds_4, aes(x = rank, y = freq), size = 0.3, color = "black") + 
+  geom_point(data = zipf_rf_models$data$ds_4, aes(x = rank, y = freq), size = 1, stroke = 0, color = "black") + 
   geom_line(data = lines_c, aes(x = ranks, y = freqs, color = models), linewidth = 0.5) + 
   scale_x_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
   scale_y_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
@@ -528,7 +670,7 @@ cowplot::plot_grid(rank_plot_b + labs(subtitle = NULL), cowplot::get_legend(lege
 dev.off()
 ```
 
-```{r figure-zipf-rank-small, echo = FALSE, fig.align = "center", out.width = "50%", fig.cap = "The relationship between rank (x-axis) and count (y-axis) at the intermediate granularity level (DS = 3, 596 syllable types). The blue and orange lines denote the expected distributions according to Zipf's rank-frequency law (blue) and Mandelbrot's extension of it (orange)."}
+```{r figure-zipf-rank-small, echo = FALSE, fig.align = "center", out.width = "50%", fig.cap = "The relationship between rank (x-axis) and count (y-axis) at the intermediate granularity level (DS = 3, 596 syllable types). The blue and orange lines denote the expected distributions according to Zipf's rank-frequency law (blue; a = 1.00, c = 0.08) and Mandelbrot's extension of it (orange; a = 1.20, b = 5.69, c = 0.52)."}
 knitr::include_graphics("plots/rank_count_small.png")
 ```
 
@@ -537,7 +679,11 @@ load("data_models/zipf_rf_models.RData")
 load("data_models/zipf_rf_models_year.RData")
 ```
 
-The observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is only weakly consistent with the the original form of Zipf's rank frequency law ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$ at $DS = \{2, 3, 4\}$). Figure \@ref(fig:figure-zipf-rank-small) shows the rank-frequency distribution at the intermediate granularity level ($DS = 3$; 596 syllable types), while all three can be seen in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). <!--$R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23].--> The Zipf-Mandelbrot distribution also outcompetes Zipf's original form and has $R^2 > `r min(signif(c(zipf_rf_models_year[[1]]$r2[4:6], zipf_rf_models_year[[2]]$r2[4:6], zipf_rf_models_year[[3]]$r2[4:6]), digits = 2))`$ when models are fit separately to the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+As there is no established hypothesis test for Zipf's rank-frequency law, I will simply report the goodness-of-fit (the norm in linguistics) and refer to it as "consistent" with the law when it is within the range reported for human languages ($R^2$ > 0.8) [@piantadosi14; @linders_louwerse23].
+
+The observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity in syllable clustering ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is inconsistent with the the original form of Zipf's rank frequency law at the two of the three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$). Figure \@ref(fig:figure-zipf-rank-small) shows the rank-frequency distribution at the intermediate granularity level ($DS = 3$; 596 syllable types), while all three can be seen in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). It appears that the distribution has a poorer fit to the rarer syllable types. While this may be due to the relatively small size of our corpus (e.g. compared to bibles), systematic departures from the Zipf-Mandelbrot distribution at high ranks have also been observed in human language [@piantadosi14]. <!--$R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23].--> 
+
+The Zipf-Mandelbrot distribution also outcompetes Zipf's original form and has $R^2 > `r min(signif(c(zipf_rf_models_year[[1]]$r2[4:6], zipf_rf_models_year[[2]]$r2[4:6], zipf_rf_models_year[[3]]$r2[4:6]), digits = 2))`$ when models are fit separately to the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
 
 <!-- The $WAIC$ values and fitted parameters for all six models can be found in the [Supplementary Information]. -->
 
@@ -601,7 +747,7 @@ data$year <- as.factor(data$year)
 
 #create function for extracting effect and confidence intervals from model
 extraction <- function(model){
-  temp_a <- fixef(model)[2]
+  temp_a <- lme4::fixef(model)[2]
   temp_b <- confint(model)[5, ]
   return(as.numeric(c(temp_a, temp_b)))
 }
@@ -670,50 +816,50 @@ data <- processed_data$data
 load("data_models/zipf_models.RData")
 
 #create zipfian distributions for duration across three values of deep split
-zipf_plot_a <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = duration, y = count)) + geom_point(color = "black", size = 0.3) + 
+zipf_plot_a <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = duration, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                      geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                      theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("") + labs(subtitle = paste0("Deep Split: 2 (", prettyNum(nrow(syl_types[[3]]), big.mark = ","), " Syllable Types)")),
-                  ggplot(data = syl_types[[4]], aes(x = duration, y = count)) + geom_point(color = "black", size = 0.3) + 
+                  ggplot(data = syl_types[[4]], aes(x = duration, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                      geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                      theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Duration (ms)") + labs(subtitle = paste0("Deep Split: 3 (", prettyNum(nrow(syl_types[[4]]), big.mark = ","), " Syllable Types)")),
-                   ggplot(data = syl_types[[5]], aes(x = duration, y = count)) + geom_point(color = "black", size = 0.3) + 
+                   ggplot(data = syl_types[[5]], aes(x = duration, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                      geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                      theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("") + labs(subtitle = paste0("Deep Split: 4 (", prettyNum(nrow(syl_types[[5]]), big.mark = ","), " Syllable Types)")),
                    nrow = 1)
 
 #create zipfian distributions for concavity across three values of deep split
-zipf_plot_b <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = concavity, y = count)) + geom_point(color = "black", size = 0.3) + 
+zipf_plot_b <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = concavity, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
-                        ggplot(data = syl_types[[4]], aes(x = concavity, y = count)) + geom_point(color = "black", size = 0.3) + 
+                        ggplot(data = syl_types[[4]], aes(x = concavity, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Concavity (#/ms)"),
-                        ggplot(data = syl_types[[5]], aes(x = concavity, y = count)) + geom_point(color = "black", size = 0.3) + 
+                        ggplot(data = syl_types[[5]], aes(x = concavity, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
                         nrow = 1)
 
 #create zipfian distributions for excursion across three values of deep split
-zipf_plot_c <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = bandwidth, y = count)) + geom_point(color = "black", size = 0.3) + 
+zipf_plot_c <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = bandwidth, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
-                        ggplot(data = syl_types[[4]], aes(x = bandwidth, y = count)) + geom_point(color = "black", size = 0.3) + 
+                        ggplot(data = syl_types[[4]], aes(x = bandwidth, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Bandwidth (Hz)"),
-                        ggplot(data = syl_types[[5]], aes(x = bandwidth, y = count)) + geom_point(color = "black", size = 0.3) + 
+                        ggplot(data = syl_types[[5]], aes(x = bandwidth, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
                         nrow = 1)
 
 #create zipfian distributions for bandwidth across three values of deep split
-zipf_plot_d <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = excursion, y = count)) + geom_point(color = "black", size = 0.3) + 
+zipf_plot_d <- cowplot::plot_grid(ggplot(data = syl_types[[3]], aes(x = excursion, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
-                        ggplot(data = syl_types[[4]], aes(x = excursion, y = count)) + geom_point(color = "black", size = 0.3) + 
+                        ggplot(data = syl_types[[4]], aes(x = excursion, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           scale_x_continuous(breaks = c(40, 100, 160, 220)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Excursion (Hz/ms)"),
-                        ggplot(data = syl_types[[5]], aes(x = excursion, y = count)) + geom_point(color = "black", size = 0.3) + 
+                        ggplot(data = syl_types[[5]], aes(x = excursion, y = count)) + geom_point(color = "black", size = 1, stroke = 0) + 
                           geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "#D55E00", linewidth = 0.5) + scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
                           scale_x_continuous(breaks = c(50, 100, 150, 200, 250)) + 
                           theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
@@ -729,17 +875,276 @@ cowplot::plot_grid(ggplot() + theme_void(), y_axis, cowplot::plot_grid(zipf_plot
 dev.off()
 ```
 
-Duration, bandwidth, and excursion had strong negative effects on count at all three levels of granularity (Table \@ref(tab:zipf-abbr-tables)). Concavity had no effect on count at the first two levels of granularity, but had a very weak negative effect at the third level of granularity. These patterns are apparent in the plots of median production costs and counts in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). The results are qualitatively identical when the year of recording (1975, 2012, or 2019) is included as a varying intercept (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+```{r zipf-abbr-tokens-plot, echo = FALSE, eval = FALSE}
+#load library
+library(ggplot2)
+
+#load data and models
+load("data_models/processed_data.RData")
+data <- processed_data$data
+syl_types <- processed_data$syl_types
+
+#set color of points
+point_color <- scales::alpha("black", 0.1)
+
+#create zipfian distributions for duration across three values of deep split
+zipf_plot_a <- cowplot::plot_grid(ggplot(data = data, aes(x = duration, y = count_2)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                     scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                     theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("") + labs(subtitle = paste0("Deep Split: 2 (", prettyNum(nrow(syl_types[[3]]), big.mark = ","), " Syllable Types)")),
+                  ggplot(data = data, aes(x = duration, y = count_3)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                     scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                     theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Duration (ms)") + labs(subtitle = paste0("Deep Split: 3 (", prettyNum(nrow(syl_types[[4]]), big.mark = ","), " Syllable Types)")),
+                   ggplot(data = data, aes(x = duration, y = count_4)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                     scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                     theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("") + labs(subtitle = paste0("Deep Split: 4 (", prettyNum(nrow(syl_types[[5]]), big.mark = ","), " Syllable Types)")),
+                   nrow = 1)
+
+#create zipfian distributions for concavity across three values of deep split
+zipf_plot_b <- cowplot::plot_grid(ggplot(data = data, aes(x = concavity, y = count_2)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
+                        ggplot(data = data, aes(x = concavity, y = count_3)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Concavity (#/ms)"),
+                        ggplot(data = data, aes(x = concavity, y = count_4)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
+                        nrow = 1)
+
+#create zipfian distributions for excursion across three values of deep split
+zipf_plot_c <- cowplot::plot_grid(ggplot(data = data, aes(x = bandwidth, y = count_2)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
+                        ggplot(data = data, aes(x = bandwidth, y = count_3)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Bandwidth (Hz)"),
+                        ggplot(data = data, aes(x = bandwidth, y = count_4)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
+                        nrow = 1)
+
+#create zipfian distributions for bandwidth across three values of deep split
+zipf_plot_d <- cowplot::plot_grid(ggplot(data = data, aes(x = excursion, y = count_2)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
+                        ggplot(data = data, aes(x = excursion, y = count_3)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab("Median Excursion (Hz/ms)"),
+                        ggplot(data = data, aes(x = excursion, y = count_4)) + geom_point(color = point_color, size = 1, stroke = 0) + 
+                          scale_y_continuous(labels = scales::label_number(suffix = "k", scale = 1e-3)) + 
+                          theme_linedraw(base_size = 8, base_family = "Avenir") + ylab(NULL) + xlab(""),
+                        nrow = 1)
+
+#create blank plot with y-axis for plotting
+y_axis <- ggplot(data = syl_types[[5]], aes(x = excursion, y = count)) + ylab("Count") + xlab("") + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + theme(panel.grid = element_blank(), axis.title.x = element_blank(), axis.text = element_blank(), axis.ticks = element_blank(), panel.background = element_blank(), panel.border = element_blank())
+
+#save plot to file
+png("plots/token_dists.png", width = 6.8, height = 4.4, units = "in", res = 600)
+cowplot::plot_grid(ggplot() + theme_void(), y_axis, cowplot::plot_grid(zipf_plot_a, zipf_plot_c, zipf_plot_b, zipf_plot_d, nrow = 4, rel_heights = c(1.12, 1, 1, 1)), ncol = 3, rel_widths = c(0.02, 0.003, 1))
+dev.off()
+```
+
+```{r, echo = FALSE, eval = FALSE}
+#load ggplot
+library(ggplot2)
+library(cowplot)
+
+#calculation and significance test for kendall's tau using the ZLAvian package
+#mean used rather than mixed because of convergence issues for some conditions
+#vignette here: https://cran.r-project.org/web/packages/ZLAvian/vignettes/ZLAvian.html
+zla_duration_2 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_2), duration = as.numeric(data$duration), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_duration_3 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_3), duration = as.numeric(data$duration), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_duration_4 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_4), duration = as.numeric(data$duration), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_bandwidth_2 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_2), duration = as.numeric(data$bandwidth), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_bandwidth_3 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_3), duration = as.numeric(data$bandwidth), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_bandwidth_4 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_4), duration = as.numeric(data$bandwidth), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_concavity_2 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_2), duration = as.numeric(data$concavity+0.0001), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_concavity_3 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_3), duration = as.numeric(data$concavity+0.0001), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_concavity_4 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_4), duration = as.numeric(data$concavity+0.0001), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_excursion_2 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_2), duration = as.numeric(data$excursion+0.0001), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_excursion_3 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_3), duration = as.numeric(data$excursion+0.0001), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+zla_excursion_4 <- ZLAvian::testZLA(data.frame(note = as.character(data$cluster_4), duration = as.numeric(data$excursion+0.0001), ID = factor(data$individual)), minimum = 1, null = 1000, est = "mean", cores = 7)
+
+#construct table of results
+zla_kendall_table <- rbind(
+  cbind(param = "duration", split = rep(c(2, 3, 4), each = 2), level = c("individual", "population"), as.data.frame(rbind(zla_duration_2$stats, zla_duration_3$stats, zla_duration_4$stats))),
+  cbind(param = "bandwidth", split = rep(c(2, 3, 4), each = 2), level = c("individual", "population"), as.data.frame(rbind(zla_bandwidth_2$stats, zla_bandwidth_3$stats, zla_bandwidth_4$stats))),
+  cbind(param = "concavity", split = rep(c(2, 3, 4), each = 2), level = c("individual", "population"), as.data.frame(rbind(zla_concavity_2$stats, zla_concavity_3$stats, zla_concavity_4$stats))),
+  cbind(param = "excursion", split = rep(c(2, 3, 4), each = 2), level = c("individual", "population"), as.data.frame(rbind(zla_excursion_2$stats, zla_excursion_3$stats, zla_excursion_4$stats)))
+)
+rownames(zla_kendall_table) <- NULL
+zla_kendall_table$sig <- ""
+zla_kendall_table$sig[which(zla_kendall_table$p < 0.05)] <- "*"
+zla_kendall_table$sig[which(zla_kendall_table$p < 0.01)] <- "**"
+zla_kendall_table$sig[which(zla_kendall_table$p < 0.001)] <- "***"
+zla_kendall_table$sig[which(zla_kendall_table$p < 0.0001)] <- "****"
+
+#save it
+save(zla_kendall_table, file = "data_models/zla_kendall_table.RData")
+```
+
+```{r, echo = FALSE, eval = FALSE}
+#load library and data
+library(brms)
+mann_data <- read.csv("data_models/mann_et_al_2021.csv")
+
+#subset mann et al 2021 data into the most heavily sampled house finch-tutored and canary-tutored birds
+hofi_tutored_data <- mann_data[which(mann_data$individual == "B1-74"), ]
+cnry_tutored_data <- mann_data[which(mann_data$individual == "B1"), ]
+no_tutored_data <- mann_data[which(mann_data$individual == "D4"), ]
+
+#add counts of each syllable type and divide concavity by duration to match existing analysis
+hofi_tutored_data$count <- sapply(1:nrow(hofi_tutored_data), function(x){length(which(hofi_tutored_data$syllable == hofi_tutored_data$syllable[x]))})
+cnry_tutored_data$count <- sapply(1:nrow(cnry_tutored_data), function(x){length(which(cnry_tutored_data$syllable == cnry_tutored_data$syllable[x]))})
+no_tutored_data$count <- sapply(1:nrow(no_tutored_data), function(x){length(which(no_tutored_data$syllable == no_tutored_data$syllable[x]))})
+hofi_tutored_data$concavity <- hofi_tutored_data$concavity/hofi_tutored_data$duration
+cnry_tutored_data$concavity <- cnry_tutored_data$concavity/cnry_tutored_data$duration
+no_tutored_data$concavity <- no_tutored_data$concavity/no_tutored_data$duration
+
+#set priors, a has lower bound on intercept (because outcome is only positive) while b does not
+zipf_priors_a <- prior(normal(0, 4), lb = 0, class = "Intercept") + 
+  prior(normal(0, 0.5), class = "b") + 
+  prior(normal(0, 0.5), lb = 0, class = "sd") + 
+  prior(normal(0, 0.5), lb = 0, class = "sigma")
+zipf_priors_b <- prior(normal(0, 4), class = "Intercept") + 
+  prior(normal(0, 0.5), class = "b") + 
+  prior(normal(0, 0.5), lb = 0, class = "sd") + 
+  prior(normal(0, 0.5), lb = 0, class = "sigma")
+
+#run duration, bandwidth, and concavity models for house finch-tutored bird
+hofi_tutored_duration_model <- brm(log(duration) ~ scale(count) + (1|syllable), data = hofi_tutored_data, prior = zipf_priors_a, iter = 5000, cores = 4)
+hofi_tutored_bandwidth_model <- brm(log(range) ~ scale(count) + (1|syllable), data = hofi_tutored_data, prior = zipf_priors_a, iter = 5000, cores = 4)
+hofi_tutored_concavity_model <- brm(log(concavity + 0.0001) ~ scale(count) + (1|syllable), data = hofi_tutored_data, prior = zipf_priors_b, iter = 5000, cores = 4)
+hofi_tutored_excursion_model <- brm(log(fex + 0.0001) ~ scale(count) + (1|syllable), data = hofi_tutored_data, prior = zipf_priors_b, iter = 5000, cores = 4)
+
+#run duration, bandwidth, and concavity models for canary-tutored bird
+cnry_tutored_duration_model <- brm(log(duration) ~ scale(count) + (1|syllable), data = cnry_tutored_data, prior = zipf_priors_a, iter = 5000, cores = 4)
+cnry_tutored_bandwidth_model <- brm(log(range + 1) ~ scale(count) + (1|syllable), data = cnry_tutored_data, prior = zipf_priors_a, iter = 5000, cores = 4) #adding 1 because the minimum bandwidth is 0, which is impossible
+cnry_tutored_concavity_model <- brm(log(concavity + 0.0001) ~ scale(count) + (1|syllable), data = cnry_tutored_data, prior = zipf_priors_b, iter = 5000, cores = 4)
+cnry_tutored_excursion_model <- brm(log(fex + 0.0001) ~ scale(count) + (1|syllable), data = cnry_tutored_data, prior = zipf_priors_b, iter = 5000, cores = 4)
+
+#run duration, bandwidth, and concavity models for house finch-tutored bird
+no_tutored_duration_model <- brm(log(duration) ~ scale(count) + (1|syllable), data = no_tutored_data, prior = zipf_priors_a, iter = 5000, cores = 4)
+no_tutored_bandwidth_model <- brm(log(range) ~ scale(count) + (1|syllable), data = no_tutored_data, prior = zipf_priors_a, iter = 5000, cores = 4)
+no_tutored_concavity_model <- brm(log(concavity + 0.0001) ~ scale(count) + (1|syllable), data = no_tutored_data, prior = zipf_priors_b, iter = 5000, cores = 4)
+no_tutored_excursion_model <- brm(log(fex + 0.0001) ~ scale(count) + (1|syllable), data = no_tutored_data, prior = zipf_priors_b, iter = 5000, cores = 4)
+
+#compute kendall's tau for duration, bandwidth, and concavity models for house-finch tutored bird
+hofi_tutored_duration_tau <- ZLAvian::testZLA(data.frame(note = as.character(hofi_tutored_data$syllable), duration = as.numeric(hofi_tutored_data$duration), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+hofi_tutored_bandwidth_tau <- ZLAvian::testZLA(data.frame(note = as.character(hofi_tutored_data$syllable), duration = as.numeric(hofi_tutored_data$range), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+hofi_tutored_concavity_tau <- ZLAvian::testZLA(data.frame(note = as.character(hofi_tutored_data$syllable), duration = as.numeric(hofi_tutored_data$concavity + 0.0001), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+hofi_tutored_excursion_tau <- ZLAvian::testZLA(data.frame(note = as.character(hofi_tutored_data$syllable), duration = as.numeric(hofi_tutored_data$fex + 0.0001), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+
+#compute kendall's tau for duration, bandwidth, and concavity models for canary tutored bird
+cnry_tutored_duration_tau <- ZLAvian::testZLA(data.frame(note = as.character(cnry_tutored_data$syllable), duration = as.numeric(cnry_tutored_data$duration), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+cnry_tutored_bandwidth_tau <- ZLAvian::testZLA(data.frame(note = as.character(cnry_tutored_data$syllable), duration = as.numeric(cnry_tutored_data$range + 1), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+cnry_tutored_concavity_tau <- ZLAvian::testZLA(data.frame(note = as.character(cnry_tutored_data$syllable), duration = as.numeric(cnry_tutored_data$concavity + 0.0001), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+cnry_tutored_excursion_tau <- ZLAvian::testZLA(data.frame(note = as.character(cnry_tutored_data$syllable), duration = as.numeric(cnry_tutored_data$fex + 0.0001), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+
+#compute kendall's tau for duration, bandwidth, and concavity models for bird without tutor
+no_tutored_duration_tau <- ZLAvian::testZLA(data.frame(note = as.character(no_tutored_data$syllable), duration = as.numeric(no_tutored_data$duration), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+no_tutored_bandwidth_tau <- ZLAvian::testZLA(data.frame(note = as.character(no_tutored_data$syllable), duration = as.numeric(no_tutored_data$range), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+no_tutored_concavity_tau <- ZLAvian::testZLA(data.frame(note = as.character(no_tutored_data$syllable), duration = as.numeric(no_tutored_data$concavity + 0.0001), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+no_tutored_excursion_tau <- ZLAvian::testZLA(data.frame(note = as.character(no_tutored_data$syllable), duration = as.numeric(no_tutored_data$fex + 0.0001), ID = factor(1)), minimum = 1, null = 1000, est = "mean", cores = 7)
+
+#combine into object that contains model estimates, diagnostics, and prior specifications, and then save
+mann_zipf_replication <- list(list(duration = rbind(summary(hofi_tutored_duration_model)$fixed[2, 1:4], summary(cnry_tutored_duration_model)$fixed[2, 1:4], summary(no_tutored_duration_model)$fixed[2, 1:4]),
+                                   bandwidth = rbind(summary(hofi_tutored_bandwidth_model)$fixed[2, 1:4], summary(cnry_tutored_bandwidth_model)$fixed[2, 1:4], summary(no_tutored_bandwidth_model)$fixed[2, 1:4]),
+                                   concavity = rbind(summary(hofi_tutored_concavity_model)$fixed[2, 1:4], summary(cnry_tutored_concavity_model)$fixed[2, 1:4], summary(no_tutored_concavity_model)$fixed[2, 1:4]),
+                                   excursion = rbind(summary(hofi_tutored_excursion_model)$fixed[2, 1:4], summary(cnry_tutored_excursion_model)$fixed[2, 1:4], summary(no_tutored_excursion_model)$fixed[2, 1:4])),
+                              list(duration = rbind(hofi_tutored_duration_tau$stats[1, ], cnry_tutored_duration_tau$stats[1, ], no_tutored_duration_tau$stats[1, ]),
+                                   bandwidth = rbind(hofi_tutored_bandwidth_tau$stats[1, ], cnry_tutored_bandwidth_tau$stats[1, ], no_tutored_bandwidth_tau$stats[1, ]),
+                                   concavity = rbind(hofi_tutored_concavity_tau$stats[1, ], cnry_tutored_concavity_tau$stats[1, ], no_tutored_concavity_tau$stats[1, ]),
+                                   excursion = rbind(hofi_tutored_excursion_tau$stats[1, ], cnry_tutored_excursion_tau$stats[1, ], no_tutored_excursion_tau$stats[1, ])))
+save(mann_zipf_replication, file = "data_models/mann_zipf_replication.RData")
+
+#median number of songs from individuals in the youngblood and lahti (2022) dataset, for comparison
+#median(sapply(unique(data$individual), function(x){length(unique(data$song[which(data$individual == x)]))}))
+```
+
+```{r, eval = FALSE, echo = FALSE}
+#CHECKING WHETHER ZLA RESULTS ARE ROBUST TO (1) LONG TAIL AND (2) LOGNORMALITY ASSUMPTION
+#get range of values to explore for each parameter (middle 90%)
+range_bounds <- c(0.05, 0.95)
+duration_range <- quantile(data$duration, probs = c(range_bounds[1], range_bounds[2]))
+bandwidth_range <- quantile(data$bandwidth, probs = c(range_bounds[1], range_bounds[2]))
+concavity_range <- quantile(data$concavity, probs = c(range_bounds[1], range_bounds[2]))
+excursion_range <- quantile(data$excursion, probs = c(range_bounds[1], range_bounds[2]))
+
+#create function for extracting effect and confidence intervals from model
+extraction <- function(model){
+  temp_a <- lme4::fixef(model)[2]
+  temp_b <- confint(model)[4, ]
+  return(as.numeric(c(temp_a, temp_b)))
+}
+
+#run duration model across all three deep split values
+duration_model_2 <- extraction(lme4::lmer(log(duration) ~ scale(count_2) + (1|cluster_2), data = data[which(data$duration > duration_range[1] & data$duration < duration_range[2]), ]))
+duration_model_3 <- extraction(lme4::lmer(log(duration) ~ scale(count_3) + (1|cluster_3), data = data[which(data$duration > duration_range[1] & data$duration < duration_range[2]), ]))
+duration_model_4 <- extraction(lme4::lmer(log(duration) ~ scale(count_4) + (1|cluster_4), data = data[which(data$duration > duration_range[1] & data$duration < duration_range[2]), ]))
+
+#run bandwidth model across all three deep split values
+bandwidth_model_2 <- extraction(lme4::lmer(log(bandwidth) ~ scale(count_2) + (1|cluster_2), data = data[which(data$bandwidth > bandwidth_range[1] & data$bandwidth < bandwidth_range[2]), ]))
+bandwidth_model_3 <- extraction(lme4::lmer(log(bandwidth) ~ scale(count_3) + (1|cluster_3), data = data[which(data$bandwidth > bandwidth_range[1] & data$bandwidth < bandwidth_range[2]), ]))
+bandwidth_model_4 <- extraction(lme4::lmer(log(bandwidth) ~ scale(count_4) + (1|cluster_4), data = data[which(data$bandwidth > bandwidth_range[1] & data$bandwidth < bandwidth_range[2]), ]))
+
+#run concavity model across all three deep split values, with 0.0001 added to avoid log-transformation issues
+concavity_model_2 <- extraction(lme4::lmer(log(concavity + 0.0001) ~ scale(count_2) + (1|cluster_2), data = data[which(data$concavity > concavity_range[1] & data$concavity < concavity_range[2]), ]))
+concavity_model_3 <- extraction(lme4::lmer(log(concavity + 0.0001) ~ scale(count_3) + (1|cluster_3), data = data[which(data$concavity > concavity_range[1] & data$concavity < concavity_range[2]), ]))
+concavity_model_4 <- extraction(lme4::lmer(log(concavity + 0.0001) ~ scale(count_4) + (1|cluster_4), data = data[which(data$concavity > concavity_range[1] & data$concavity < concavity_range[2]), ]))
+
+#run excursion model across all three deep split values, with 0.0001 added to avoid log-transformation issues
+excursion_model_2 <- extraction(lme4::lmer(log(excursion + 0.0001) ~ scale(count_2) + (1|cluster_2), data = data[which(data$excursion > excursion_range[1] & data$excursion < excursion_range[2]), ]))
+excursion_model_3 <- extraction(lme4::lmer(log(excursion + 0.0001) ~ scale(count_3) + (1|cluster_3), data = data[which(data$excursion > excursion_range[1] & data$excursion < excursion_range[2]), ]))
+excursion_model_4 <- extraction(lme4::lmer(log(excursion + 0.0001) ~ scale(count_4) + (1|cluster_4), data = data[which(data$excursion > excursion_range[1] & data$excursion < excursion_range[2]), ]))
+
+#combine into object that contains median estimate and bounds of 95% CI for main effect of each model at each level of deep split
+zipf_models_check_90 <- list(duration = rbind(duration_model_2, duration_model_3, duration_model_4),
+                             bandwidth = rbind(bandwidth_model_2, bandwidth_model_3, bandwidth_model_4),
+                             concavity = rbind(concavity_model_2, concavity_model_3, concavity_model_4),
+                             excursion = rbind(excursion_model_2, excursion_model_3, excursion_model_4))
+save(zipf_models_check_90, file = "data_models/zipf_models_check_90.RData")
+
+#run duration model across all three deep split values
+duration_model_2 <- extraction(lme4::lmer(scale(duration) ~ scale(count_2) + (1|cluster_2), data = data))
+duration_model_3 <- extraction(lme4::lmer(scale(duration) ~ scale(count_3) + (1|cluster_3), data = data))
+duration_model_4 <- extraction(lme4::lmer(scale(duration) ~ scale(count_4) + (1|cluster_4), data = data))
+
+#run bandwidth model across all three deep split values
+bandwidth_model_2 <- extraction(lme4::lmer(scale(bandwidth) ~ scale(count_2) + (1|cluster_2), data = data))
+bandwidth_model_3 <- extraction(lme4::lmer(scale(bandwidth) ~ scale(count_3) + (1|cluster_3), data = data))
+bandwidth_model_4 <- extraction(lme4::lmer(scale(bandwidth) ~ scale(count_4) + (1|cluster_4), data = data))
+
+#run concavity model across all three deep split values
+concavity_model_2 <- extraction(lme4::lmer(scale(concavity) ~ scale(count_2) + (1|cluster_2), data = data))
+concavity_model_3 <- extraction(lme4::lmer(scale(concavity) ~ scale(count_3) + (1|cluster_3), data = data))
+concavity_model_4 <- extraction(lme4::lmer(scale(concavity) ~ scale(count_4) + (1|cluster_4), data = data))
+
+#run excursion model across all three deep split values
+excursion_model_2 <- extraction(lme4::lmer(scale(excursion) ~ scale(count_2) + (1|cluster_2), data = data))
+excursion_model_3 <- extraction(lme4::lmer(scale(excursion) ~ scale(count_3) + (1|cluster_3), data = data))
+excursion_model_4 <- extraction(lme4::lmer(scale(excursion) ~ scale(count_4) + (1|cluster_4), data = data))
+
+#combine into object that contains median estimate and bounds of 95% CI for main effect of each model at each level of deep split
+zipf_models_check_lognormal <- list(duration = rbind(duration_model_2, duration_model_3, duration_model_4),
+                                    bandwidth = rbind(bandwidth_model_2, bandwidth_model_3, bandwidth_model_4),
+                                    concavity = rbind(concavity_model_2, concavity_model_3, concavity_model_4),
+                                    excursion = rbind(excursion_model_2, excursion_model_3, excursion_model_4))
+save(zipf_models_check_lognormal, file = "data_models/zipf_models_check_lognormal.RData")
+```
+
+Duration, bandwidth, and excursion had strong negative effects on count at all three levels of granularity in syllable clustering (Table \@ref(tab:zipf-abbr-tables)). Concavity had no effect on count at the first two levels of granularity, but had a very weak negative effect at the third level of granularity. These patterns are apparent in the plots of production costs and counts in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). The results are qualitatively identical when the year of recording (1975, 2012, or 2019) is included as a varying intercept (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). Several other robustness checks, including replications of this analysis using the rank-based method from the R package ZLAvian [@lewis_etal23; @gilman_etal23] and using manually-classified syllables from an experimental study in house finches [@Mann2020], can be found in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html).
 
 ## Menzerath's Law
 
-Menzerath's law predicts that longer sequences will be comprised of smaller items. Importantly, Menzerath's law is sometimes detected in random sequences from null models [@g_torre_etal21; @tanaka-ishii21; @ferrer-i-cancho_etal14]. There are two sorts of null models that make sense in this context: (1) random sequences with the same number of syllables as real songs, and (2) pseudorandom sequences that match both the number of syllables and cumulative duration in time. @jamesPhylogenyMechanismsShared2021 interpret the latter as approximating simple motor constraints---Menzerath's law resulting from efficiency in production alone---where stronger effects in the real data would indicate additional mechanisms (e.g. communicative efficiency). In this study, I compare the real data against each of these to assess both the presence of Menzerath's law and whether it is beyond what would be expected from production constraints.
+Menzerath's law predicts that longer sequences will be comprised of smaller items. Importantly, Menzerath's law is sometimes detected in random sequences from null models [@g_torre_etal21; @tanaka-ishii21; @ferrer-i-cancho_etal14]. There are two sorts of null models that make sense in this context: (1) random sequences with the same number of syllables as real songs, and (2) pseudorandom sequences that match the cumulative duration in time but can vary in the number of syllables. @jamesPhylogenyMechanismsShared2021 interpret the latter as approximating simple motor constraints---Menzerath's law resulting from efficiency in production alone---where stronger effects in the real data would indicate additional mechanisms (e.g. communicative efficiency). In this study, I compare the real data against each of these to assess both the presence of Menzerath's law and whether it is beyond what would be expected from production constraints.
 
 The production constraint model of @jamesPhylogenyMechanismsShared2021 works as follows. For each iteration of the model, a pseudorandom sequence was produced for each real song in the dataset. Syllables were randomly sampled (with replacement) from the population until the duration of the random sequence exceeded the duration of the real song. If the difference between the duration of the random sequence and the real song was <50% of the duration of the final syllable, then the final syllable was kept in the sequence. Otherwise, it was removed. Each iteration of the model produces a set of random sequences with approximately the same distribution of durations as the real data.
 
 To estimate the strength of Menzerath's law, I constructed a log-normal model with syllable duration as the outcome variable, song length in number of syllables as the predictor variable, and the song as a varying intercept [@safryghinVariableExpressionLinguistic2022]. <!--The production constraint model removes variation accounted for by the year and individual bird, so song is the only varying intercept that is appropriate for comparison. -->This model was used to estimate the strength of the effect of song length on syllable duration in both the real data and 10 simulated datasets from both null models. The brm_multiple function from the brms package in R was used to fit a single model to the the 10 simulated datasets from each null model and produce a combined posterior distribution [@burkner17].
 
-This analysis differs from @jamesPhylogenyMechanismsShared2021 in two key ways: (1) I use the actual duration of syllables rather than a single median value for each song, and (2) I compare the full posterior distributions rather than point estimates of effects. These decisions should yield more conservative conclusions about the differences between the real and simulated data. Note that syllable type is not incorporated into the modeling, so this is the only analysis that is not conducted across multiple levels of deep split.
+This analysis differs from @jamesPhylogenyMechanismsShared2021 in two ways: (1) I use the actual duration of syllables rather than a single median value for each song, and (2) I compare the full posterior distributions rather than point estimates of effects. These decisions should yield more conservative conclusions. Note that syllable type is not incorporated into the modeling, so this is the only analysis that is not conducted across multiple levels of deep split.
 
 ```{r menzerath, eval = FALSE}
 #load packages
@@ -850,7 +1255,7 @@ data$year <- as.factor(data$year)
 
 #run the actual model on the data with year as a random effect
 menz_models_year <- lme4::lmer(log(duration) ~ scale(song_length) + (1|song) + (1|year), data = data)
-menz_models_year <- cbind(fixef(menz_models_year), confint(menz_models_year)[4:5, ])
+menz_models_year <- cbind(lme4::fixef(menz_models_year), confint(menz_models_year)[4:5, ])
 
 #save output
 save(menz_models_year, file = "data_models/menz_models_year.RData")
@@ -876,7 +1281,7 @@ preds <- data.frame(pred_x = seq(min(data$song_length), max(data$song_length), 0
 
 #get the normal plot of data with best fit line
 norm_plot <- ggplot(data, aes(x = song_length, y = duration)) +
-  geom_point(color = scales::alpha("black", 1), size = 0.3) +
+  geom_point(colour = scales::alpha("black", 0.2), size = 1, stroke = 0) +
   geom_line(data = preds, aes(x = pred_x, y = pred_y), color = "#D55E00", linewidth = 0.5) + 
   theme_linedraw(base_size = 8, base_family = "Avenir") +
   xlab("# of Syllables per Song") + ylab("Syllable Duration (ms)")
@@ -915,7 +1320,17 @@ knitr::include_graphics("plots/menzerath.png")
 load("data_models/menz_models.RData")
 ```
 
-The results of the log-normal model indicate that song length has a negative effect on syllable duration (Mean Estimate: `r signif(menz_models$actual$estimates[2, 1], digits = 2)`; 95% CI: [`r signif(menz_models$actual$estimates[2, 3], digits = 2)`, `r signif(menz_models$actual$estimates[2, 4], digits = 2)`]) (left panel of Figure \@ref(fig:figure-menzerath)). The posterior distribution for this effect from the model fit to the actual data (orange) is more negative than the posterior distributions from 10 simulated datasets from the production constraint null model of @jamesPhylogenyMechanismsShared2021 (green) and a simple random null model (blue), although there is notable overlap between the lower tail of the production constraing model and the upper tail of the actual data (right panel of Figure \@ref(fig:figure-menzerath)). The negative effect of song length on syllable duration persists when the year of recording (1975, 2012, or 2019) is included as a varying intercept (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+```{r, echo = FALSE}
+#compute are of overlap between the production constraint model and the actual data
+#https://stackoverflow.com/questions/64882496/how-to-calculate-the-overlap-between-2-dataset-distribution
+dens_range <- range(c(menz_models$actual$samples, menz_models$prod_null$samples))
+actual_dens <- density(menz_models$actual$samples, from = dens_range[1], to = dens_range[2])
+prod_dens <- density(menz_models$prod_null$samples, from = dens_range[1], to = dens_range[2])
+joint_dens <- pmin(actual_dens$y, prod_dens$y)
+overlap <- paste0(round((sum(joint_dens)/sum(actual_dens$y, prod_dens$y))*100, digits = 1), "%")
+```
+
+The results of the log-normal model indicate that song length has a negative effect on syllable duration (Mean Estimate: `r signif(menz_models$actual$estimates[2, 1], digits = 2)`; 95% CI: [`r signif(menz_models$actual$estimates[2, 3], digits = 2)`, `r signif(menz_models$actual$estimates[2, 4], digits = 2)`]) (left panel of Figure \@ref(fig:figure-menzerath)). The posterior distribution for this effect from the model fit to the actual data (orange) is more negative than the posterior distributions from 10 simulated datasets from the production constraint null model of @jamesPhylogenyMechanismsShared2021 (green) and a simple random null model (blue), although there is notable overlap between the lower tail of the production constraint model and the upper tail of the actual data (`r overlap` of the combined distribution area; right panel of Figure \@ref(fig:figure-menzerath)). The negative effect of song length on syllable duration persists when the year of recording (1975, 2012, or 2019) is included as a varying intercept (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
 
 <!-- There are two songs in Figure \@ref(fig:figure-menzerath) that are much longer than the others (`r unique(sort(data$song_length, decreasing = TRUE))[1]` and `r unique(sort(data$song_length, decreasing = TRUE))[2]` syllables). These are likely concatenated songs, which occur when males sing multiple songs in quick succession during courtship displays [@Ciaburri2019]. -->
 
@@ -1112,7 +1527,7 @@ full_graph <- simplify(graph_from_edgelist(unique(full_sequences), directed = TR
 #set random seed and create network plot
 set.seed(123)
 full_net_plot <- ggplot(fortify(model = full_graph, layout = igraph::nicely()), aes(x = x, y = y, xend = xend, yend = yend)) + 
-  geom_nodes(size = 0.5) + geom_edges(curvature = 0, size = 0.1, color = scales::alpha("black", 0.2)) + theme_blank(base_size = 8, base_family = "Avenir") + 
+  geom_nodes(color = scales::alpha("black", 0.4), size = 1, stroke = 0) + geom_edges(curvature = 0, size = 0.1, color = scales::alpha("black", 0.2)) + theme_blank(base_size = 8, base_family = "Avenir") + 
   labs(subtitle = "All Sequences")
 
 #set number of iterations
@@ -1152,11 +1567,11 @@ cowplot::plot_grid(left_panel, right_panel, labels = c("A", "B"), rel_widths = c
 dev.off()
 ```
 
-```{r figure-small-world, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The left panel shows transition network between syllables types for a single male (#22 from 1975) above the global transition network for the entire dataset. The right panel shows the estimated small-worldness index calculated 1,000 times from the real data (blue) compared to pseudorandom sequences with the same frequency distribution of syllable types (orange). The dashed vertical line at 1 corresponds to the standard threshold for a network having small-world structure [@humphriesNetworkSmallworldnessQuantitative2008]."}
+```{r figure-small-world, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The left panel shows transition network between syllables types for a single male (#22 from 1975) above the global transition network for the entire dataset. The right panel shows the estimated small-worldness index calculated 1,000 times from the real data (orange) compared to pseudorandom sequences with the same frequency distribution of syllable types (blue). The dashed vertical line at 1 corresponds to the standard threshold for a network having small-world structure [@humphriesNetworkSmallworldnessQuantitative2008]."}
 knitr::include_graphics("plots/small_world.png")
 ```
 
-Figure \@ref(fig:figure-small-world)B shows the distribution of $SWI$ calculated from random sequences with the same distribution of types (orange) and the actual sequences (blue). At all three levels of granularity, the observed small-worldness of the real songs is above both the standard threshold ($SWI > 1$) and the pseudorandom sequences. $SWI > 1$ when computed separately from the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html))
+Figure \@ref(fig:figure-small-world)B shows the distribution of $SWI$ calculated from random sequences with the same distribution of types (orange) and the actual sequences (blue). At all three levels of granularity in syllable clustering, the observed small-worldness of the real songs is above both the standard threshold ($SWI > 1$) and the pseudorandom sequences. $SWI > 1$ when computed separately from the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html))
 
 ## Mutual Information
 
@@ -1200,7 +1615,7 @@ To determine whether the observed $MI$ decay was consistent with a Markov proces
 (\#eq:mut-info-comp)
 \end{equation}
 
-where $y$ is the estimated $MI$ and $x$ is the distance between syllables [@sainburgParallelsSequentialOrganization2019; @sainburg_etal22]. @sainburgParallelsSequentialOrganization2019 included an intercept $f$ in all three models, but I removed it because it led to overfitting issues (e.g. exponential model with an extra "knee" after the initial decay), did not significantly improve model fit ($\Delta WAIC < 2$), and was not included in @linCriticalBehaviorPhysics2017. I focused my analysis on distances of up to 100 syllables to enable easy comparison with @sainburgParallelsSequentialOrganization2019. I followed @sainburgParallelsSequentialOrganization2019 in comparing the fit of each model at increasing distances from 100 to 1,200 (the longest individual sequence is 1,219), and found that the composite model outperforms both the exponential and power-law models at all distances (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+where $y$ is the estimated $MI$ and $x$ is the distance between syllables [@sainburgParallelsSequentialOrganization2019; @sainburg_etal22]. @sainburgParallelsSequentialOrganization2019 included an intercept $f$ in all three models, but I removed it because it led to overfitting issues (e.g. exponential model with an extra "knee" after the initial decay), did not significantly improve model fit ($\Delta WAIC < 2$), and was not included in @linCriticalBehaviorPhysics2017. I focused my analysis on distances of up to 100 syllables to enable easy comparison with @sainburgParallelsSequentialOrganization2019. In the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html), I followed @sainburgParallelsSequentialOrganization2019 in comparing the fit of each model at increasing distances from 100 to 1,200 (the longest individual sequence is 1,219), and found that the composite model outperforms both the exponential and power-law models at all distances.
 
 <!-- Note that $MI$ decay becomes noisy and begins to slowly increase past ~400 syllables. This is because only a small number of individuals have concatenated sequences longer than that (~4%), and $MI$ is known to be systematically biased upwards at low sample sizes [@treves_panzeri95]. -->
 
@@ -1530,6 +1945,137 @@ colnames(mi_models_year) <- c("DS", "Year", "Exponential", "Power-Law", "Composi
 save(mi_models_year, file = "data_models/mi_models_year.RData")
 ```
 
+```{r mutual-information-song-lengths, eval = FALSE, echo = FALSE}
+#load packages
+library(brms)
+
+#load data
+load("data_models/processed_data.RData")
+data <- processed_data$data
+
+#create function for the grassberger method of entropy estimation used by lin and tegmark (log is ln by default, which is what grassberger used originally)
+s_calc <- function(vals){return(log(sum(vals)) - ((1/sum(vals))*sum(vals*digamma(vals))))}
+
+#get unique songs and song lengths
+unique_songs <- unique(data$song)
+song_lengths <- as.numeric(sapply(unique_songs, function(x){length(which(data$song == x))}))
+
+#set random seed
+set.seed(12345)
+
+#calculate mutual information across three levels of deep split
+mi_data_song_lengths <- parallel::mclapply(1:3, function(i){
+  #use appropriate syllables
+  if(i == 1){data$syls <- data$cluster_2}
+  if(i == 2){data$syls <- data$cluster_3}
+  if(i == 3){data$syls <- data$cluster_4}
+
+  #compute actual mutual information curves
+  actual <- sapply(1:(max(song_lengths) - 1), function(m){
+    #set m as the distance between syllables in the sequence
+    dist <- m
+
+    #store pairs within bouts
+    pairs <- do.call(rbind, lapply(unique_songs[which(song_lengths > m)], function(r){
+      seq <- data$syls[which(data$song == r)]
+      t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+    }))
+    
+    #get frequencies of syllables in each column
+    n_x <- as.numeric(table(pairs[, 1]))
+    n_y <- as.numeric(table(pairs[, 2]))
+
+    #get frequencies of pairs in the data
+    pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+    index <- !duplicated(pairs)
+    pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+
+    #calculate s for each
+    s_x <- s_calc(n_x)
+    s_y <- s_calc(n_y)
+    s_xy <- s_calc(pair_freqs)
+
+    #compute mutual information and return
+    return(s_x + s_y - s_xy)
+  })
+
+  #compute shuffled mutual information curves
+  shuffled <- sapply(1:(max(song_lengths) - 1), function(m){
+    #set m as the distance between syllables in the sequence
+    dist <- m
+
+    #store pairs within bouts
+    pairs <- do.call(rbind, lapply(unique_songs[which(song_lengths > m)], function(r){
+      seq <- sample(data$syls[which(data$song == r)])
+      t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+    }))
+
+    #get frequencies of syllables in each column
+    n_x <- as.numeric(table(pairs[, 1]))
+    n_y <- as.numeric(table(pairs[, 2]))
+
+    #get frequencies of pairs in the data
+    pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+    index <- !duplicated(pairs)
+    pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+
+    #calculate s for each
+    s_x <- s_calc(n_x)
+    s_y <- s_calc(n_y)
+    s_xy <- s_calc(pair_freqs)
+
+    #compute mutual information and return
+    return(s_x + s_y - s_xy)
+  })
+
+  #return mutual information decay, with shuffled baseline substracted from actual information
+  return(data.frame(dist = 1:length(actual), mi = c(actual - shuffled), mi_raw = actual, mi_base = shuffled))
+}, mc.cores = 3)
+
+#set priors
+exponential_priors <- prior(normal(0, 1), lb = 0, nlpar = "a") + 
+  prior(normal(0, 1), lb = 0, nlpar = "b")
+power_law_priors <- prior(normal(0, 1), lb = 0, nlpar = "c") + 
+  prior(normal(0, 1), lb = 0, nlpar = "d")
+composite_priors <- prior(normal(0, 1), lb = 0, nlpar = "a") + 
+  prior(normal(0, 1), lb = 0, nlpar = "b") + 
+  prior(normal(0, 1), lb = 0, nlpar = "c") + 
+  prior(normal(0, 1), lb = 0, nlpar = "d")
+
+#run models across the three years at all three levels of deep split
+mi_models_song_lengths <- do.call(rbind, lapply(1:3, function(g){
+  #fit the exponential model
+  exponential_fit <- brm(bf(mi ~ a*exp((-dist)*b), a + b ~ 1, nl = TRUE),
+                         data = mi_data_song_lengths[[g]][1:100, ], prior = exponential_priors,
+                         iter = 5000, cores = 4)
+  
+  #fit the power law model
+  power_law_fit <- brm(bf(mi ~ c*(dist^(-d)), c + d ~ 1, nl = TRUE),
+                       data = mi_data_song_lengths[[g]][1:100, ], prior = power_law_priors, 
+                       iter = 5000, cores = 4)
+  
+  #fit the composite model
+  composite_fit <- brm(bf(mi ~ a*exp((-dist)*b) + c*(dist^(-d)), a + b + c + d ~ 1, nl = TRUE), 
+                       data = mi_data_song_lengths[[g]][1:100, ], prior = composite_priors, 
+                       iter = 5000, cores = 4)
+  
+  #compute aic
+  waic <- WAIC(exponential_fit, power_law_fit, composite_fit)
+  waic <- c(waic$loos$exponential_fit$estimates[3, 1], waic$loos$power_law_fit$estimates[3, 1], waic$loos$composite_fit$estimates[3, 1])
+
+  #return data and model fits and aic
+  return(waic)
+}))
+
+#format data frame
+mi_models_song_lengths <- as.data.frame(mi_models_song_lengths)
+mi_models_song_lengths <- cbind(c(2, 3, 4), mi_models_song_lengths)
+colnames(mi_models_song_lengths) <- c("DS", "Exponential", "Power-Law", "Composite")
+
+#save object
+save(mi_models_song_lengths, file = "data_models/mi_models_song_lengths.RData")
+```
+
 ```{r mutual-information-sim, eval = FALSE}
 #extract simulated values from sainburg et al.
 model_fig <- xml2::read_xml("https://raw.githubusercontent.com/timsainb/ParallelsBirdsongLanguagePaper/master/figures/modelfig.svg")
@@ -1586,7 +2132,7 @@ composite_diagram <- png::readPNG("diagrams/composite.png")
 heir_plot <- ggplot(mi_simulated[which(mi_simulated$group == "heirarchy"), ], aes(x = x, y = y)) + 
   scale_x_continuous(trans = "log10", limits = c(1, 100)) +
   scale_y_continuous(trans = "log10", limits = c(10e-4, 10e1), labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
-  geom_point(color = "black", size = 0.3) + 
+  geom_point(color = "black", size = 1, stroke = 0) + 
   xlab("Distances") + ylab("MI (Bits)") + 
   theme_linedraw(base_size = 8, base_family = "Avenir") + annotation_logticks(size = 0.3) + 
   theme(plot.title = element_text(size = 8), plot.subtitle = element_text(size = 6)) + 
@@ -1597,7 +2143,7 @@ heir_plot <- ggplot(mi_simulated[which(mi_simulated$group == "heirarchy"), ], ae
 markov_plot <- ggplot(mi_simulated[which(mi_simulated$group == "markov"), ], aes(x = x, y = y)) + 
   scale_x_continuous(trans = "log10", limits = c(1, 100)) +
   scale_y_continuous(trans = "log10", limits = c(10e-4, 10e1), labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
-  geom_point(color = "black", size = 0.3) + 
+  geom_point(color = "black", size = 1, stroke = 0) + 
   xlab("Distances") + ylab("MI (Bits)") + 
   theme_linedraw(base_size = 8, base_family = "Avenir") + annotation_logticks(size = 0.3) + 
   theme(plot.title = element_text(size = 8), plot.subtitle = element_text(size = 6)) + 
@@ -1608,7 +2154,7 @@ markov_plot <- ggplot(mi_simulated[which(mi_simulated$group == "markov"), ], aes
 combined_plot <- ggplot(mi_simulated[which(mi_simulated$group == "combined"), ], aes(x = x, y = y)) + 
   scale_x_continuous(trans = "log10", limits = c(1, 100)) +
   scale_y_continuous(trans = "log10", limits = c(10e-4, 10e1), labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
-  geom_point(color = "black", size = 0.3) + 
+  geom_point(color = "black", size = 1, stroke = 0) + 
   xlab("Distances") + ylab("MI (Bits)") + 
   theme_linedraw(base_size = 8, base_family = "Avenir") + annotation_logticks(size = 0.3) + 
   theme(plot.title = element_text(size = 8), plot.subtitle = element_text(size = 6)) + 
@@ -1642,7 +2188,7 @@ mi_plots <- lapply(1:3, function(i){
   
   #return plot with best fit curves
   return(ggplot(mi_data[[i]], aes(x = dist, y = mi)) +
-    geom_point(color = color, size = 0.3) +
+    geom_point(color = color, size = 1, stroke = 0) +
     scale_x_continuous(trans = "log10", limits = c(1, 100)) +
     scale_y_continuous(trans = "log10", limits = limits, labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
     geom_line(fit_data, mapping = aes(x = dist, y = comp_fit, linetype = "Composite Model     "), color = scales::alpha(color, 1)) + 
@@ -1670,29 +2216,33 @@ dev.off()
 knitr::include_graphics("plots/mut_info.png")
 ```
 
-At all three levels of granularity, the composite model has a lower $WAIC$ and higher $R^2$ than both the exponential and power-law models (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)), suggesting that mutual information decay in house finch song is more consistent with a combination of Markovian and hierarchical processes rather than with one or the other. The composite model also outcompetes both the exponential and power-law models when fit to mutual information decay curves computed separately for each year of recording (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+At all three levels of granularity in syllable clustering, the composite model has a lower $WAIC$ and higher $R^2$ than both the exponential and power-law models (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)), suggesting that mutual information decay in house finch song is more consistent with a combination of Markovian and hierarchical processes<!-- rather than with one or the other-->. The composite model also outcompetes both the exponential and power-law models when fit to mutual information decay curves computed separately for each year of recording (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). 
+
+Interestingly, the transitions in the composite curves from Figure \@ref(fig:figure-mutual-info) roughly correspond to the average length of a house finch song (~12 syllables) [@Ju2019]. I reran the analysis with individual song sequences rather than song bouts and found that the exponential model outcompeted the composite model at $DS = \{3, 4\}$ (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). This suggests that individual song sequences may have Markovian structure within hierarchically-organized song bouts.
 
 # Discussion
 
 All three linguistic laws considered here are present in house finch song. Three out of the four measures of production cost, most importantly duration, are consistently and strongly negatively correlated with frequency, providing robust evidence for Zipf's law of abbreviation. Menzerath's law also found solid support, with a steeper negative relationship between song length and syllable duration than predicted by a model of production constraints [@jamesPhylogenyMechanismsShared2021]. Together, these results show clear evidence for efficiency---syllables that are difficult to produce are less common and more likely to appear in shorter songs. Mandelbrot's form of Zipf's rank-frequency law provided a good fit to the data and has a more convex shape than the original form, which is consistent with studies of other non-human communication systems that have more redundancy than human language [@allenNetworkAnalysisReveals2019; @Briefer2010; @cody_etal16; @hailman_etal85; @mccowan_etal99; @martins94]. I will limit my interpretation of this result, given ongoing debates about the cause of the rank-frequency law, but it is notable that the goodness-of-fit of the Zipf-Mandelbrot distribution to house finch song ($R^2 > `r substr(c(zipf_rf_models$r2[4]), 0, 4)`$) is within the range of human language [@piantadosi14; @linders_louwerse23].
 
-The two structural properties of language considered here are also found in house finch song. First, the syllable network has a small-world structure, characterized by high levels of clustering and low average path lengths, which is thought to reflect systematic structure and efficient recall in human language [@canchoSmallWorldHuman2001; @motter_etal02; @steyvers_tenenbaum05]. The small-worldness index of house finch song is within the range seen in humpback whales [@allenNetworkAnalysisReveals2019] and other songbirds at the first two levels of granularity [@sasahara_etal12; @weissUseNetworkAnalysis2014; @cody_etal16; @hedleyCompositionSequentialOrganization2016; @beckage_etal11] ($SWI \sim 1.69-4.7$), but is much higher when syllables are over-split into types ($SWI \sim 10-11$). Second, the decay in mutual information between syllables with increasing distance has a similar shape to that found in several human languages and songbird species [@sainburgParallelsSequentialOrganization2019], which is associated with Markov chains nested within a larger hierarchical structure. Historically, birdsong sequences were assumed to follow simple Markov chains [@leonardo_konishi99; @berwick_etal11; @katahiraComplexSequencingRules2011a]. This result lends support to an emerging consensus that song sequences are actually much more complex, containing long-range dependencies and hierarchical structures that parallel human language [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019; @searcy_etal22; @moritaMeasuringContextDependency2021]. In combination, the small-worldness and mutual information decay of house finch song sequences suggest that they exhibit the kind of systematic structure that is thought to maximize expressivity while reducing learning costs [@raviv_etal21; @allenNetworkAnalysisReveals2019; @ISI:000357544300009], making it easier for more information to "pass through the bottleneck" of social learning [@gruber_etal22].
+The two structural properties of language considered here are also found in house finch song. First, the syllable network has a small-world structure, characterized by high levels of clustering and low average path lengths, which is thought to reflect systematic structure and efficient recall in human language [@canchoSmallWorldHuman2001; @motter_etal02; @steyvers_tenenbaum05]. The small-worldness index of house finch song is within the range seen in humpback whales [@allenNetworkAnalysisReveals2019] and other songbirds at the first two levels of granularity in syllable clustering [@sasahara_etal12; @weissUseNetworkAnalysis2014; @cody_etal16; @hedleyCompositionSequentialOrganization2016; @beckage_etal11] ($SWI \sim 1.69-4.7$), but is much higher when syllables are over-split into types ($SWI \sim 10-11$). Second, the decay in mutual information between syllables with increasing distance has a similar shape to that found in several human languages and songbird species [@sainburgParallelsSequentialOrganization2019], which is associated with Markov chains nested within a larger hierarchical structure. Historically, birdsong sequences were assumed to follow simple Markov chains [@leonardo_konishi99; @berwick_etal11; @katahiraComplexSequencingRules2011a]. This result lends support to an emerging consensus that song bouts are actually much more complex, containing long-range dependencies and hierarchical structures that parallel human language [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019; @searcy_etal22; @moritaMeasuringContextDependency2021]. In combination, the small-worldness and mutual information decay of house finch song sequences suggest that they exhibit the kind of systematic structure that is thought to maximize expressivity while reducing learning costs [@raviv_etal21; @allenNetworkAnalysisReveals2019; @ISI:000357544300009], making it easier for more information to "pass through the bottleneck" of social learning [@gruber_etal22].
 
-Notably, these patterns are consistently found across three levels of granularity in syllable clustering, pointing to a limited form of scale invariance in house finch song. Scale invariance refers to self-similarity in organization across levels of analysis, and is hypothesized to be a key indicator of complex systems <!--[@stanley_etal00] -->including language and speech [@gervain_geffen19; @mehri_jamaati21], behavior [@bialek_shaevitz23], and cognition [@chater_brown99]. I use the term "limited" because the detected patterns are consistent across syllable classifications rather than across levels of hierarchy (e.g. phrases, songs, bouts). I have heard others studying the cultural evolution of birdsong refer to this idea as "fractal equivalency"---different resolutions of clustering should show similar statistical signals of organization [@lahti20]. A practical conclusion of this finding is that information theoretic measures may not be reliable indicators of clustering quality in non-human communication systems [@kershenbaum_etal16], although this should be explored in other species.
+Notably, these patterns are consistent across three levels of granularity in syllable clustering. <!-- , pointing to a limited form of scale invariance in house finch song. Scale invariance refers to self-similarity in organization across levels of analysis, and is hypothesized to be a key indicator of complex systems [@stanley_etal00] including language and speech [@gervain_geffen19; @mehri_jamaati21], behavior [@bialek_shaevitz23], and cognition [@chater_brown99]. I use the term "limited" because the detected patterns are consistent across syllable classifications rather than across levels of hierarchy (e.g. phrases, songs, bouts). --> I have heard others studying the cultural evolution of birdsong refer to this as "fractal equivalency"---different resolutions of clustering should show similar forms of organization [@lahti20]. A practical conclusion of this finding is that information theoretic measures may not be reliable indicators of clustering quality in non-human communication systems [@kershenbaum_etal16]. <!--, although this should be explored in other species.-->
+
+Additional discussion can be found in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html).
 
 <!-- A long-standing critique of Zipf's laws is that they may be statistical artifacts of other processes [@caplan_etal20], starting with Miller's observation that randomly typing on keyboards can produce similar patterns [@miller57]. That being said, random typing accounts are not realistic causal descriptions of how communication systems emerge, and there are good empirical reasons to doubt that they undermine efficiency accounts [@piantadosi14]. Randomly-generated texts produce rank-frequency distributions that differ from those in real corpora [@ferrer-i-cancho_elvevag10], random typing models are not truly neutral as they can be mathematically reframed as minimizing costs [@ferrer-i-cancho16; @ferrer-i-cancho_etal22], and there is direct experimental evidence that Zipfian abbreviation emerges from pressure for efficient communication [@kanwal_etal17]. In my view, the most important contribution of the random typing account is to highlight that the problem of equifinality---different processes leading to similar outcomes [@Barrett2019]---means that patterns resembling Zipf's laws are not sufficient to make conclusions about efficiency [@kanwal17; @semple_etal22]. Multiple lines of evidence should be presented alongside other work demonstrating that efficiency is shaping the system (e.g. physical [@Mann2020] and environmental [@bermudez-cuamatzin_etal23] constraints), as I have done here. See @semple_etal22, @piantadosi14, and @kanwal17 for more complete summaries of this debate. -->
 
 <!-- Outside of linguistics, efficiency and complexity are often discussed in relation to cumulative cultural evolution (CCE). Definitions of CCE vary and a full review is outside of the scope of this study, but for convenience we will use the definition of @williamsCumulativeCulturalEvolution2022: "the accumulation of sequential changes within a single socially learned behavior that results in improved function". Discussions of CCE often focus on increasing complexity over time [@wilks_blakey18], which was once thought to be a hallmark of human culture [@tomasello99] but has now been observed in several non-human communication systems including humpback whale [@garland_etal22] and Savannah sparrow song [@williamsCumulativeCulturalEvolution2022]. @gruber_etal22 make a convincing argument that efficiency deserves more attention in CCE, as increases in complexity in one domain require increases in efficiency in another (see Equation \@ref(eq:efficiency) in the [Introduction]). House finch song may be a good research model for how the interplay between efficiency and complexity drives CCE, as male house finches have a social learning bias for more complex syllables [@youngbloodContentBiasCultural2022], possibly as an adaptation to female preferences for more complex songs [@Nolan2004; @Mennill2006; @Ciaburri2019], and there appears to be pressure for efficiency at the level of both syllables and songs. That being said, CCE may not be the best framework for understanding the interaction between efficiency and complexity in birdsong, as its logic is more difficult to apply to "aesthetic" behavior [@sinclair_etal22] especially when it is optimized for female preferences that evolve to maximize inclusive fitness rather than the specific properties of songs that males sing [@geller_lahti23]. -->
 
-<!-- House finch song exhibits language-like efficiency and structure, but music-like structure has not been similarly studied in this species. In the last two decades researchers have identified aspects of birdsong, such as rhythm and pitch intervals in thrush nightingales [@roeskeCategoricalRhythmsAre2020; @roeskeMultifractalAnalysisReveals2018; @rothenbergInvestigationMusicalityBirdsong2014], that closely resemble aspects of human music. Future studies should explore language- and music-like properties of birdsong in parallel across multiple levels of granularity to inform the ongoing debate about whether birdsong is more akin to music or language [@fitchBiologyEvolutionMusic2006; @shannon16; @rohrmeierPrinciplesStructureBuilding2015]. -->
+<!-- House finch song exhibits language-like efficiency and structure, but music-like structure has not been similarly studied in this species. In the last two decades researchers have identified aspects of birdsong, such as rhythm and pitch intervals in thrush nightingales [@roeskeCategoricalRhythmsAre2020; @roeske_etal18; @rothenberg_etal14], that closely resemble aspects of human music. Future studies should explore language- and music-like properties of birdsong in parallel across multiple levels of granularity to inform the ongoing debate about whether birdsong is more akin to music or language [@fitch06; @shannon16; @rohrmeier_etal15]. -->
 
 # Acknowledgments {-}
 
-This work was inspired in large part by conversations with Olivier Morin, Alexey Koshevoy, and the attendees of the Communicative Efficiency Workshop hosted by the Max Planck Institute for Geoanthropology in April 2023.
+This work was inspired in large part by conversations with Olivier Morin, Alexey Koshevoy, and the attendees of the Communicative Efficiency Workshop hosted by the Max Planck Institute for Geoanthropology in April 2023. <!-- I would also like to thank Dan Mann for sharing his manually-classified syllable data for supplemental analysis [@Mann2020]. -->
 
 # Data & Code Availability {-}
 
-The data for this study come from @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). The analysis code for this study is available in the interactive version of this manuscript (https://masonyoungblood.github.io/linguistic_efficiency) and the source file in the corresponding GitHub repository (https://github.com/masonyoungblood/linguistic_efficiency).
+The data for this study come from @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). The analysis code for this study is available in the interactive version of this manuscript (https://masonyoungblood.github.io/linguistic_efficiency) and the source file in the corresponding GitHub (https://github.com/masonyoungblood/linguistic_efficiency) and Zenodo repositories (DOI).
 
 # References {-}
 
