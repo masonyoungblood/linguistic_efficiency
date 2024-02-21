@@ -54,7 +54,7 @@ Recordings from 1975 were collected with a Nagra III reel-to-reel tape recorder 
 
 All songs were analyzed by @youngbloodContentBiasCultural2022 using Luscinia, a database and analysis program developed specifically for birdsong (https://rflachlan.github.io/Luscinia/). Songs were analyzed with a high-pass threshold of 2000 Hz, a maximum frequency of 9000 Hz and 5 dB of noise removal. 965 songs (26.2%) were excluded from the analysis due to high levels of noise. Continuous traces with more than 20 ms between them were classified as syllables [@Mundinger1975].
 
-Figure \@ref(fig:figure-song-example) shows an example of the first ten syllables of a house finch song recorded by @Mundinger1975 and analyzed in Luscinia, where the blue line is the mean frequency over time.
+Figure S\@ref(fig:figure-song-example) shows an example of the first ten syllables of a house finch song recorded by @Mundinger1975 and analyzed in Luscinia, where the blue line is the mean frequency over time.
 
 ```{r figure-song-example, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The first 10 syllables from a song recorded by @Mundinger1975 and analyzed in Luscinia. Each red bar corresponds to a syllable, and each green number corresponds to an element within that syllable. The blue traces represent mean frequency. In this song, syllable 3 and syllable 7 were classified as the same syllable type during dynamic time warping, and all other syllables are unique types. Reprinted from @youngbloodContentBiasCultural2022."}
 url <- "https://ars.els-cdn.com/content/image/1-s2.0-S000334722100395X-gr2_lrg.jpg"
@@ -75,15 +75,20 @@ knitr::include_graphics("../plots/unseen_species.png")
 
 ## Assessment of Duration Bias
 
-Automated clustering methods may detect more variation in the features of longer syllables compared to shorter syllables, leading to a bias in classification where longer syllables are parsed into more categories. The risk of such bias should be minimized due to the use of dynamic time warping, which warps signals in the time domain (in this study up to 10% of the average signal length) before computing similarity [@Ratanamahatana2005], and dynamic tree cut, which varies the granularity of classification to maximize the connectedness of items at the tips of branches [@langfelder_etal08]. That being said, there are two ways that we can assess whether the automated classification procedure is biased towards longer syllables: (1) comparing the median duration of types at each level of granularity in syllable clustering, and (2) tracking whether individual tokens are assigned to different-duration types as granularity increases.
+Automated clustering methods may detect more variation in the features of longer syllables compared to shorter syllables, leading to a bias in classification where longer syllables are parsed into more categories. The risk of such bias should be minimized due to the use of dynamic time warping, which warps signals in the time domain (in this study up to 10% of the average signal length) before computing similarity [@Ratanamahatana2005], and dynamic tree cut, which varies the granularity of classification to maximize the connectedness of items at the tips of branches [@langfelder_etal08], but it is still worth highlighting.
 
-```{r figure-explore-durations, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "The median duration of types from each level of granularity in syllable clustering (A, on the left), and the median duration of types that individual tokens are assigned to with increasing levels of granularity (avg. marked by the oranged dotted line) (B, on the right)."}
+If a hierarchical clustering algorithm is less sensitive to variation in short syllables, then it should tend to over-lump them into types with longer syllables at all cut heights. However, it is likely to over-lump them less at lower cut heights, where syllables are already being parsed into types with greater granularity. Based on this logic, I would predict two things from a hierarchical clustering algorithm that is biased with respect to duration:
+
+1. First, I would expect the distribution of the median durations of syllable types to vary across different levels of granularity (tested in Figure S\@ref(fig:figure-explore-durations)A).
+2. My second prediction requires more explanation. As granularity in clustering changes, the type that a syllable token is assigned to changes as well. This means that we can track the average duration of types that individual syllables are assigned to as granularity increases, which I will refer to as “trajectories”. I would expect a biased clustering algorithm to lead to biased trajectories, where the duration of types that syllables are assigned to changes systematically in one direction over time (tested in Figure S\@ref(fig:figure-explore-durations)B).
+
+```{r figure-explore-durations, echo = FALSE, fig.align = "center", out.width = "100%", fig.cap = "Panel A shows the median duration of types from each level of granularity in syllable clustering. The black lines in panel B are the \"trajectories\" of individual syllable tokens&mdash;the median duration of types that individual tokens are assigned to with increasing levels of granularity. The orange dotted line is the median value across all syllables."}
 knitr::include_graphics("../plots/explore_durations.png")
 ```
 
-There is a subtle decrease in the distribution of the median duration of types as the granularity of clustering increases (panel A, on the left), but the effect is not significant in a simple linear model (duration ~ granularity) (p > 0.05). If we track the median duration of the types that individual tokens are assigned to at increasing levels of granularity (panel B, on the right), there appears to be no clear trend (avg. is the orange line). A simple linear model with type as a random effect (duration ~ granularity + (1|type)) does detect a significant increase in the median duration of types that tokens are assigned to with increasing granularity (estimate: 0.0018; 95% CI: 0.00061, 0.0029), but this effect is extremely low and only comes out to an increase of about 1 ms per unit increase in deep split (for signals that are ~100 ms on average).
+There is a subtle decrease in the distribution of the median duration of types as the granularity of clustering increases (Figure S\@ref(fig:figure-explore-durations)A), but the effect is not significant in a simple linear model (duration ~ granularity) (p > 0.05). If we track the median duration of the types that individual tokens are assigned to at increasing levels of granularity (Figure S\@ref(fig:figure-explore-durations)B), there appears to be no clear trend (avg. is the orange line). A simple linear model with type as a random effect (duration ~ granularity + (1|type)) does detect a significant increase in the median duration of types that tokens are assigned to with increasing granularity (estimate: 0.0018; 95% CI: 0.00061, 0.0029), but this effect is extremely low and only comes out to an increase of about 1 ms per unit increase in deep split (for signals that are ~100 ms on average).
 
-I think that duration-bias from the automated classification procedure is unlikely to be an issue in the analysis, but just to be sure I have replicated the results for Zipf's law of abbreviation with manually-classified syllables from an experimental cross-fostering study conducted in house finches [@Mann2020]. See [Replication with Data from Mann et al.] below for details.
+Based on this analysis, I think that duration-bias in clustering is unlikely to be an issue in the analysis, but just to be sure I have replicated the results for Zipf's law of abbreviation with manually-classified syllables from an experimental cross-fostering study conducted in house finches [@Mann2020]. See [Replication with Data from Mann et al.] below for details.
 
 ## Variance Captured by Types
 
@@ -301,6 +306,22 @@ flextable(zipf_rf_models_year_r2) %>%
 ```
 
 <br>
+
+## Departures at High Ranks
+
+It appears that the Zipf-Mandelbrot distribution has a poorer fit to the rarer syllable types. Systematic departure from the Zipf-Mandelbrot distribution at high ranks is a well-known phemonenon in human language [@ferrericancho_sole01; @montemurro01; @piantadosi14]. It is thought to be caused by suboptimal sample sizes [@gorina_etal20] and other data quality issues [@cristelli_etal12], and can be reproduced by more sophisticated models of Zipf’s rank-frequency law [@montemurro_zanette02; @tunnicliffe_hunter22].
+
+Below are some simple simulations that demonstrate this principle in the house finch song data, conducted with the following steps at the intermediate level of granularity in syllable clustering (deep split of 3):
+
+1. The fitted parameter values of the Zipf-Mandelbrot distribution (a = 1.20, b = 5.69, c = 0.52) were used to generate the expected frequencies of the 596 possible syllable types.
+2. Tokens were pseudorandomly sampled with probability equal to the expected frequencies of the types.
+3. The simulated frequency and rank of types was plotted alongside the theoretical distribution from the fitted parameter values.
+
+```{r figure-rank-count-sim, echo = FALSE, fig.align = "center", out.width = "66%", fig.cap = "The relationship between rank (x-axis) and count (y-axis) at the intermediate granularity level (DS = 3, 596 syllable types). The orange lines denote the expected distributions according to Mandelbrot's extension of Zipf's rank-frequency law (a = 1.20, b = 5.69, c = 0.52). The points in the left and right panel are the expected counts and ranks when 42,099 and 1,000,000 tokens are sampled, respectively."}
+knitr::include_graphics("../plots/rank_count_sim.png")
+```
+
+As you can see, there is a subtle but systematic departure from the Zipf-Mandelbrot distribution at high ranks when 42,099 tokens are sampled from the theoretical distribution (the same number observed in the real dataset). When 1,000,000 tokens are sampled this departure disappears. The logic here is that when sample sizes are limited rare types tend to be under-counted, leading to a "droop" [@tunnicliffe_hunter22] in the curve at higher ranks.
 
 # Zipf's Law of Abbreviation
 
@@ -886,6 +907,38 @@ flextable(mi_models_song_lengths) %>%
   set_caption("The WAIC values for the exponential, power-law, and composite models applied to the mutual information calculated from individual song sequences rather than from concatenated song bouts. The exponential model outcompetes both alternatives at deep split values of 3 and 4, while the power-law and composite models outcompete the exponential model at deep split of 2.")
 ```
 
+<br>
+
+## Analysis of Information in Bouts
+
+This analysis was conducted to ensure that the ordering of songs within song bouts contributes mutual information to the decay curves.
+
+Long-range dependencies in song sequences come from two places: the ordering of syllables within very long songs, and the ordering of songs within song bouts. To isolate the statistical signals of the latter, I created a “dummy” dataset where syllable sequences within songs were shuffled, but the ordering of bouts was the same. As a comparison, I created a second “dummy” dataset that has the same song sequences as the first, but with random song bouts (shuffled within individuals).
+
+Wilcoxon signed-rank tests and t-tests show that the first dataset contains significantly more information than the second at all three levels of granularity in syllable clustering.
+
+<br>
+
+```{r, echo = FALSE}
+library(dplyr)
+library(flextable)
+
+#load table
+load("../data_models/mi_models_bout_level.RData")
+
+#format table
+mi_models_bout_level <- rbind(sapply(1:3, function(x){mi_models_bout_level$wilcox[[x]]$p.value}),
+                              sapply(1:3, function(x){mi_models_bout_level$ttest[[x]]$p.value}))
+mi_models_bout_level <- format(mi_models_bout_level, scientific = TRUE, digits = 2)
+mi_models_bout_level <- cbind(c("Wilcoxon signed-rank test", "t-test"), mi_models_bout_level)
+mi_models_bout_level <- as.data.frame(mi_models_bout_level)
+colnames(mi_models_bout_level) <- c(" ", "DS: 2", "DS: 3", "DS: 4")
+rownames(mi_models_bout_level) <- NULL
+
+flextable(mi_models_bout_level) %>% 
+  theme_vanilla() %>% set_table_properties(layout = "autofit") %>%
+  set_caption("The p-values from Wilcoxon signed-rank tests and t-tests comparing the amount of information contained in two \"dummy\" datasets: one that isolates the information contained in song bouts by shuffling syllable sequences within songs, and another that further shuffles song bout order within individuals. The first contains more information than the second (p < 0.05) across all three levels of granularity in syllable clustering.")
+```
 
 <br>
 

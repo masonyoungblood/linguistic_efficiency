@@ -90,7 +90,7 @@ Zipf's rank-frequency law predicts that the frequency of an item will be proport
 
 Zipf's law of abbreviation predicts that common items will tend to be shorter than rare items because their production cost is lower [@zipf49]. This negative correlation between frequency and duration is widespread in both written [@bentz_ferrer-i-cancho16] and spoken language [@petrini_etal23], and has also been observed in writing systems [@koshevoy_etal23] and non-human communication like chimpanzee gestures [@heesen_etal19] and bird and primate vocalizations [@semple_etal10; @huang_etal20; @favaro_etal20]. <!--In some cases, like hyrax vocalizations, Zipf's law of abbreviation is absent for duration but is present for other measures of production cost such as amplitude [@demartsev_etal19]. -->The explanation for Zipf's law of abbreviation is simple: when common items have a lower production cost than rare items then the overall production cost of signals goes down [@ferrer-i-cancho_etal13]. <!--Shorter signals carry other benefits as well, such as reduced predation risk and reverberation in the environment [@ferrer-i-cancho_etal13].-->
 
-Menzerath's law predicts that longer sequences will be comprised of shorter items to balance production costs [@menzerath54]. This negative correlation between sequence length and item length is found at various levels of analysis in language (e.g. clauses in sentences, morphemes in words) [@cramer05; @stave_etal21; @eroglu13]<!-- as well as in music [@boroda_altmann91]-->. In non-human communication, Menzerath's law appears to be present in chimpanzee gesture [@heesen_etal19] and in the vocalizations of some primates and birds [@gustisonGeladaVocalSequences2016; @huang_etal20; @favaro_etal20; @fedurek_etal17], including house finches [@jamesPhylogenyMechanismsShared2021].<!--, although its detection may depend on the type of vocalization [@clink_lau20] and level of analysis [@clink_etal20]-->. The explanation for Menzerath's law is an extension of Zipf's law of abbreviation: when production costs are increased in one domain (e.g. song sequence length) they should be decreased in another (e.g. syllable duration).
+Menzerath's law predicts that longer sequences will be comprised of shorter items to balance production costs [@menzerath54]. This negative correlation between sequence length and item length is found at various levels of analysis in language (e.g. clauses in sentences, morphemes in words) [@cramer05; @stave_etal21; @eroglu13]<!-- as well as in music [@boroda_altmann91]-->. In non-human communication, Menzerath's law appears to be present in chimpanzee gesture [@heesen_etal19] and in the vocalizations of some primates and birds [@gustisonGeladaVocalSequences2016; @huang_etal20; @favaro_etal20; @fedurek_etal17], including house finches [@jamesPhylogenyMechanismsShared2021]<!--, although its detection may depend on the type of vocalization [@clink_lau20] and level of analysis [@clink_etal20]-->. The explanation for Menzerath's law is an extension of Zipf's law of abbreviation: when production costs are increased in one domain (e.g. song sequence length) they should be decreased in another (e.g. syllable duration).
 
 Beyond linguistic laws, there are two proxy measure of linguistic structure that have recently been investigated in non-human communication: small-world structure [@watts_strogatz98] and mutual information decay [@sainburgParallelsSequentialOrganization2019].
 
@@ -610,6 +610,53 @@ zipf_rf_models_year <- lapply(1:3, function(i){
 save(zipf_rf_models_year, file = "data_models/zipf_rf_models_year.RData")
 ```
 
+```{r, eval = FALSE, echo = FALSE}
+#load libraries and data
+library(ggplot2)
+load("data_models/zipf_rf_models.RData")
+
+#write function that computes frequency for a given rank from the fitted function
+zipf_solve <- Vectorize(function(r){
+  zipf_rf_models$mand$ds_3$Estimate[3]/((r + zipf_rf_models$mand$ds_3$Estimate[2])^zipf_rf_models$mand$ds_3$Estimate[1])
+})
+
+#get estimated frequencies of observed syllable types
+est_freqs <- zipf_solve(1:length(unique(data$cluster_3)))
+
+#simulate 42099 and 1M samples with probability proportion to frequency
+sim_match <- sample(length(unique(data$cluster_3)), nrow(data), replace = TRUE, prob = est_freqs)
+sim_more <- sample(length(unique(data$cluster_3)), 1000000, replace = TRUE, prob = est_freqs)
+
+#restructure for plotting and compute rank
+data_match <- data.frame(freq = as.numeric(sort(table(sim_match), decreasing = TRUE))/nrow(data), rank = 1:length(table(sim_match)))
+data_more <- data.frame(freq = as.numeric(sort(table(sim_more), decreasing = TRUE))/1000000, rank = 1:length(table(sim_more)))
+
+#plot the 42099 samples
+match_plot <- ggplot() + 
+  geom_point(data = data_match, aes(x = rank, y = freq), size = 1, stroke = 0, color = "black") + 
+  geom_line(data = data.frame(rank = 1:length(unique(data$cluster_3)), freq = est_freqs), aes(x = rank, y = freq), color = "#D55E00") + 
+  scale_x_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
+  scale_y_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x)), breaks = c(0.0001, 0.001, 0.01, 0.1), limits = c(0.00005, 0.1)) + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + annotation_logticks(size = 0.3) + 
+  labs(subtitle = "42,099 Samples") +
+  xlab("Rank") + ylab("Count") + theme(legend.position = "none")
+
+#plot the 1M samples
+more_plot <- ggplot() + 
+  geom_point(data = data_more, aes(x = rank, y = freq), size = 1, stroke = 0, color = "black") + 
+  geom_line(data = data.frame(rank = 1:length(unique(data$cluster_3)), freq = est_freqs), aes(x = rank, y = freq), color = "#D55E00") + 
+  scale_x_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
+  scale_y_continuous(trans = "log10", labels = scales::trans_format("log10", scales::math_format(10^.x)), breaks = c(0.0001, 0.001, 0.01, 0.1), limits = c(0.00005, 0.1)) + 
+  theme_linedraw(base_size = 8, base_family = "Avenir") + annotation_logticks(size = 0.3) + 
+  labs(subtitle = "1,000,000 Samples") +
+  xlab("Rank") + ylab("Count") + theme(legend.position = "none")
+
+#combined and save
+png("plots/rank_count_sim.png", width = 4.6, height = 2.4, units = "in", res = 600)
+cowplot::plot_grid(match_plot, more_plot, nrow = 1)
+dev.off()
+```
+
 ```{r zipf-rank-plot, eval = FALSE, echo = FALSE}
 #load library and data
 library(ggplot2)
@@ -681,7 +728,7 @@ load("data_models/zipf_rf_models_year.RData")
 
 As there is no established hypothesis test for Zipf's rank-frequency law, I will simply report the goodness-of-fit (the norm in linguistics) and refer to it as "consistent" with the law when it is within the range reported for human languages ($R^2$ > 0.8) [@piantadosi14; @linders_louwerse23].
 
-The observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity in syllable clustering ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is inconsistent with the the original form of Zipf's rank frequency law at the two of the three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$). Figure \@ref(fig:figure-zipf-rank-small) shows the rank-frequency distribution at the intermediate granularity level ($DS = 3$; 596 syllable types), while all three can be seen in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). It appears that the distribution has a poorer fit to the rarer syllable types. While this may be due to the relatively small size of our corpus (e.g. compared to bibles), systematic departures from the Zipf-Mandelbrot distribution at high ranks have also been observed in human language [@piantadosi14]. <!--$R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23].--> 
+The observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity in syllable clustering ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is inconsistent with the the original form of Zipf's rank frequency law at the two of the three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$). Figure \@ref(fig:figure-zipf-rank-small) shows the rank-frequency distribution at the intermediate granularity level ($DS = 3$; 596 syllable types), while all three can be seen in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). <!--$R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23].--> 
 
 The Zipf-Mandelbrot distribution also outcompetes Zipf's original form and has $R^2 > `r min(signif(c(zipf_rf_models_year[[1]]$r2[4:6], zipf_rf_models_year[[2]]$r2[4:6], zipf_rf_models_year[[3]]$r2[4:6]), digits = 2))`$ when models are fit separately to the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
 
@@ -2076,6 +2123,218 @@ colnames(mi_models_song_lengths) <- c("DS", "Exponential", "Power-Law", "Composi
 save(mi_models_song_lengths, file = "data_models/mi_models_song_lengths.RData")
 ```
 
+```{r mutual-information-bout-level, eval = FALSE, echo = FALSE}
+#load packages
+library(brms)
+
+#load data
+load("data_models/processed_data.RData")
+data <- processed_data$data
+
+#create function for the grassberger method of entropy estimation used by lin and tegmark (log is ln by default, which is what grassberger used originally)
+s_calc <- function(vals){return(log(sum(vals)) - ((1/sum(vals))*sum(vals*digamma(vals))))}
+
+#get unique songs
+unique_songs <- unique(data$song)
+
+#shuffle up syllables within songs
+data <- do.call(rbind, parallel::mclapply(unique_songs, function(x){
+  #store data from individual
+  temp <- data[which(data$song == x), ]
+  
+  #shuffle the song
+  temp <- temp[sample(1:nrow(temp)), ]
+  
+  #return it
+  return(temp)
+}, mc.cores = 7))
+
+#get unique songs and song lengths
+unique_songs <- unique(data$song)
+song_lengths <- as.numeric(sapply(unique_songs, function(x){length(which(data$song == x))}))
+
+#get unique individuals and the lengths of their sequences
+unique_inds <- unique(data$individual)
+inds_lengths <- as.numeric(sapply(unique_inds, function(x){length(which(data$individual == x))}))
+
+#set random seed
+set.seed(12345)
+
+#calculate mutual information across three levels of deep split
+mi_data_shuff_syls <- parallel::mclapply(1:3, function(i){
+  #use appropriate syllables
+  if(i == 1){data$syls <- data$cluster_2}
+  if(i == 2){data$syls <- data$cluster_3}
+  if(i == 3){data$syls <- data$cluster_4}
+
+  #compute actual mutual information curves
+  actual <- sapply(1:(max(inds_lengths) - 1), function(m){
+    #set m as the distance between syllables in the sequence
+    dist <- m
+
+    #store pairs within bouts
+    pairs <- do.call(rbind, lapply(unique_inds[which(inds_lengths > m)], function(r){
+      seq <- data$syls[which(data$individual == r)]
+      t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+    }))
+    
+    #get frequencies of syllables in each column
+    n_x <- as.numeric(table(pairs[, 1]))
+    n_y <- as.numeric(table(pairs[, 2]))
+
+    #get frequencies of pairs in the data
+    pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+    index <- !duplicated(pairs)
+    pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+
+    #calculate s for each
+    s_x <- s_calc(n_x)
+    s_y <- s_calc(n_y)
+    s_xy <- s_calc(pair_freqs)
+
+    #compute mutual information and return
+    return(s_x + s_y - s_xy)
+  })
+
+  #compute shuffled mutual information curves
+  shuffled <- sapply(1:(max(inds_lengths) - 1), function(m){
+    #set m as the distance between syllables in the sequence
+    dist <- m
+
+    #store pairs within bouts
+    pairs <- do.call(rbind, lapply(unique_inds[which(inds_lengths > m)], function(r){
+      seq <- sample(data$syls[which(data$individual == r)])
+      t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+    }))
+
+    #get frequencies of syllables in each column
+    n_x <- as.numeric(table(pairs[, 1]))
+    n_y <- as.numeric(table(pairs[, 2]))
+
+    #get frequencies of pairs in the data
+    pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+    index <- !duplicated(pairs)
+    pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+
+    #calculate s for each
+    s_x <- s_calc(n_x)
+    s_y <- s_calc(n_y)
+    s_xy <- s_calc(pair_freqs)
+
+    #compute mutual information and return
+    return(s_x + s_y - s_xy)
+  })
+
+  #return mutual information decay, with shuffled baseline substracted from actual information
+  return(data.frame(dist = 1:length(actual), mi = c(actual - shuffled), mi_raw = actual, mi_base = shuffled))
+}, mc.cores = 3)
+
+#get unique individuals
+unique_inds <- unique(data$individual)
+
+#shuffle up songs within each bout
+data <- do.call(rbind, parallel::mclapply(unique_inds, function(x){
+  #store data from individual
+  temp <- data[which(data$individual == x), ]
+
+  #get random vector of songs and reorder temp accordingly
+  rand_song_order <- sample(unique(temp$song))
+  temp <- temp[unlist(lapply(rand_song_order, function(y){which(temp$song %in% y)})), ]
+
+  #return it
+  return(temp)
+}, mc.cores = 7))
+
+#get unique songs and song lengths
+unique_songs <- unique(data$song)
+song_lengths <- as.numeric(sapply(unique_songs, function(x){length(which(data$song == x))}))
+
+#get unique individuals and the lengths of their sequences
+unique_inds <- unique(data$individual)
+inds_lengths <- as.numeric(sapply(unique_inds, function(x){length(which(data$individual == x))}))
+
+#set random seed
+set.seed(12345)
+
+#calculate mutual information across three levels of deep split
+mi_data_shuff_both <- parallel::mclapply(1:3, function(i){
+  #use appropriate syllables
+  if(i == 1){data$syls <- data$cluster_2}
+  if(i == 2){data$syls <- data$cluster_3}
+  if(i == 3){data$syls <- data$cluster_4}
+
+  #compute actual mutual information curves
+  actual <- sapply(1:(max(inds_lengths) - 1), function(m){
+    #set m as the distance between syllables in the sequence
+    dist <- m
+
+    #store pairs within bouts
+    pairs <- do.call(rbind, lapply(unique_inds[which(inds_lengths > m)], function(r){
+      seq <- data$syls[which(data$individual == r)]
+      t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+    }))
+    
+    #get frequencies of syllables in each column
+    n_x <- as.numeric(table(pairs[, 1]))
+    n_y <- as.numeric(table(pairs[, 2]))
+
+    #get frequencies of pairs in the data
+    pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+    index <- !duplicated(pairs)
+    pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+
+    #calculate s for each
+    s_x <- s_calc(n_x)
+    s_y <- s_calc(n_y)
+    s_xy <- s_calc(pair_freqs)
+
+    #compute mutual information and return
+    return(s_x + s_y - s_xy)
+  })
+
+  #compute shuffled mutual information curves
+  shuffled <- sapply(1:(max(inds_lengths) - 1), function(m){
+    #set m as the distance between syllables in the sequence
+    dist <- m
+
+    #store pairs within bouts
+    pairs <- do.call(rbind, lapply(unique_inds[which(inds_lengths > m)], function(r){
+      seq <- sample(data$syls[which(data$individual == r)])
+      t(sapply(1:(length(seq)-dist), function(x){c(seq[x], seq[x+dist])}))
+    }))
+
+    #get frequencies of syllables in each column
+    n_x <- as.numeric(table(pairs[, 1]))
+    n_y <- as.numeric(table(pairs[, 2]))
+
+    #get frequencies of pairs in the data
+    pairs <- pairs[order(pairs[, 1], pairs[, 2]), ]
+    index <- !duplicated(pairs)
+    pair_freqs <- as.numeric(tapply(index, cumsum(index), length))
+
+    #calculate s for each
+    s_x <- s_calc(n_x)
+    s_y <- s_calc(n_y)
+    s_xy <- s_calc(pair_freqs)
+
+    #compute mutual information and return
+    return(s_x + s_y - s_xy)
+  })
+
+  #return mutual information decay, with shuffled baseline substracted from actual information
+  return(data.frame(dist = 1:length(actual), mi = c(actual - shuffled), mi_raw = actual, mi_base = shuffled))
+}, mc.cores = 3)
+
+#run wilcox and t-tests to see whether info is greater when bout structure is kept
+mi_models_bout_level <- list(wilcox = lapply(1:3, function(x){wilcox.test(mi_data_shuff_syls[[x]]$mi, 
+                                                                          mi_data_shuff_both[[x]]$mi, paired = TRUE, alternative = "greater")}),
+                             ttest = lapply(1:3, function(x){t.test(mi_data_shuff_syls[[x]]$mi, 
+                                                                    mi_data_shuff_both[[x]]$mi, paired = TRUE, alternative = "greater")}))
+
+#save object
+save(mi_models_bout_level, file = "data_models/mi_models_bout_level.RData")
+```
+
 ```{r mutual-information-sim, eval = FALSE}
 #extract simulated values from sainburg et al.
 model_fig <- xml2::read_xml("https://raw.githubusercontent.com/timsainb/ParallelsBirdsongLanguagePaper/master/figures/modelfig.svg")
@@ -2224,7 +2483,7 @@ Interestingly, the transitions in the composite curves from Figure \@ref(fig:fig
 
 All three linguistic laws considered here are present in house finch song. Three out of the four measures of production cost, most importantly duration, are consistently and strongly negatively correlated with frequency, providing robust evidence for Zipf's law of abbreviation. Menzerath's law also found solid support, with a steeper negative relationship between song length and syllable duration than predicted by a model of production constraints [@jamesPhylogenyMechanismsShared2021]. Together, these results show clear evidence for efficiency---syllables that are difficult to produce are less common and more likely to appear in shorter songs. Mandelbrot's form of Zipf's rank-frequency law provided a good fit to the data and has a more convex shape than the original form, which is consistent with studies of other non-human communication systems that have more redundancy than human language [@allenNetworkAnalysisReveals2019; @Briefer2010; @cody_etal16; @hailman_etal85; @mccowan_etal99; @martins94]. I will limit my interpretation of this result, given ongoing debates about the cause of the rank-frequency law, but it is notable that the goodness-of-fit of the Zipf-Mandelbrot distribution to house finch song ($R^2 > `r substr(c(zipf_rf_models$r2[4]), 0, 4)`$) is within the range of human language [@piantadosi14; @linders_louwerse23].
 
-The two structural properties of language considered here are also found in house finch song. First, the syllable network has a small-world structure, characterized by high levels of clustering and low average path lengths, which is thought to reflect systematic structure and efficient recall in human language [@canchoSmallWorldHuman2001; @motter_etal02; @steyvers_tenenbaum05]. The small-worldness index of house finch song is within the range seen in humpback whales [@allenNetworkAnalysisReveals2019] and other songbirds at the first two levels of granularity in syllable clustering [@sasahara_etal12; @weissUseNetworkAnalysis2014; @cody_etal16; @hedleyCompositionSequentialOrganization2016; @beckage_etal11] ($SWI \sim 1.69-4.7$), but is much higher when syllables are over-split into types ($SWI \sim 10-11$). Second, the decay in mutual information between syllables with increasing distance has a similar shape to that found in several human languages and songbird species [@sainburgParallelsSequentialOrganization2019], which is associated with Markov chains nested within a larger hierarchical structure. Historically, birdsong sequences were assumed to follow simple Markov chains [@leonardo_konishi99; @berwick_etal11; @katahiraComplexSequencingRules2011a]. This result lends support to an emerging consensus that song bouts are actually much more complex, containing long-range dependencies and hierarchical structures that parallel human language [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019; @searcy_etal22; @moritaMeasuringContextDependency2021]. In combination, the small-worldness and mutual information decay of house finch song sequences suggest that they exhibit the kind of systematic structure that is thought to maximize expressivity while reducing learning costs [@raviv_etal21; @allenNetworkAnalysisReveals2019; @ISI:000357544300009], making it easier for more information to "pass through the bottleneck" of social learning [@gruber_etal22].
+The two structural properties of language considered here are also found in house finch song. First, the syllable network has a small-world structure, characterized by high levels of clustering and low average path lengths, which is thought to reflect systematic structure and efficient recall in human language [@canchoSmallWorldHuman2001; @motter_etal02; @steyvers_tenenbaum05]. The small-worldness index of house finch song is within the range seen in humpback whales [@allenNetworkAnalysisReveals2019] and other songbirds at the first two levels of granularity in syllable clustering [@sasahara_etal12; @weissUseNetworkAnalysis2014; @cody_etal16; @hedleyCompositionSequentialOrganization2016; @beckage_etal11] ($SWI \sim 1.69-4.7$), but is much higher when syllables are over-split into types ($SWI \sim 10-11$). Second, the decay in mutual information between syllables with increasing distance has a similar shape to that found in several human languages and songbird species [@sainburgParallelsSequentialOrganization2019], which is associated with Markov chains nested within a larger hierarchical structure. Historically, birdsong sequences were assumed to follow simple Markov chains [@leonardo_konishi99; @berwick_etal11; @katahiraComplexSequencingRules2011a]. This result lends support to an emerging consensus that song bouts may be <!--are actually-->much more complex, containing long-range dependencies and hierarchical structures that resemble<!--parallel--> human language [@kershenbaumAnimalVocalSequences2014; @sainburgParallelsSequentialOrganization2019; @searcy_etal22; @moritaMeasuringContextDependency2021]. In combination, the small-worldness and mutual information decay of house finch song sequences suggest that they exhibit the kind of systematic structure that is thought to maximize expressivity while reducing learning costs [@raviv_etal21; @allenNetworkAnalysisReveals2019; @ISI:000357544300009], making it easier for more information to "pass through the bottleneck" of social learning [@gruber_etal22].
 
 Notably, these patterns are consistent across three levels of granularity in syllable clustering. <!-- , pointing to a limited form of scale invariance in house finch song. Scale invariance refers to self-similarity in organization across levels of analysis, and is hypothesized to be a key indicator of complex systems [@stanley_etal00] including language and speech [@gervain_geffen19; @mehri_jamaati21], behavior [@bialek_shaevitz23], and cognition [@chater_brown99]. I use the term "limited" because the detected patterns are consistent across syllable classifications rather than across levels of hierarchy (e.g. phrases, songs, bouts). --> I have heard others studying the cultural evolution of birdsong refer to this as "fractal equivalency"---different resolutions of clustering should show similar forms of organization [@lahti20]. A practical conclusion of this finding is that information theoretic measures may not be reliable indicators of clustering quality in non-human communication systems [@kershenbaum_etal16]. <!--, although this should be explored in other species.-->
 
