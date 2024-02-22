@@ -1,6 +1,6 @@
 ---
 title: "Language-like efficiency and structure in house finch song"
-abstract: "Communication needs to be complex enough to be functional while minimizing learning and production costs. Recent work suggests that the vocalizations and gestures of some songbirds, cetaceans, and great apes may conform to linguistic laws that reflect this trade-off between efficiency and complexity. In studies of non-human communication, though, clustering signals into types cannot be done a priori, and decisions about the appropriate grain of analysis may affect statistical signals in the data. The aim of this study was to assess the evidence for language-like efficiency and structure in house finch (*Haemorhous mexicanus*) song across three levels of granularity in syllable clustering. The results show strong evidence for Zipf's rank-frequency law, Zipf's law of abbreviation, and Menzerath's law. Additional analyses show that house finch songs have small-world structure, thought to reflect systematic structure in syntax, and the mutual information decay of sequences is consistent with a combination of Markovian and hierarchical processes. These statistical patterns are robust across three grains of analysis, pointing to a limited form of scale invariance. In sum, it appears that house finch song has been shaped by pressure for efficiency, possibly to offset the costs of female preferences for complexity."
+abstract: "Communication needs to be complex enough to be functional while minimizing learning and production costs. Recent work suggests that the vocalizations and gestures of some songbirds, cetaceans, and great apes may conform to linguistic laws that reflect this trade-off between efficiency and complexity. In studies of non-human communication, though, clustering signals into types cannot be done a priori, and decisions about the appropriate grain of analysis may affect statistical signals in the data. The aim of this study was to assess the evidence for language-like efficiency and structure in house finch (*Haemorhous mexicanus*) song across three levels of granularity in syllable clustering. The results show strong evidence for Zipf's rank-frequency law, Zipf's law of abbreviation, and Menzerath's law. Additional analyses show that house finch songs have small-world structure, thought to reflect systematic structure in syntax, and the mutual information decay of sequences is consistent with a combination of Markovian and hierarchical processes. These statistical patterns are robust across three levels of granularity in syllable clustering, pointing to a limited form of scale invariance. In sum, it appears that house finch song has been shaped by pressure for efficiency, possibly to offset the costs of female preferences for complexity."
 keywords: "birdsong, communicative efficiency, linguistic laws, hierarchical structure, cultural evolution"
 author:
   name: Mason Youngblood
@@ -205,6 +205,7 @@ par(family = "avenir")
 
 #export plot to file
 png("plots/clustering.png", width = 6.8, height = 3.4, units = "in", res = 600)
+#cairo_pdf("plots/clustering.pdf", width = 6.8, height = 3.4, family = "avenir")
 plotDendroAndColors(clustering, 
                     colors = matrix(c(hybrid_cut[[3]], hybrid_cut[[4]], hybrid_cut[[5]]), ncol = 3), 
                     dendroLabels = FALSE, main = NULL, lwd = 0.5, ylab = "", yaxt = "n",
@@ -662,6 +663,12 @@ dev.off()
 library(ggplot2)
 load("data_models/zipf_rf_models.RData")
 
+#load processed data and rename
+load("data_models/processed_data.RData")
+data <- processed_data$data
+syl_types <- processed_data$syl_types
+rm(processed_data)
+
 #create three separate data frames for each level of deep split
 lines_a <- data.frame(freqs = c(zipf_rf_models$zipf$ds_2[2, 1]/(zipf_rf_models$data$ds_2$rank^zipf_rf_models$zipf$ds_2[1, 1]),
                                 zipf_rf_models$mand$ds_2[3, 1]/((zipf_rf_models$data$ds_2$rank + zipf_rf_models$mand$ds_2[2, 1])^zipf_rf_models$mand$ds_2[1, 1])), 
@@ -713,6 +720,7 @@ png("plots/rank_count.png", width = 6.8, height = 2.6, units = "in", res = 600)
 cowplot::plot_grid(cowplot::plot_grid(rank_plot_a, rank_plot_b, rank_plot_c, nrow = 1), cowplot::get_legend(legend_plot), nrow = 2, rel_heights = c(1, 0.1))
 dev.off()
 png("plots/rank_count_small.png", width = 3.4, height = 3.4, units = "in", res = 600)
+#cairo_pdf("plots/rank_count_small.pdf", width = 3.4, height = 3.4, family = "avenir")
 cowplot::plot_grid(rank_plot_b + labs(subtitle = NULL), cowplot::get_legend(legend_plot), nrow = 2, rel_heights = c(1, 0.1))
 dev.off()
 ```
@@ -728,9 +736,7 @@ load("data_models/zipf_rf_models_year.RData")
 
 As there is no established hypothesis test for Zipf's rank-frequency law, I will simply report the goodness-of-fit (the norm in linguistics) and refer to it as "consistent" with the law when it is within the range reported for human languages ($R^2$ > 0.8) [@piantadosi14; @linders_louwerse23].
 
-The observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity in syllable clustering ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is inconsistent with the the original form of Zipf's rank frequency law at the two of the three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$). Figure \@ref(fig:figure-zipf-rank-small) shows the rank-frequency distribution at the intermediate granularity level ($DS = 3$; 596 syllable types), while all three can be seen in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). <!--$R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23].--> 
-
-The Zipf-Mandelbrot distribution also outcompetes Zipf's original form and has $R^2 > `r min(signif(c(zipf_rf_models_year[[1]]$r2[4:6], zipf_rf_models_year[[2]]$r2[4:6], zipf_rf_models_year[[3]]$r2[4:6]), digits = 2))`$ when models are fit separately to the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
+The observed frequency distribution is consistent with the Zipf-Mandelbrot distribution at all three levels of granularity in syllable clustering ($R^2 = \{`r signif(zipf_rf_models$r2[4], digits = 3)`, `r signif(zipf_rf_models$r2[5], digits = 3)`, `r signif(zipf_rf_models$r2[6], digits = 3)`\}$ at $DS = \{2, 3, 4\}$), but is inconsistent with the the original form of Zipf's rank frequency law at the two of the three levels of granularity ($R^2 = \{`r signif(zipf_rf_models$r2[1], digits = 3)`, `r signif(zipf_rf_models$r2[2], digits = 3)`, `r signif(zipf_rf_models$r2[3], digits = 3)`\}$). Figure \@ref(fig:figure-zipf-rank-small) shows the rank-frequency distribution at the intermediate granularity level ($DS = 3$; 596 syllable types), while all three can be seen in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). The distribution has a poorer fit to the rarer syllable types—a common pattern in human language [@piantadosi14] that is further investigated in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html). <!--$R^2$ is the most commonly reported goodness-of-fit measure for both forms of Zipf's rank-frequency law, and is generally $> 0.8$ in studies of human language [@linders_louwerse23].-->The Zipf-Mandelbrot distribution also outcompetes Zipf's original form and has $R^2 > `r min(signif(c(zipf_rf_models_year[[1]]$r2[4:6], zipf_rf_models_year[[2]]$r2[4:6], zipf_rf_models_year[[3]]$r2[4:6]), digits = 2))`$ when models are fit separately to the data from each year (1975, 2012, and 2019; see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).
 
 <!-- The $WAIC$ values and fitted parameters for all six models can be found in the [Supplementary Information]. -->
 
@@ -1354,6 +1360,7 @@ legend <- ggplot(dummy_data, aes(x = x, y = y, color = group)) + geom_line() + t
 
 #combined and save to file
 png("plots/menzerath.png", width = 3.4, height = 2.2, units = "in", res = 600)
+#cairo_pdf("plots/menzerath.pdf", width = 3.4, height = 2.2, family = "avenir")
 cowplot::plot_grid(cowplot::plot_grid(norm_plot, slope_plot, nrow = 1, rel_widths = c(1, 0.3)),
                    cowplot::get_legend(legend), nrow = 2, rel_heights = c(1, 0.16))
 dev.off()
@@ -1598,6 +1605,7 @@ swi_plots <- lapply(1:5, function(x){
 
 #combined panels and save to file
 png("plots/small_world.png", width = 6.8, height = 3.4, units = "in", res = 600)
+#cairo_pdf("plots/small_world.pdf", width = 6.8, height = 3.4, family = "avenir")
 left_panel <- cowplot::plot_grid(ggplot() + theme_void(), rep_net_plot, full_net_plot, ncol = 1, rel_heights = c(0.13, 1, 1))
 right_panel <- cowplot::plot_grid(
   swi_plots[[3]] + theme(legend.position = "none") + ylab(NULL) + xlab(NULL) + 
@@ -2462,6 +2470,7 @@ mi_plots <- lapply(1:3, function(i){
 
 #save plot to file
 png("plots/mut_info.png", width = 6.8, height = 3.4, units = "in", res = 600)
+#cairo_pdf("plots/mut_info.pdf", width = 6.8, height = 3.4, family = "avenir")
 cowplot::plot_grid(cowplot::plot_grid(heir_plot + xlab(""), markov_plot + ylab(""), combined_plot + xlab("") + ylab(""), nrow = 1),
                    cowplot::plot_grid(mi_plots[[1]] + theme(legend.position = "none") + xlab(""),
                                       mi_plots[[2]] + theme(legend.position = "none") + ylab(""),
@@ -2501,7 +2510,7 @@ This work was inspired in large part by conversations with Olivier Morin, Alexey
 
 # Data & Code Availability {-}
 
-The data for this study come from @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). The analysis code for this study is available in the interactive version of this manuscript (https://masonyoungblood.github.io/linguistic_efficiency) and the source file in the corresponding GitHub (https://github.com/masonyoungblood/linguistic_efficiency) and Zenodo repositories (DOI).
+The data for this study come from @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). The analysis code for this study is available in the interactive version of this manuscript (https://masonyoungblood.github.io/linguistic_efficiency) and the source file in the corresponding GitHub (https://github.com/masonyoungblood/linguistic_efficiency) and Zenodo repositories (https://doi.org/10.5281/zenodo.10689808).
 
 # References {-}
 
