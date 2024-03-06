@@ -136,8 +136,8 @@ The recordings used in this study (2,724 songs from 331 individuals) were collec
 <!-- The data used in this study comes directly from the repository of @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). -->
 
 ```{r load-data, eval = FALSE}
-#load data from repository for Youngblood & Lahti (2022)
-load(url("https://github.com/masonyoungblood/TransmissionBias/raw/master/example/data.RData"))
+#load data from Youngblood & Lahti (2022)
+load("data_models/youngblood_lahti_2022.RData")
 ```
 
 ## Clustering
@@ -146,7 +146,7 @@ Clustering was conducted using the log-transformed mean frequency traces (mean f
 
 For dynamic tree cut, I ran the hybrid algorithm with a minimum cluster size of 1 to maximize the representation of rare syllable types, and used the deep split parameter ($DS$) to determine the granularity of clustering (details of $DS$ are in the [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)). I restricted this analysis to $DS = \{2, 3, 4\}$ because values of $DS = \{0, 1\}$ lead to extremely unrealistic underestimates of the number of syllables types. $DS = 2$ leads to over-lumping of syllables into types ($n = 114$; low granularity), $DS = 3$ leads to a typical syllable classification ($n = 596$) [@youngbloodContentBiasCultural2022; @Ju2019; @Roginek2018], and $DS = 4$ lead to over-splitting ($n = 1646$; high granularity). The dendrogram and syllable classifications can be seen in Figure \@ref(fig:figure-clustering). <!-- Unseen species models indicate that the sample of syllable types in the population is likely complete (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)).-->
 
-Automated clustering methods carry a risk of duration-bias&mdash;variation may be more detectable in longer syllables [@gilman_etal23]. <!--This risk should be minimized by the use of dynamic time warping and dynamic tree cut, and-->Supplemental analyses suggest that this is not a significant problem for this study, but I have replicated the analysis of Zipf's law of abbreviation with manually-classified syllables [@Mann2020] for added robustness (see [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html) for both).
+Automated clustering methods carry a risk of duration-bias&mdash;variation may be more detectable in longer syllables [@gilman_etal23]. <!--This risk should be minimized by the use of dynamic time warping and dynamic tree cut, and-->A replication of Zipf's law of abbreviation with manually-classified syllables [@Mann2020], as well as an exploratory assessment of duration bias in the automated clustering algorithm, can be found in [Supplementary Information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html).
 
 ```{r clustering, eval = FALSE}
 #load library
@@ -206,6 +206,7 @@ par(family = "avenir")
 #export plot to file
 png("plots/clustering.png", width = 6.8, height = 3.4, units = "in", res = 600)
 #cairo_pdf("plots/clustering.pdf", width = 6.8, height = 3.4, family = "avenir")
+#cairo_ps("plots/clustering.eps", width = 6.8, height = 3.4, family = "avenir")
 plotDendroAndColors(clustering, 
                     colors = matrix(c(hybrid_cut[[3]], hybrid_cut[[4]], hybrid_cut[[5]]), ncol = 3), 
                     dendroLabels = FALSE, main = NULL, lwd = 0.5, ylab = "", yaxt = "n",
@@ -721,6 +722,7 @@ cowplot::plot_grid(cowplot::plot_grid(rank_plot_a, rank_plot_b, rank_plot_c, nro
 dev.off()
 png("plots/rank_count_small.png", width = 3.4, height = 3.4, units = "in", res = 600)
 #cairo_pdf("plots/rank_count_small.pdf", width = 3.4, height = 3.4, family = "avenir")
+#cairo_ps("plots/rank_count_small.eps", width = 3.4, height = 3.4, family = "avenir")
 cowplot::plot_grid(rank_plot_b + labs(subtitle = NULL), cowplot::get_legend(legend_plot), nrow = 2, rel_heights = c(1, 0.1))
 dev.off()
 ```
@@ -1359,8 +1361,9 @@ legend <- ggplot(dummy_data, aes(x = x, y = y, color = group)) + geom_line() + t
   theme(legend.position = "bottom")
 
 #combined and save to file
-png("plots/menzerath.png", width = 3.4, height = 2.2, units = "in", res = 600)
+#png("plots/menzerath.png", width = 3.4, height = 2.2, units = "in", res = 600)
 #cairo_pdf("plots/menzerath.pdf", width = 3.4, height = 2.2, family = "avenir")
+cairo_ps("plots/menzerath.eps", width = 3.4, height = 2.2, family = "avenir")
 cowplot::plot_grid(cowplot::plot_grid(norm_plot, slope_plot, nrow = 1, rel_widths = c(1, 0.3)),
                    cowplot::get_legend(legend), nrow = 2, rel_heights = c(1, 0.16))
 dev.off()
@@ -1606,6 +1609,7 @@ swi_plots <- lapply(1:5, function(x){
 #combined panels and save to file
 png("plots/small_world.png", width = 6.8, height = 3.4, units = "in", res = 600)
 #cairo_pdf("plots/small_world.pdf", width = 6.8, height = 3.4, family = "avenir")
+#cairo_ps("plots/small_world.eps", width = 6.8, height = 3.4, family = "avenir")
 left_panel <- cowplot::plot_grid(ggplot() + theme_void(), rep_net_plot, full_net_plot, ncol = 1, rel_heights = c(0.13, 1, 1))
 right_panel <- cowplot::plot_grid(
   swi_plots[[3]] + theme(legend.position = "none") + ylab(NULL) + xlab(NULL) + 
@@ -2471,6 +2475,7 @@ mi_plots <- lapply(1:3, function(i){
 #save plot to file
 png("plots/mut_info.png", width = 6.8, height = 3.4, units = "in", res = 600)
 #cairo_pdf("plots/mut_info.pdf", width = 6.8, height = 3.4, family = "avenir")
+#cairo_ps("plots/mut_info.eps", width = 6.8, height = 3.4, family = "avenir")
 cowplot::plot_grid(cowplot::plot_grid(heir_plot + xlab(""), markov_plot + ylab(""), combined_plot + xlab("") + ylab(""), nrow = 1),
                    cowplot::plot_grid(mi_plots[[1]] + theme(legend.position = "none") + xlab(""),
                                       mi_plots[[2]] + theme(legend.position = "none") + ylab(""),
@@ -2510,7 +2515,7 @@ This work was inspired in large part by conversations with Olivier Morin, Alexey
 
 # Data & Code Availability {-}
 
-The data for this study come from @youngbloodContentBiasCultural2022 (https://github.com/masonyoungblood/TransmissionBias). The analysis code for this study is available in the interactive version of this manuscript (https://masonyoungblood.github.io/linguistic_efficiency) and the source file in the corresponding GitHub (https://github.com/masonyoungblood/linguistic_efficiency) and Zenodo repositories (https://doi.org/10.5281/zenodo.10689808).
+The data and code for this study are available on Zenodo (https://doi.org/10.5281/zenodo.10689808).
 
 # References {-}
 
