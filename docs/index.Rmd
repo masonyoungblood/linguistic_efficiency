@@ -2,24 +2,24 @@
 title: "Language-like efficiency and structure in house finch song"
 abstract: "Communication needs to be complex enough to be functional while minimizing learning and production costs. Recent work suggests that the vocalizations and gestures of some songbirds, cetaceans, and great apes may conform to linguistic laws that reflect this trade-off between efficiency and complexity. In studies of non-human communication, though, clustering signals into types cannot be done a priori, and decisions about the appropriate grain of analysis may affect statistical signals in the data. The aim of this study was to assess the evidence for language-like efficiency and structure in house finch (*Haemorhous mexicanus*) song across three levels of granularity in syllable clustering. The results show strong evidence for Zipf's rank-frequency law, Zipf's law of abbreviation, and Menzerath's law. Additional analyses show that house finch songs have small-world structure, thought to reflect systematic structure in syntax, and the mutual information decay of sequences is consistent with a combination of Markovian and hierarchical processes. These statistical patterns are robust across three levels of granularity in syllable clustering, pointing to a limited form of scale invariance. In sum, it appears that house finch song has been shaped by pressure for efficiency, possibly to offset the costs of female preferences for complexity."
 keywords: "birdsong, communicative efficiency, linguistic laws, hierarchical structure, cultural evolution"
-# author:
-#   name: Mason Youngblood
-#   email: masonyoungblood@gmail.com
-#   affiliation: Minds and Traditions Research Group, Max Planck Institute for Geoanthropology <br> Institute for Advanced Computational Science, Stony Brook University
-# output:
-#   bookdown::html_document2:
-#     theme: cosmo
-#     code_folding: hide
-#     toc: true
-#     toc_depth: 3
-#     toc_float: true
-#     global_numbering: true
 author:
-  - Mason Youngblood ^[Minds and Traditions Research Group, Max Planck Institute for Geoanthropology, masonyoungblood@gmail.com] ^[Institute for Advanced Computational Science, Stony Brook University]
+  name: Mason Youngblood
+  email: masonyoungblood@gmail.com
+  affiliation: Minds and Traditions Research Group, Max Planck Institute for Geoanthropology <br> Institute for Advanced Computational Science, Stony Brook University
 output:
-  bookdown::word_document2:
-    reference_docx: "template.docx"
+  bookdown::html_document2:
+    theme: cosmo
+    code_folding: hide
+    toc: true
+    toc_depth: 3
+    toc_float: true
     global_numbering: true
+# author:
+#   - Mason Youngblood ^[Minds and Traditions Research Group, Max Planck Institute for Geoanthropology, masonyoungblood@gmail.com] ^[Institute for Advanced Computational Science, Stony Brook University]
+# output:
+#   bookdown::word_document2:
+#     reference_docx: "template.docx"
+#     global_numbering: true
 always_allow_html: true
 bibliography: bibliography.json
 link-citations: true
@@ -33,7 +33,7 @@ fig_caption: true
 <!-- 12-2.25 = 9.75 pgs -->
 <!-- 9.75*850 = 8288 words in budget -->
 
-```{r, echo = FALSE, eval = TRUE}
+```{r, echo = FALSE, eval = FALSE}
 #optionally hide all code
 knitr::opts_chunk$set(echo = FALSE)
 
@@ -53,15 +53,15 @@ div.col-md-12 .pull-right {
 }
 ```
 
-<!-- <br>![](https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop) -->
-<!-- &copy; National Park Service -->
+<br>![](https://www.nps.gov/common/uploads/cropped_image/primary/76E27458-A21E-1339-E0DE16CC712C3FA9.jpg?width=1600&quality=90&mode=crop)
+&copy; National Park Service
 
-<!-- # Links {-} -->
+# Links {-}
 
-<!-- * [Main text](https://masonyoungblood.github.io/linguistic_efficiency/) -->
-<!-- * [Supplementary information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html) -->
-<!-- * [PsyArXiv preprint](https://psyarxiv.com/bghqm) -->
-<!-- * [GitHub repository](https://github.com/masonyoungblood/linguistic_efficiency) -->
+* [Main text](https://masonyoungblood.github.io/linguistic_efficiency/)
+* [Supplementary information](https://masonyoungblood.github.io/linguistic_efficiency/supplement/supplement.html)
+* [PsyArXiv preprint](https://psyarxiv.com/bghqm)
+* [GitHub repository](https://github.com/masonyoungblood/linguistic_efficiency)
 
 # Introduction
 
